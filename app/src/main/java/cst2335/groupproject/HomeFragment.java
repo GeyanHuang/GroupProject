@@ -36,22 +36,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        info = new ArrayList<>();
-        info.add(new Info("Season", "2017 Fall"));
-        info.add(new Info("Course", "CST2335 Mobile Graphical Interface Prog"));
-        info.add(new Info("Assignment", "Final Assignment"));
-        info.add(new Info("Type", "GroupWork"));
-        info.add(new Info("Authors", "Hao Liu, Zhan Shen, Bin Yang, Geyan Huang"));
-        listView = view.findViewById(R.id.listview_home);
-        InfoAdapter adapter = new InfoAdapter(view.getContext(),info);
-        listView.setAdapter(adapter);
-    }
-
     private class Info {
         private String item;
         private String content;
@@ -81,4 +65,23 @@ public class HomeFragment extends Fragment {
             return customView;
         }
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        info = new ArrayList<>();
+        info.add(new Info("Season", "2017 Fall"));
+        info.add(new Info("Course", "CST2335 Mobile Graphical Interface Prog"));
+        info.add(new Info("Assignment", "Final Assignment"));
+        info.add(new Info("Type", "GroupWork"));
+        info.add(new Info("Authors", "Hao Liu, Zhan Shen, Bin Yang, Geyan Huang"));
+        listView = view.findViewById(R.id.listview_home);
+        InfoAdapter adapter = new InfoAdapter(view.getContext(),info);
+        listView.setAdapter(adapter);
+    }
+
+
+
+
 }
