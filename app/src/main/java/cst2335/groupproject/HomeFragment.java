@@ -20,11 +20,6 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-    private View view;
-    private ListView listView;
-    private TextView item, content;
-    private ArrayList<Info> info;
-
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -36,6 +31,12 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
+    private View view;
+    private ListView listView;
+    private TextView item, content;
+    private ArrayList<Info> info;
+
     private class Info {
         private String item;
         private String content;
@@ -80,8 +81,4 @@ public class HomeFragment extends Fragment {
         InfoAdapter adapter = new InfoAdapter(view.getContext(),info);
         listView.setAdapter(adapter);
     }
-
-
-
-
 }
