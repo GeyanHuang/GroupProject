@@ -22,6 +22,27 @@
         <item>Swimming</item>
         <item>Skating</item>
     </string-array>
+    <string-array name="activity_item_min">
+        <item>30 Min</item>
+        <item>45 Min</item>
+        <item>36 Min</item>
+        <item>42 Min</item>
+        <item>110 Min</item>
+    </string-array>
+    <string-array name="activity_item_date">
+        <item>2017-11-01 09:38</item>
+        <item>2017-11-02 09:24</item>
+        <item>2017-11-03 10:22</item>
+        <item>2017-11-04 11:26</item>
+        <item>2017-11-05 18:30</item>
+    </string-array>
+    <string-array name="activity_item_desc">
+        <item>First day</item>
+        <item>Fell good</item>
+        <item>Doing Ok</item>
+        <item>Pretty good</item>
+        <item>110 Min is good</item>
+    </string-array>
     <array name="activity_image_list">
         <item>@drawable/ic_directions_run_black_48dp</item>
         <item>@drawable/ic_directions_walk_black_48dp</item>
