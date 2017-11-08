@@ -30,11 +30,11 @@
         <item>110 Min</item>
     </string-array>
     <string-array name="activity_item_date">
-        <item>2017-11-01 09:38</item>
-        <item>2017-11-02 09:24</item>
-        <item>2017-11-03 10:22</item>
-        <item>2017-11-04 11:26</item>
-        <item>2017-11-05 18:30</item>
+        <item>2017-11-01</item>
+        <item>2017-11-02</item>
+        <item>2017-11-03</item>
+        <item>2017-11-04</item>
+        <item>2017-11-05</item>
     </string-array>
     <string-array name="activity_item_desc">
         <item>First day</item>
@@ -59,4 +59,11 @@
     <string name="menu_food">Food Nutrition information tracker</string>
     <string name="menu_house">House Thermostat</string>
     <string name="menu_automobile">Automobile</string>
+    <string name="activity_insert">Insert</string>
+    <string name="activity_insert_type">Type</string>
+    <string name="activity_insert_min">Minutes</string>
+    <string name="activity_insert_date">Date</string>
+    <string name="activity_insert_desc">Comment</string>
+    <string name="activity_insert_insertbutton">Insert</string>
+    <string name="activity_insert_cancelbutton">Cancel</string>
 </resources>

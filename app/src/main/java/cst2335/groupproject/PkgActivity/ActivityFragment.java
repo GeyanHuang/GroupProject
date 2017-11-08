@@ -1,9 +1,10 @@
 package cst2335.groupproject.PkgActivity;
 
 
+import android.content.Intent;
 import android.content.res.TypedArray;
-import android.media.Image;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,7 @@ public class ActivityFragment extends Fragment {
     private ListView listView;
     private TextView item, min, date, desc;
     private ImageView image;
+    private FloatingActionButton insert;
     private ArrayList<Info> info;
 
     private class Info {
@@ -114,5 +116,14 @@ public class ActivityFragment extends Fragment {
             }
         });
 
+        insert = view.findViewById(R.id.activity_insertbutton);
+
+        insert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ActivityInsert.class);
+                startActivity(intent);
+            }
+        });
     }
 }
