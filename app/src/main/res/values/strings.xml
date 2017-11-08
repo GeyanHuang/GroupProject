@@ -79,4 +79,21 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="action_quit">Quit</string>
+
+    <!--Home array-->
+    <string-array name="home_item_list">
+        <item>Season</item>
+        <item>Course</item>
+        <item>Assignment</item>
+        <item>Type</item>
+        <item>Authors</item>
+    </string-array>
+
+    <string-array name="home_content_list">
+        <item>2017 Fall</item>
+        <item>CST2335 Mobile Graphical Interface Prog</item>
+        <item>Final Assignment</item>
+        <item>Group Work</item>
+        <item>Hao Liu, Zhan Shen, Bin Yang, Geyan Huang</item>
+    </string-array>
 </resources>

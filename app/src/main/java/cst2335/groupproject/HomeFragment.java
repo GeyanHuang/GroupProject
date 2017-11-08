@@ -13,6 +13,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -72,11 +73,10 @@ public class HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         info = new ArrayList<>();
-        info.add(new Info("Season", "2017 Fall"));
-        info.add(new Info("Course", "CST2335 Mobile Graphical Interface Prog"));
-        info.add(new Info("Assignment", "Final Assignment"));
-        info.add(new Info("Type", "GroupWork"));
-        info.add(new Info("Authors", "Hao Liu, Zhan Shen, Bin Yang, Geyan Huang"));
+        String[] items = getResources().getStringArray(R.array.home_item_list);
+        String[] contents = getResources().getStringArray(R.array.home_content_list);
+        for(int i = 0; i < items.length; i++)
+        info.add(new Info(items[i], contents[i]));
         listView = view.findViewById(R.id.listview_home);
         InfoAdapter adapter = new InfoAdapter(view.getContext(),info);
         listView.setAdapter(adapter);
