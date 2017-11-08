@@ -62,12 +62,6 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(Home.this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        }
-
         if (id == R.id.action_quit) {
             finishAffinity();
             return true;
