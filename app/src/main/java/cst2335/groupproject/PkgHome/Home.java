@@ -10,8 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import cst2335.groupproject.ActivityFragment;
-import cst2335.groupproject.AutomobileFragment;
+import cst2335.groupproject.PkgActivity.ActivityFragment;
+import cst2335.groupproject.PkgAutomobile.AutomobileFragment;
 import cst2335.groupproject.PkgFood.FoodFragment;
 import cst2335.groupproject.PkgHouse.HouseFragment;
 import cst2335.groupproject.R;

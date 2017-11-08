@@ -15,6 +15,21 @@
         <item>Group Work</item>
         <item>Hao Liu, Zhan Shen, Bin Yang, Geyan Huang</item>
     </string-array>
+    <!--Activity array-->
+    <string-array name="activity_item_list">
+        <item>跑步</item>
+        <item>走路</item>
+        <item>骑车</item>
+        <item>游泳</item>
+        <item>滑冰</item>
+    </string-array>
+    <array name="activity_image_list">
+        <item>@drawable/ic_directions_run_black_48dp</item>
+        <item>@drawable/ic_directions_walk_black_48dp</item>
+        <item>@drawable/ic_directions_bike_black_48dp</item>
+        <item>@drawable/ic_directions_swim_black_48dp</item>
+        <item>@drawable/ic_directions_skate_black_48dp</item>
+    </array>
     <string name="app_name">通用工具</string>
     <string name="navigation_drawer_open">打开导航抽屉</string>
     <string name="navigation_drawer_close">关闭导航抽屉</string>
@@ -24,4 +39,5 @@
     <string name="menu_food">食品营养信息跟踪</string>
     <string name="menu_house">房子恒温器</string>
     <string name="menu_automobile">汽车</string>
+
 </resources>

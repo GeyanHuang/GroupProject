@@ -5,9 +5,17 @@
     tools:context="cst2335.groupproject.PkgActivity.ActivityFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Activity" />
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listview_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="10dp"></ListView>
+    </LinearLayout>
+
 
 </FrameLayout>
