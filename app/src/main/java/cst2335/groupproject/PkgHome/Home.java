@@ -1,6 +1,5 @@
-package cst2335.groupproject;
+package cst2335.groupproject.PkgHome;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import cst2335.groupproject.ActivityFragment;
+import cst2335.groupproject.AutomobileFragment;
+import cst2335.groupproject.PkgFood.FoodFragment;
+import cst2335.groupproject.PkgHouse.HouseFragment;
+import cst2335.groupproject.R;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

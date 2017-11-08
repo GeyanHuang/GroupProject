@@ -1,4 +1,4 @@
-package cst2335.groupproject;
+package cst2335.groupproject.PkgHome;
 
 
 import android.content.Context;
@@ -9,12 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import cst2335.groupproject.R;
 
 
 /**
