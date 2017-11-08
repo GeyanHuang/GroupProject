@@ -7,19 +7,19 @@
         <item
             android:id="@+id/nav_activity"
             android:icon="@drawable/ic_directions_run_black_48dp"
-            android:title="Activity Tracker" />
+            android:title="@string/menu_activity" />
         <item
             android:id="@+id/nav_food"
             android:icon="@drawable/ic_local_dining_black_48dp"
-            android:title="Food Nutrition information tracker" />
+            android:title="@string/menu_food" />
         <item
             android:id="@+id/nav_house"
             android:icon="@drawable/ic_home_black_48dp"
-            android:title="House Thermostat" />
+            android:title="@string/menu_house" />
         <item
             android:id="@+id/nav_automobile"
             android:icon="@drawable/ic_directions_car_black_48dp"
-            android:title="Automobile" />
+            android:title="@string/menu_automobile" />
     </group>
 
 </menu>
