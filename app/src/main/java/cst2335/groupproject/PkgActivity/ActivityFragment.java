@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import cst2335.groupproject.R;
@@ -52,6 +54,9 @@ public class ActivityFragment extends Fragment {
             this.item = item;
             this.image = image;
         }
+        public String getItem(){
+            return item;
+        }
     }
 
     class InfoAdapter extends ArrayAdapter<Info> {
@@ -84,5 +89,15 @@ public class ActivityFragment extends Fragment {
         listView = view.findViewById(R.id.listview_activity);
         InfoAdapter adapter = new InfoAdapter(view.getContext(),info);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Info info = (Info) (adapterView.getItemAtPosition(i));
+                String item = info.getItem();
+                Toast.makeText(view.getContext(),item, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
