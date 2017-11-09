@@ -35,14 +35,12 @@
         android:layout_marginTop="10dp"
         android:text="@string/activity_insert_type" />
 
+
     <Spinner
-        android:entries="@array/activity_item_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_margin="10dp">
-
-    </Spinner>
+        android:layout_margin="10dp"
+        android:entries="@array/activity_item_list"></Spinner>
 
     <TextView
         android:layout_width="match_parent"
@@ -54,19 +52,19 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
-        tools:text="@string/activity_insert_date" />
+        android:text="@string/activity_insert_date" />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"></Spinner>
+        android:layout_margin="10dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -78,7 +76,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp" />
 
     <View
         android:layout_width="0dp"
@@ -88,6 +86,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
