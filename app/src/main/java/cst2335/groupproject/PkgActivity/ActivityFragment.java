@@ -85,7 +85,7 @@ public class ActivityFragment extends Fragment {
             item.setText(getItem(position).item);
             min.setText(getItem(position).min);
             date.setText(getItem(position).date);
-            desc.setText("("+getItem(position).desc+")");
+            desc.setText(getItem(position).desc);
             image.setImageResource(getItem(position).image);
             return customView;
         }

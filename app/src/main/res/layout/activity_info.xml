@@ -63,6 +63,7 @@
                 android:id="@+id/textview_activity_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="10dp"
                 android:text="Item" />
 
             <View
@@ -74,6 +75,7 @@
                 android:id="@+id/textview_activity_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="10dp"
                 android:text="YYYY-MM-DD HH:MM"/>
         </LinearLayout>
 
