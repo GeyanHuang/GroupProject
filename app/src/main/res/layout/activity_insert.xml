@@ -52,7 +52,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:inputType="numberDecimal" />
 
     <TextView
         android:layout_width="match_parent"
@@ -76,7 +77,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:inputType="textCapSentences" />
 
     <View
         android:layout_width="0dp"
@@ -93,11 +95,13 @@
             android:layout_weight="1" />
 
         <Button
+            android:id="@+id/activity_insert_cancelbutton"
             style="@style/small_button"
             android:layout_margin="10dp"
             android:text="@string/activity_insert_cancelbutton" />
 
         <Button
+            android:id="@+id/activity_insert_insertbutton"
             style="@style/small_button"
             android:layout_margin="10dp"
             android:text="@string/activity_insert_insertbutton" />
