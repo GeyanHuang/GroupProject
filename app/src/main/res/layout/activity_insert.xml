@@ -103,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/edit_text_backgroud"
+                    android:inputType="number"
                     android:hint="Minutes"
                     android:textSize="20sp" />
             </LinearLayout>

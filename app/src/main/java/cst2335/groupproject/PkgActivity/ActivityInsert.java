@@ -8,7 +8,6 @@ import android.widget.Button;
 import cst2335.groupproject.R;
 
 public class ActivityInsert extends Activity {
-    Button timePicker;
     int year, month, day;
 
     @Override
@@ -18,7 +17,6 @@ public class ActivityInsert extends Activity {
 
 
     }
-
 
     public void insert_check(View view) {
         finish();
