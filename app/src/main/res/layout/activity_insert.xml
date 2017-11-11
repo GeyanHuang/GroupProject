@@ -16,52 +16,190 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_marginHorizontal="10dp"
-            android:clickable="true"
-            android:onClick="insert_close"
             android:layout_width="20dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:onClick="insert_close"
             android:src="@drawable/ic_close_white_24dp" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="@string/activity_insert_title"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <ImageView
-            android:layout_marginHorizontal="10dp"
-            android:onClick="insert_check"
             android:layout_width="20dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:onClick="insert_check"
             android:src="@drawable/ic_check_white_24dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="10dp"
-        android:orientation="vertical"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal"
-            android:background="@drawable/bottom_border">
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Minutes"
-                android:background="@drawable/edit_text_backgroud"
-                android:layout_gravity="center_vertical"/>
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
 
+        <!--Images-->
+        <LinearLayout
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_timer_black_24dp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_fitness_center_black_24dp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_date_range_black_24dp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_watch_later_black_24dp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_description_black_24dp" />
         </LinearLayout>
 
+        <View
+            android:layout_width="20dp"
+            android:layout_height="0dp" />
 
+        <!--Contents-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bottom_border"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:background="@drawable/edit_text_backgroud"
+                    android:hint="Minutes" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bottom_border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:hint="Type" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text="Running" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bottom_border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:hint="Date" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text="YYYY-MM-DD" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bottom_border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:hint="Time" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text="HH:MM" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/bottom_border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:hint="Comments" />
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
