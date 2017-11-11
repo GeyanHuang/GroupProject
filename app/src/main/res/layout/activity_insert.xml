@@ -99,12 +99,13 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:maxLines="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/edit_text_backgroud"
-                    android:inputType="number"
                     android:hint="Minutes"
+                    android:inputType="number"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -138,6 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/bottom_border"
+                android:onClick="activity_insert_date"
                 android:orientation="horizontal">
 
                 <TextView
@@ -153,6 +155,7 @@
                     android:layout_weight="1" />
 
                 <TextView
+                    android:id="@+id/activity_insert_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -164,6 +167,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/bottom_border"
+                android:onClick="activity_insert_time"
                 android:orientation="horizontal">
 
                 <TextView
@@ -179,6 +183,7 @@
                     android:layout_weight="1" />
 
                 <TextView
+                    android:id="@+id/activity_insert_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -190,13 +195,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/bottom_border"
+                android:onClick="activity_insert_comment_dialog"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:maxLines="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:id="@+id/activity_insert_textview_comment"
                     android:hint="Comments"
+                    android:text=""
                     android:textSize="20sp" />
 
             </LinearLayout>
