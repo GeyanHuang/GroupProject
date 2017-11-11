@@ -25,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <android.support.design.widget.FloatingActionButton
+            android:background="#ffff"
             android:id="@+id/activity_insertbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

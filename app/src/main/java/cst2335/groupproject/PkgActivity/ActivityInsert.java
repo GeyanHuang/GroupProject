@@ -16,7 +16,6 @@ public class ActivityInsert extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
-        timePicker = findViewById(R.id.activity_time_picker);
 
     }
 
