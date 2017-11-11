@@ -18,8 +18,8 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:onClick="insert_close"
             android:src="@drawable/ic_close_white_24dp" />
 
@@ -28,8 +28,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:text="@string/activity_insert_title"
             android:textColor="@color/white"
@@ -38,8 +38,8 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:onClick="insert_check"
             android:src="@drawable/ic_check_white_24dp" />
     </LinearLayout>
@@ -47,8 +47,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_margin="10dp"
         android:orientation="horizontal">
 
         <!--Images-->
@@ -103,9 +102,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
                     android:background="@drawable/edit_text_backgroud"
-                    android:hint="Minutes" />
+                    android:hint="Minutes"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -118,8 +117,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:hint="Type" />
+                    android:hint="Type"
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -130,8 +129,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:text="Running" />
+                    android:text="Running"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -144,8 +143,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:hint="Date" />
+                    android:hint="Date"
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -156,8 +155,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:text="YYYY-MM-DD" />
+                    android:text="YYYY-MM-DD"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -170,8 +169,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:hint="Time" />
+                    android:hint="Time"
+                    android:textSize="20sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -182,8 +181,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:text="HH:MM" />
+                    android:text="HH:MM"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -196,8 +195,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:hint="Comments" />
+                    android:hint="Comments"
+                    android:textSize="20sp" />
 
             </LinearLayout>
         </LinearLayout>
