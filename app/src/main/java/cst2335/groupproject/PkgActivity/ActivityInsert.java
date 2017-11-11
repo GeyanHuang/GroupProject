@@ -8,30 +8,24 @@ import android.widget.Button;
 import cst2335.groupproject.R;
 
 public class ActivityInsert extends Activity {
-    private Button insert, cancel;
+    Button timePicker;
+    int year, month, day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
-        insert = findViewById(R.id.activity_insert_insertbutton);
-        cancel = findViewById((R.id.activity_insert_cancelbutton));
+        timePicker = findViewById(R.id.activity_time_picker);
 
-        insert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();;
-            }
-        });
-
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();;
-            }
-        });
     }
 
 
+    public void insert_check(View view) {
+        finish();
+    }
+
+    public void insert_close(View view) {
+        finish();
+    }
 }

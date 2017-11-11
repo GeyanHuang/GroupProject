@@ -40,5 +40,6 @@
     <string name="menu_house">房子恒温器</string>
     <string name="menu_automobile">汽车</string>
     <string name="activity_insert">添加</string>
+    <string name="activity_insert_title">新建事件</string>
 
 </resources>

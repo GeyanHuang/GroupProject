@@ -15,6 +15,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_marginHorizontal="10dp"
+            android:clickable="true"
+            android:onClick="insert_close"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_white_24dp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -23,87 +30,36 @@
             android:layout_gravity="center_vertical"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:text="@string/activity_insert"
+            android:text="@string/activity_insert_title"
             android:textColor="@color/white"
             android:textSize="20dp" />
+
+        <ImageView
+            android:layout_marginHorizontal="10dp"
+            android:onClick="insert_check"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_white_24dp" />
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/activity_insert_type" />
-
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:entries="@array/activity_item_list"></Spinner>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/activity_insert_min" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/activity_insert_date" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/activity_insert_desc" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="textCapSentences" />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exercise Minutes"
+                android:layout_gravity="center_vertical"/>
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/activity_insert_cancelbutton"
-            style="@style/small_button"
-            android:layout_margin="10dp"
-            android:text="@string/activity_insert_cancelbutton" />
 
-        <Button
-            android:id="@+id/activity_insert_insertbutton"
-            style="@style/small_button"
-            android:layout_margin="10dp"
-            android:text="@string/activity_insert_insertbutton" />
     </LinearLayout>
 </LinearLayout>
