@@ -48,6 +48,14 @@ public class ActivityInsert extends Activity {
 
     }
 
+    public void insert_check(View view) {
+        finish();
+    }
+
+    public void insert_close(View view) {
+        finish();
+    }
+
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
@@ -58,14 +66,6 @@ public class ActivityInsert extends Activity {
             default:
                 return null;
         }
-    }
-
-    public void insert_check(View view) {
-        finish();
-    }
-
-    public void insert_close(View view) {
-        finish();
     }
 
     public void activity_insert_date(View view) {
