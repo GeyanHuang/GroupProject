@@ -40,7 +40,7 @@ public class ActivityInsert extends Activity {
         x_year = cal.get(Calendar.YEAR);
         x_month = cal.get(Calendar.MONTH);
         x_day = cal.get(Calendar.DAY_OF_MONTH);
-        x_hour = cal.get(Calendar.HOUR);
+        x_hour = cal.get(Calendar.HOUR_OF_DAY);
         x_minute = cal.get(Calendar.MINUTE);
 
         setDate();
