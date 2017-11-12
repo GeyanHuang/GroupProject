@@ -41,5 +41,9 @@
     <string name="menu_automobile">汽车</string>
     <string name="activity_insert">添加</string>
     <string name="activity_insert_title">新建事件</string>
+    <string name="activity_insert_type">类别</string>
+    <string name="activity_insert_date">日期</string>
+    <string name="activity_insert_minute">分钟</string>
+    <string name="activity_insert_comment">描述</string>
 
 </resources>

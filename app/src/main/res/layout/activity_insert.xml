@@ -99,13 +99,13 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:maxLines="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/edit_text_backgroud"
-                    android:hint="Minutes"
+                    android:hint="@string/activity_insert_minute"
                     android:inputType="number"
+                    android:maxLines="1"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -115,24 +115,14 @@
                 android:background="@drawable/bottom_border"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:hint="Type"
-                    android:textSize="20sp" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="Running"
-                    android:textSize="20sp" />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:spinnerMode="dialog"
+                    android:entries="@array/activity_item_list"
+                    ></Spinner>
             </LinearLayout>
 
             <LinearLayout
@@ -146,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:hint="Date"
+                    android:hint="@string/activity_insert_date"
                     android:textSize="20sp" />
 
                 <View
@@ -174,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:hint="Time"
+                    android:hint="@string/activity_insert_type"
                     android:textSize="20sp" />
 
                 <View
@@ -199,12 +189,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:maxLines="1"
+                    android:id="@+id/activity_insert_textview_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:id="@+id/activity_insert_textview_comment"
-                    android:hint="Comments"
+                    android:hint="@string/activity_insert_comment"
+                    android:maxLines="1"
                     android:text=""
                     android:textSize="20sp" />
 
