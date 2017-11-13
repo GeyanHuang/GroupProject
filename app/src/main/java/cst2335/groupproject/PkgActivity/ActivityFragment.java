@@ -84,20 +84,26 @@ public class ActivityFragment extends Fragment {
             min.setText(getItem(position).min);
             date.setText(getItem(position).date);
             desc.setText(getItem(position).desc);
+
             switch (getItem(position).item) {
                 case "Running":
+                case "跑步":
                     image.setImageResource(R.drawable.ic_directions_run_black_48dp);
                     break;
                 case "Walking":
+                case "走路":
                     image.setImageResource(R.drawable.ic_directions_walk_black_48dp);
                     break;
                 case "Biking":
+                case "骑车":
                     image.setImageResource(R.drawable.ic_directions_bike_black_48dp);
                     break;
                 case "Swimming":
+                case "游泳":
                     image.setImageResource(R.drawable.ic_directions_swim_black_48dp);
                     break;
                 case "Skating":
+                case "滑冰":
                     image.setImageResource(R.drawable.ic_directions_skate_black_48dp);
                     break;
                 default:
