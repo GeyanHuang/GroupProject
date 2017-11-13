@@ -2,6 +2,7 @@ package cst2335.groupproject.PkgActivity;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -51,10 +52,12 @@ public class ActivityFragment extends Fragment {
     private InfoAdapter adapter;
 
     private class Info {
+        private  int activityId;
         private String item;
         private String min, date, time, desc;
 
-        public Info(String item, String min, String date, String time, String desc) {
+        public Info(int activityId, String item, String min, String date, String time, String desc) {
+            this.activityId = activityId;
             this.item = item;
             this.min = min;
             this.date = date;
@@ -82,7 +85,6 @@ public class ActivityFragment extends Fragment {
             min = customView.findViewById(R.id.textview_activity_min);
             date = customView.findViewById(R.id.textview_activity_date);
             desc = customView.findViewById(R.id.textview_activity_desc);
-            databaseHelper = new ActivityDatabaseHelper(view.getContext());
             item.setText(getItem(position).item);
             min.setText(getItem(position).min);
             date.setText(getItem(position).date + " " + getItem(position).time);
@@ -108,13 +110,6 @@ public class ActivityFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         info = new ArrayList<>();
-        String[] items = getResources().getStringArray(R.array.activity_item_list);
-        String[] mins = getResources().getStringArray(R.array.activity_item_min);
-        String[] dates = getResources().getStringArray(R.array.activity_item_date);
-        String[] times = getResources().getStringArray(R.array.activity_item_time);
-        String[] descs = getResources().getStringArray(R.array.activity_item_desc);
-        for (int i = 0; i < items.length; i++)
-            info.add(new Info(items[i], mins[i], dates[i], times[i], descs[i]));
         listView = view.findViewById(R.id.listview_activity);
         adapter = new InfoAdapter(view.getContext(), info);
         listView.setAdapter(adapter);
@@ -149,9 +144,8 @@ public class ActivityFragment extends Fragment {
                     String date = data.getStringExtra("Date");
                     String time = data.getStringExtra("Time");
                     String comment = data.getStringExtra("Comment");
-                    info.add(new Info(type, minutes, date, time, comment));
-                    adapter.notifyDataSetChanged();
-                    scrollMyListViewToBottom();
+                    databaseHelper.insert(minutes, type, date, time, comment);
+                    showHistory();
                 }
                 break;
         }
@@ -166,4 +160,29 @@ public class ActivityFragment extends Fragment {
             }
         });
     }
+
+    public void showHistory() {
+        info.clear();
+        Cursor cursor = databaseHelper.getAllRecords();
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            info.add(new Info (cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
+        }
+        adapter.notifyDataSetChanged();
+        scrollMyListViewToBottom();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        databaseHelper = new ActivityDatabaseHelper(view.getContext());
+        databaseHelper.openDatabase();
+        showHistory();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        databaseHelper.closeDatabase();
+    }
+
 }
