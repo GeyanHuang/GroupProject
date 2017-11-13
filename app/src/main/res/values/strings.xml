@@ -6,6 +6,10 @@
         <item>Assignment</item>
         <item>Type</item>
         <item>Authors</item>
+        <item>Activity Tracking Author</item>
+        <item>Food Nutrition information tracker Author</item>
+        <item>House Thermostat Author</item>
+        <item>Automobile Author</item>
     </string-array>
     <string-array name="home_content_list">
         <item>2017 Fall</item>
@@ -13,6 +17,10 @@
         <item>Final Assignment</item>
         <item>Group Work</item>
         <item>Hao Liu, Zhan Shen, Bin Yang, Geyan Huang</item>
+        <item>Geyan Huang</item>
+        <item>Zhan Shen</item>
+        <item>Hao Liu</item>
+        <item>Bin Yang</item>
     </string-array>
     <!--Activity array-->
     <string-array name="activity_item_list">
@@ -69,4 +77,5 @@
     <string name="activity_update_title">Update Event</string>
     <string name="activity_update_delete">Delete</string>
     <string name="home_title">Overview</string>
+    <string name="nav_others">Others</string>
 </resources>

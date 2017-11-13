@@ -7,6 +7,10 @@
         <item>任务</item>
         <item>类型</item>
         <item>作者</item>
+        <item>活动跟踪作者</item>
+        <item>食品营养信息跟踪作者</item>
+        <item>房子恒温器作者</item>
+        <item>汽车作者</item>
     </string-array>
     <string-array name="home_content_list">
         <item>2017 Fall</item>
@@ -14,6 +18,10 @@
         <item>Final Assignment</item>
         <item>Group Work</item>
         <item>Hao Liu, Zhan Shen, Bin Yang, Geyan Huang</item>
+        <item>Geyan Huang</item>
+        <item>Zhan Shen</item>
+        <item>Hao Liu</item>
+        <item>Bin Yang</item>
     </string-array>
     <!--Activity array-->
     <string-array name="activity_item_list">
@@ -49,5 +57,5 @@
     <string name="activity_update_title">更新事件</string>
     <string name="activity_update_delete">删除</string>
     <string name="home_title">概述</string>
-
+    <string name="nav_others">其他</string>
 </resources>
