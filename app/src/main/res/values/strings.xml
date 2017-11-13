@@ -79,4 +79,7 @@
     <string name="home_title">Overview</string>
     <string name="nav_others">Others</string>
     <string name="activity_insert_empty">Please input the minutes you have exercised!</string>
+    <string name="activity_insert_done">Insert successful!</string>
+    <string name="activity_update_done">Update successful!</string>
+    <string name="activity_delete_done">Delete successful!</string>
 </resources>

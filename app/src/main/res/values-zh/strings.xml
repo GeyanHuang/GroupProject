@@ -59,4 +59,7 @@
     <string name="home_title">概述</string>
     <string name="nav_others">其他</string>
     <string name="activity_insert_empty">请输入你锻炼的时间！</string>
+    <string name="activity_insert_done">新建成功!</string>
+    <string name="activity_update_done">更新成功!</string>
+    <string name="activity_delete_done">删除成功!</string>
 </resources>

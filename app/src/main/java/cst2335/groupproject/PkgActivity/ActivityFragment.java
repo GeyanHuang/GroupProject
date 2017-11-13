@@ -181,6 +181,7 @@ public class ActivityFragment extends Fragment {
                     String comment = data.getStringExtra("Comment");
                     databaseHelper.insert(minutes, type, date, time, comment);
                     showHistory();
+                    Toast.makeText(view.getContext(),R.string.activity_insert_done,Toast.LENGTH_SHORT).show();
                 }
                 break;
             case 2:
@@ -193,12 +194,14 @@ public class ActivityFragment extends Fragment {
                     String comment = data.getStringExtra("Comment");
                     databaseHelper.update(id, minutes, type, date, time, comment);
                     showHistory();
+                    Toast.makeText(view.getContext(),R.string.activity_update_done,Toast.LENGTH_SHORT).show();
                 }
                 break;
             case 3:
                     String id = data.getStringExtra("Id");
                     databaseHelper.deleteItem(id);
                     showHistory();
+                Toast.makeText(view.getContext(),R.string.activity_delete_done,Toast.LENGTH_SHORT).show();
                 break;
         }
     }

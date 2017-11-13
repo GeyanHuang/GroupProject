@@ -81,8 +81,10 @@ public class ActivityUpdate extends AppCompatActivity {
     }
 
     public void insert_check(View view) {
+
         if(!editText_minute.getText().toString().equals("")){
             Intent resultIntent = new Intent();
+            resultIntent.putExtra("Id",id);
             resultIntent.putExtra("Minute",editText_minute.getText().toString());
             resultIntent.putExtra("Type",spinner_type.getSelectedItem().toString());
             resultIntent.putExtra("Date",textView_date.getText().toString());
