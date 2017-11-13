@@ -66,7 +66,5 @@
     <string name="activity_insert_time">Time</string>
     <string name="activity_insert_type">Type</string>
     <string name="activity_insert_comment">Comments</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="acrivity_update_title">Update Event</string>
 </resources>
