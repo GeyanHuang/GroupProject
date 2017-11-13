@@ -41,6 +41,7 @@ public class ActivityFragment extends Fragment {
         return view;
     }
 
+    private ActivityDatabaseHelper databaseHelper;
     private View view;
     private ListView listView;
     private TextView item, min, date, desc;
@@ -81,34 +82,22 @@ public class ActivityFragment extends Fragment {
             min = customView.findViewById(R.id.textview_activity_min);
             date = customView.findViewById(R.id.textview_activity_date);
             desc = customView.findViewById(R.id.textview_activity_desc);
+            databaseHelper = new ActivityDatabaseHelper(view.getContext());
             item.setText(getItem(position).item);
             min.setText(getItem(position).min);
             date.setText(getItem(position).date + " " + getItem(position).time);
             desc.setText(getItem(position).desc);
-
-            switch (getItem(position).item) {
-                case "Running":
-                case "跑步":
-                    image.setImageResource(R.drawable.ic_directions_run_black_48dp);
-                    break;
-                case "Walking":
-                case "走路":
-                    image.setImageResource(R.drawable.ic_directions_walk_black_48dp);
-                    break;
-                case "Biking":
-                case "骑车":
-                    image.setImageResource(R.drawable.ic_directions_bike_black_48dp);
-                    break;
-                case "Swimming":
-                case "游泳":
-                    image.setImageResource(R.drawable.ic_directions_swim_black_48dp);
-                    break;
-                case "Skating":
-                case "滑冰":
-                    image.setImageResource(R.drawable.ic_directions_skate_black_48dp);
-                    break;
-                default:
-                    break;
+            String[] items = getResources().getStringArray(R.array.activity_item_list);
+            if (getItem(position).item.equals(items[0])) {
+                image.setImageResource(R.drawable.ic_directions_run_black_48dp);
+            } else if (getItem(position).item.equals(items[1])) {
+                image.setImageResource(R.drawable.ic_directions_walk_black_48dp);
+            } else if (getItem(position).item.equals(items[2])) {
+                image.setImageResource(R.drawable.ic_directions_bike_black_48dp);
+            } else if (getItem(position).item.equals(items[3])) {
+                image.setImageResource(R.drawable.ic_directions_swim_black_48dp);
+            } else if (getItem(position).item.equals(items[4])) {
+                image.setImageResource(R.drawable.ic_directions_skate_black_48dp);
             }
             return customView;
         }
