@@ -146,6 +146,7 @@ public class ActivityInsert extends Activity {
         commentBuilder.setView(commentView);
         commentDialog = commentBuilder.create();
         commentDialog.show();
+        commentDialog.setCanceledOnTouchOutside(false);
         editText_comment.requestFocus();
         commentDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
