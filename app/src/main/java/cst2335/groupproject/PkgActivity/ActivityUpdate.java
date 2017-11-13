@@ -1,11 +1,11 @@
 package cst2335.groupproject.PkgActivity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,7 +19,7 @@ import java.util.Calendar;
 
 import cst2335.groupproject.R;
 
-public class ActivityInsert extends Activity {
+public class ActivityUpdate extends AppCompatActivity {
     TextView textView_date, textView_time, textView_comment;
     Spinner spinner_type;
     AlertDialog commentDialog;

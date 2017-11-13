@@ -21,7 +21,8 @@
         </activity>
         <activity
             android:name=".PkgActivity.ActivityInsert"
-            android:windowSoftInputMode="stateVisible"></activity>
+            android:windowSoftInputMode="stateVisible" />
+        <activity android:name=".PkgActivity.ActivityUpdate"></activity>
     </application>
 
 </manifest>
