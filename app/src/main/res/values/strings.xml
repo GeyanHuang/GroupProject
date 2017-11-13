@@ -67,4 +67,5 @@
     <string name="activity_insert_type">Type</string>
     <string name="activity_insert_comment">Comments</string>
     <string name="acrivity_update_title">Update Event</string>
+    <string name="activity_update_delete">Delete</string>
 </resources>

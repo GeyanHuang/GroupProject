@@ -47,5 +47,6 @@
     <string name="activity_insert_minute">分钟</string>
     <string name="activity_insert_comment">描述</string>
     <string name="acrivity_update_title">更新事件</string>
+    <string name="activity_update_delete">删除</string>
 
 </resources>
