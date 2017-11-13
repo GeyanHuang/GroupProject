@@ -23,4 +23,5 @@
     <string name="menu_food">Food Nutrition information tracker</string>
     <string name="menu_house">House Thermostat</string>
     <string name="menu_automobile">Automobile</string>
+    <string name="home_title">Overview</string>
 </resources>
