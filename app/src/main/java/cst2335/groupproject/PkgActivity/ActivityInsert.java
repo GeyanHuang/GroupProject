@@ -55,13 +55,14 @@ public class ActivityInsert extends Activity {
     }
 
     public void insert_check(View view) {
-        Intent intent = new Intent(view.getContext(), ActivityInsert.class);
-        intent.putExtra("Minute",editText_minute.getText().toString());
-        intent.putExtra("Type",spinner_type.getSelectedItem().toString());
-        intent.putExtra("Date",textView_date.getText().toString());
-        intent.putExtra("Time",textView_time.getText().toString());
-        intent.putExtra("Comment",textView_comment.getText().toString());
-        startActivity(intent);
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("Minute",editText_minute.getText().toString());
+        resultIntent.putExtra("Type",spinner_type.getSelectedItem().toString());
+        resultIntent.putExtra("Date",textView_date.getText().toString());
+        resultIntent.putExtra("Time",textView_time.getText().toString());
+        resultIntent.putExtra("Comment",textView_comment.getText().toString());
+        setResult(1, resultIntent);
+        finish();
     }
 
     public void insert_close(View view) {

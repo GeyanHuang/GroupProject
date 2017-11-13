@@ -1,6 +1,5 @@
 package cst2335.groupproject.PkgActivity;
 
-
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -48,18 +47,17 @@ public class ActivityFragment extends Fragment {
     private ImageView image;
     private FloatingActionButton insert;
     private ArrayList<Info> info;
+    private InfoAdapter adapter;
 
     private class Info {
         private String item;
         private String min, date, desc;
-        private int image;
 
-        public Info(String item, String min, String date, String desc, int image) {
+        public Info(String item, String min, String date, String desc) {
             this.item = item;
             this.min = min;
             this.date = date;
             this.desc = desc;
-            this.image = image;
         }
 
         public String getItem() {
@@ -86,7 +84,25 @@ public class ActivityFragment extends Fragment {
             min.setText(getItem(position).min);
             date.setText(getItem(position).date);
             desc.setText(getItem(position).desc);
-            image.setImageResource(getItem(position).image);
+            switch (getItem(position).item) {
+                case "Running":
+                    image.setImageResource(R.drawable.ic_directions_run_black_48dp);
+                    break;
+                case "Walking":
+                    image.setImageResource(R.drawable.ic_directions_walk_black_48dp);
+                    break;
+                case "Biking":
+                    image.setImageResource(R.drawable.ic_directions_bike_black_48dp);
+                    break;
+                case "Swimming":
+                    image.setImageResource(R.drawable.ic_directions_swim_black_48dp);
+                    break;
+                case "Skating":
+                    image.setImageResource(R.drawable.ic_directions_skate_black_48dp);
+                    break;
+                default:
+                    break;
+            }
             return customView;
         }
     }
@@ -100,11 +116,10 @@ public class ActivityFragment extends Fragment {
         String[] mins = getResources().getStringArray(R.array.activity_item_min);
         String[] dates = getResources().getStringArray(R.array.activity_item_date);
         String[] descs = getResources().getStringArray(R.array.activity_item_desc);
-        TypedArray images = getResources().obtainTypedArray(R.array.activity_image_list);
         for (int i = 0; i < items.length; i++)
-            info.add(new Info(items[i], mins[i], dates[i], descs[i], images.getResourceId(i, -1)));
+            info.add(new Info(items[i], mins[i], dates[i], descs[i]));
         listView = view.findViewById(R.id.listview_activity);
-        InfoAdapter adapter = new InfoAdapter(view.getContext(), info);
+        adapter = new InfoAdapter(view.getContext(), info);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -122,7 +137,36 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ActivityInsert.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (resultCode) {
+            case 1:
+                if (!data.getStringExtra("Minute").equals("")) {
+                    String minutes = data.getStringExtra("Minute") + " Min";
+                    String type = data.getStringExtra("Type");
+                    String date = data.getStringExtra("Date");
+                    String time = data.getStringExtra("Time");
+                    String combo = date + " " + time;
+                    String comment = data.getStringExtra("Comment");
+                    info.add(new Info(type, minutes, combo, comment));
+                    adapter.notifyDataSetChanged();
+                    scrollMyListViewToBottom();
+                }
+                break;
+        }
+    }
+
+    private void scrollMyListViewToBottom() {
+        listView.post(new Runnable() {
+            @Override
+            public void run() {
+                // Select the last row so it will scroll into view...
+                listView.setSelection(listView.getCount() - 1);
             }
         });
     }
