@@ -8,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -148,6 +149,8 @@ public class ActivityInsert extends Activity {
         commentBuilder.setView(commentView);
         commentDialog = commentBuilder.create();
         commentDialog.show();
+        editText_comment.requestFocus();
+        commentDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     public void activity_insert_comment_check(View view) {

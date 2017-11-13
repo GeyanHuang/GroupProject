@@ -36,7 +36,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:background="@drawable/edit_text_backgroud"
         android:id="@+id/activity_insert_edittext_comment"
         android:inputType="textCapSentences"
