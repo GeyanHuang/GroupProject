@@ -78,4 +78,5 @@
     <string name="activity_update_delete">Delete</string>
     <string name="home_title">Overview</string>
     <string name="nav_others">Others</string>
+    <string name="activity_insert_empty">Please input the minutes you have exercised!</string>
 </resources>

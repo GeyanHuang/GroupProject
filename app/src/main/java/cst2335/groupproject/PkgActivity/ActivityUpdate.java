@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -80,15 +81,18 @@ public class ActivityUpdate extends AppCompatActivity {
     }
 
     public void insert_check(View view) {
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("Id",id);
-        resultIntent.putExtra("Minute",editText_minute.getText().toString());
-        resultIntent.putExtra("Type",spinner_type.getSelectedItem().toString());
-        resultIntent.putExtra("Date",textView_date.getText().toString());
-        resultIntent.putExtra("Time",textView_time.getText().toString());
-        resultIntent.putExtra("Comment",textView_comment.getText().toString());
-        setResult(2, resultIntent);
-        finish();
+        if(!editText_minute.getText().toString().equals("")){
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("Minute",editText_minute.getText().toString());
+            resultIntent.putExtra("Type",spinner_type.getSelectedItem().toString());
+            resultIntent.putExtra("Date",textView_date.getText().toString());
+            resultIntent.putExtra("Time",textView_time.getText().toString());
+            resultIntent.putExtra("Comment",textView_comment.getText().toString());
+            setResult(2, resultIntent);
+            finish();
+        }else {
+            Toast.makeText(this,R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void insert_close(View view) {
