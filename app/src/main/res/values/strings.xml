@@ -82,4 +82,7 @@
     <string name="activity_insert_done">Insert successful!</string>
     <string name="activity_update_done">Update successful!</string>
     <string name="activity_delete_done">Delete successful!</string>
+    <string name="activity_delete_dialog_message">Are you sure you want delete?</string>
+    <string name="activity_delete_dialog_ok">OK</string>
+    <string name="activity_delete_dialog_cancel">Cancel</string>
 </resources>

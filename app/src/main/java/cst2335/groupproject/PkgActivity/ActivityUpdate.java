@@ -1,9 +1,11 @@
 package cst2335.groupproject.PkgActivity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -191,9 +193,22 @@ public class ActivityUpdate extends AppCompatActivity {
     }
 
     public void activity_update_delete(View view) {
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("Id",id);
-        setResult(3, resultIntent);
-        finish();
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityUpdate.this);
+        builder.setMessage(R.string.activity_delete_dialog_message);
+        builder.setPositiveButton(R.string.activity_delete_dialog_ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent resultIntent = new Intent();
+                        resultIntent.putExtra("Id",id);
+                        setResult(3, resultIntent);
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.activity_delete_dialog_cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                })
+                .show();
+
     }
 }

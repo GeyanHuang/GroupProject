@@ -62,4 +62,7 @@
     <string name="activity_insert_done">新建成功!</string>
     <string name="activity_update_done">更新成功!</string>
     <string name="activity_delete_done">删除成功!</string>
+    <string name="activity_delete_dialog_message">你确定你要删除?</string>
+    <string name="activity_delete_dialog_ok">确认</string>
+    <string name="activity_delete_dialog_cancel">取消</string>
 </resources>
