@@ -51,12 +51,13 @@ public class ActivityFragment extends Fragment {
 
     private class Info {
         private String item;
-        private String min, date, desc;
+        private String min, date, time, desc;
 
-        public Info(String item, String min, String date, String desc) {
+        public Info(String item, String min, String date, String time, String desc) {
             this.item = item;
             this.min = min;
             this.date = date;
+            this.time = time;
             this.desc = desc;
         }
 
@@ -82,7 +83,7 @@ public class ActivityFragment extends Fragment {
             desc = customView.findViewById(R.id.textview_activity_desc);
             item.setText(getItem(position).item);
             min.setText(getItem(position).min);
-            date.setText(getItem(position).date);
+            date.setText(getItem(position).date + " " + getItem(position).time);
             desc.setText(getItem(position).desc);
 
             switch (getItem(position).item) {
@@ -121,9 +122,10 @@ public class ActivityFragment extends Fragment {
         String[] items = getResources().getStringArray(R.array.activity_item_list);
         String[] mins = getResources().getStringArray(R.array.activity_item_min);
         String[] dates = getResources().getStringArray(R.array.activity_item_date);
+        String[] times = getResources().getStringArray(R.array.activity_item_time);
         String[] descs = getResources().getStringArray(R.array.activity_item_desc);
         for (int i = 0; i < items.length; i++)
-            info.add(new Info(items[i], mins[i], dates[i], descs[i]));
+            info.add(new Info(items[i], mins[i], dates[i], times[i], descs[i]));
         listView = view.findViewById(R.id.listview_activity);
         adapter = new InfoAdapter(view.getContext(), info);
         listView.setAdapter(adapter);
@@ -157,9 +159,8 @@ public class ActivityFragment extends Fragment {
                     String type = data.getStringExtra("Type");
                     String date = data.getStringExtra("Date");
                     String time = data.getStringExtra("Time");
-                    String combo = date + " " + time;
                     String comment = data.getStringExtra("Comment");
-                    info.add(new Info(type, minutes, combo, comment));
+                    info.add(new Info(type, minutes, date, time, comment));
                     adapter.notifyDataSetChanged();
                     scrollMyListViewToBottom();
                 }

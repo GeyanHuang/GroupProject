@@ -30,11 +30,18 @@
         <item>110 Min</item>
     </string-array>
     <string-array name="activity_item_date">
-        <item>2017-11-01 08:12</item>
-        <item>2017-11-02 09:08</item>
-        <item>2017-11-03 09:18</item>
-        <item>2017-11-04 07:32</item>
-        <item>2017-11-05 11:24</item>
+        <item>2017-11-01</item>
+        <item>2017-11-02</item>
+        <item>2017-11-03</item>
+        <item>2017-11-04</item>
+        <item>2017-11-05</item>
+    </string-array>
+    <string-array name="activity_item_time">
+        <item>08:12</item>
+        <item>09:08</item>
+        <item>09:18</item>
+        <item>07:32</item>
+        <item>11:24</item>
     </string-array>
     <string-array name="activity_item_desc">
         <item>First day</item>
@@ -59,4 +66,7 @@
     <string name="activity_insert_time">Time</string>
     <string name="activity_insert_type">Type</string>
     <string name="activity_insert_comment">Comments</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
