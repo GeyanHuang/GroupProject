@@ -63,6 +63,7 @@
     <string name="activity_insert_title">New Event</string>
     <string name="activity_insert_minute">Minutes</string>
     <string name="activity_insert_date">Date</string>
+    <string name="activity_insert_time">Time</string>
     <string name="activity_insert_type">Type</string>
     <string name="activity_insert_comment">Comments</string>
 </resources>

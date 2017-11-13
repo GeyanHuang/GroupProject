@@ -36,10 +36,10 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:background="@drawable/edit_text_backgroud"
         android:id="@+id/activity_insert_edittext_comment"
-        android:lines="10"
+        android:inputType="textCapSentences"
         android:gravity="top"
         android:layout_margin="10dp"/>
 

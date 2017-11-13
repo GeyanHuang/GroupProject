@@ -5,11 +5,13 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -21,20 +23,24 @@ import cst2335.groupproject.R;
 
 public class ActivityInsert extends Activity {
     TextView textView_date, textView_time, textView_comment;
+    Spinner spinner_type;
     AlertDialog commentDialog;
     int x_year, x_month, x_day, x_hour, x_minute;
     static final int DIALOG_ID_DATE = 1;
     static final int DIALOG_ID_TIME = 2;
-    EditText comment;
+    EditText editText_minute, editText_comment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
+        editText_minute = findViewById(R.id.activity_insert_edittext_minute);
+        spinner_type = findViewById(R.id.activity_insert_spinner_type);
         textView_date = findViewById(R.id.activity_insert_date);
         textView_time = findViewById(R.id.activity_insert_time);
         textView_comment = findViewById(R.id.activity_insert_textview_comment);
+
 
         final Calendar cal = Calendar.getInstance();
         x_year = cal.get(Calendar.YEAR);
@@ -49,7 +55,13 @@ public class ActivityInsert extends Activity {
     }
 
     public void insert_check(View view) {
-        finish();
+        Intent intent = new Intent(view.getContext(), ActivityInsert.class);
+        intent.putExtra("Minute",editText_minute.getText().toString());
+        intent.putExtra("Type",spinner_type.getSelectedItem().toString());
+        intent.putExtra("Date",textView_date.getText().toString());
+        intent.putExtra("Time",textView_time.getText().toString());
+        intent.putExtra("Comment",textView_comment.getText().toString());
+        startActivity(intent);
     }
 
     public void insert_close(View view) {
@@ -129,8 +141,8 @@ public class ActivityInsert extends Activity {
     public void activity_insert_comment_dialog(View view) {
         AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
         View commentView = getLayoutInflater().inflate(R.layout.activity_insert_comment,null);
-        comment = commentView.findViewById(R.id.activity_insert_edittext_comment);
-        comment.setText(textView_comment.getText());
+        editText_comment = commentView.findViewById(R.id.activity_insert_edittext_comment);
+        editText_comment.setText(textView_comment.getText());
 
         commentBuilder.setView(commentView);
         commentDialog = commentBuilder.create();
@@ -138,7 +150,7 @@ public class ActivityInsert extends Activity {
     }
 
     public void activity_insert_comment_check(View view) {
-        textView_comment.setText(comment.getText());
+        textView_comment.setText(editText_comment.getText());
         commentDialog.dismiss();
     }
 }

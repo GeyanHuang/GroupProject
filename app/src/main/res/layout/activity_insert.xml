@@ -99,6 +99,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/activity_insert_edittext_minute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -116,13 +117,15 @@
                 android:orientation="horizontal">
 
                 <Spinner
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:spinnerMode="dialog"
                     android:entries="@array/activity_item_list"
-                    ></Spinner>
+                    android:id="@+id/activity_insert_spinner_type"
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -164,7 +167,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:hint="@string/activity_insert_type"
+                    android:hint="@string/activity_insert_time"
                     android:textSize="20sp" />
 
                 <View
