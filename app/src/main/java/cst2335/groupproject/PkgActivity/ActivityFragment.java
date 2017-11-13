@@ -52,9 +52,33 @@ public class ActivityFragment extends Fragment {
     private InfoAdapter adapter;
 
     private class Info {
-        private  int activityId;
+        private int activityId;
         private String item;
         private String min, date, time, desc;
+
+        public int getActivityId() {
+            return activityId;
+        }
+
+        public String getItem() {
+            return item;
+        }
+
+        public String getMin() {
+            return min;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public String getTime() {
+            return time;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
 
         public Info(int activityId, String item, String min, String date, String time, String desc) {
             this.activityId = activityId;
@@ -65,9 +89,6 @@ public class ActivityFragment extends Fragment {
             this.desc = desc;
         }
 
-        public String getItem() {
-            return item;
-        }
     }
 
     class InfoAdapter extends ArrayAdapter<Info> {
@@ -118,8 +139,21 @@ public class ActivityFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Info info = (Info) (adapterView.getItemAtPosition(i));
-                String item = info.getItem();
-                Toast.makeText(view.getContext(), item, Toast.LENGTH_SHORT).show();
+                int numId = info.getActivityId();
+                String id = numId + "";
+                String type = info.getItem();
+                String minute = info.getMin();
+                String date = info.getDate();
+                String time = info.getTime();
+                String comment = info.getDesc();
+                Intent intent = new Intent(view.getContext(), ActivityUpdate.class);
+                intent.putExtra("Id", id);
+                intent.putExtra("Type", type);
+                intent.putExtra("Minute", minute);
+                intent.putExtra("Date", date);
+                intent.putExtra("Time", time);
+                intent.putExtra("Comment", comment);
+                startActivityForResult(intent, 2);
             }
         });
 
@@ -148,6 +182,23 @@ public class ActivityFragment extends Fragment {
                     showHistory();
                 }
                 break;
+            case 2:
+                if (!data.getStringExtra("Minute").equals("")) {
+                    String id = data.getStringExtra("Id");
+                    String minutes = data.getStringExtra("Minute") + " Min";
+                    String type = data.getStringExtra("Type");
+                    String date = data.getStringExtra("Date");
+                    String time = data.getStringExtra("Time");
+                    String comment = data.getStringExtra("Comment");
+                    databaseHelper.update(id, minutes, type, date, time, comment);
+                    showHistory();
+                }
+                break;
+            case 3:
+                    String id = data.getStringExtra("Id");
+                    databaseHelper.deleteItem(id);
+                    showHistory();
+                break;
         }
     }
 
@@ -165,7 +216,7 @@ public class ActivityFragment extends Fragment {
         info.clear();
         Cursor cursor = databaseHelper.getAllRecords();
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-            info.add(new Info (cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)),cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
+            info.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
         }
         adapter.notifyDataSetChanged();
         scrollMyListViewToBottom();

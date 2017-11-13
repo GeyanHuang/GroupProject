@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -28,10 +29,12 @@ public class ActivityUpdate extends AppCompatActivity {
     static final int DIALOG_ID_TIME = 2;
     EditText editText_minute, editText_comment;
 
+    String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insert);
+        setContentView(R.layout.activity_update);
 
         editText_minute = findViewById(R.id.activity_insert_edittext_minute);
         spinner_type = findViewById(R.id.activity_insert_spinner_type);
@@ -39,27 +42,52 @@ public class ActivityUpdate extends AppCompatActivity {
         textView_time = findViewById(R.id.activity_insert_time);
         textView_comment = findViewById(R.id.activity_insert_textview_comment);
 
+        id = getIntent().getStringExtra("Id");
+        String type = getIntent().getStringExtra("Type");
+        String minute = getIntent().getStringExtra("Minute");
+        String comment = getIntent().getStringExtra("Comment");
+        String date = getIntent().getStringExtra("Date");
+        String time = getIntent().getStringExtra("Time");
 
-        final Calendar cal = Calendar.getInstance();
-        x_year = cal.get(Calendar.YEAR);
-        x_month = cal.get(Calendar.MONTH);
-        x_day = cal.get(Calendar.DAY_OF_MONTH);
-        x_hour = cal.get(Calendar.HOUR_OF_DAY);
-        x_minute = cal.get(Calendar.MINUTE);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.activity_item_list, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_type.setAdapter(adapter);
+        if (!type.equals(null)) {
+            int spinnerPosition = adapter.getPosition(type);
+            spinner_type.setSelection(spinnerPosition);
+        }
+
+        editText_minute.setText(minute.replace(" Min",""));
+        textView_comment.setText(comment);
+
+        if(!date.equals("")) {
+            String[] dates = date.split("-");
+            x_year = Integer.parseInt(dates[0]);
+            x_month = Integer.parseInt(dates[1]);
+            x_day = Integer.parseInt(dates[2]);
+        }
+
+        if(!time.equals("")) {
+            String[] times = time.split(":");
+            x_hour = Integer.parseInt(times[0]);
+            x_minute = Integer.parseInt(times[1]);
+        }
 
         setDate();
         setTime();
 
+        editText_minute.requestFocus();
     }
 
     public void insert_check(View view) {
         Intent resultIntent = new Intent();
+        resultIntent.putExtra("Id",id);
         resultIntent.putExtra("Minute",editText_minute.getText().toString());
         resultIntent.putExtra("Type",spinner_type.getSelectedItem().toString());
         resultIntent.putExtra("Date",textView_date.getText().toString());
         resultIntent.putExtra("Time",textView_time.getText().toString());
         resultIntent.putExtra("Comment",textView_comment.getText().toString());
-        setResult(1, resultIntent);
+        setResult(2, resultIntent);
         finish();
     }
 
@@ -153,5 +181,12 @@ public class ActivityUpdate extends AppCompatActivity {
     public void activity_insert_comment_check(View view) {
         textView_comment.setText(editText_comment.getText());
         commentDialog.dismiss();
+    }
+
+    public void activity_update_delete(View view) {
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("Id",id);
+        setResult(3, resultIntent);
+        finish();
     }
 }

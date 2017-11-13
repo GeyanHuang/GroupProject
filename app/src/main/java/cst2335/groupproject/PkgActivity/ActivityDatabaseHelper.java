@@ -20,7 +20,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME = "Activity";
     public static final String COLUMN_ID = "ActivityID";
-        public static final String COLUMN_MINUTE = "Minute";
+    public static final String COLUMN_MINUTE = "Minute";
     public static final String COLUMN_TYPE = "Type";
     public static final String COLUMN_DATE = "Date";
     public static final String COLUMN_TIME = "Time";
@@ -76,8 +76,20 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void deleteLastItem(int id) {
+    public void deleteItem(String id) {
         getWritableDatabase().execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = " + id);
+    }
+
+    public long update(String id, String minute, String type, String date, String time, String comment) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_MINUTE, minute);
+        values.put(COLUMN_TYPE, type);
+        values.put(COLUMN_DATE, date);
+        values.put(COLUMN_TIME, time);
+        values.put(COLUMN_COMMENT, comment);
+
+
+        return database.update(TABLE_NAME, values, COLUMN_ID + " = " + id, null);
     }
 
     public Cursor getAllRecords() {
