@@ -5,26 +5,22 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 /**
  * Created by Geyan Huang on 2017-11-12.
  */
 
 public class ActivityDatabaseHelper extends SQLiteOpenHelper {
+    private static final String DATABASE_NAME = "Activity.db";
+    private static final int DATABASE_VERSION = 1;
 
-    private static final String LOGTAG = ActivityDatabaseHelper.class.getSimpleName();
-
-    public static final String DATABASE_NAME = "Activity.db";
-    public static final int DATABASE_VERSION = 1;
-
-    public static final String TABLE_NAME = "Activity";
-    public static final String COLUMN_ID = "ActivityID";
-    public static final String COLUMN_MINUTE = "Minute";
-    public static final String COLUMN_TYPE = "Type";
-    public static final String COLUMN_DATE = "Date";
-    public static final String COLUMN_TIME = "Time";
-    public static final String COLUMN_COMMENT = "Comment";
+    private static final String TABLE_NAME = "Activity";
+    static final String COLUMN_ID = "ActivityID";
+    static final String COLUMN_MINUTE = "Minute";
+    static final String COLUMN_TYPE = "Type";
+    static final String COLUMN_DATE = "Date";
+    static final String COLUMN_TIME = "Time";
+    static final String COLUMN_COMMENT = "Comment";
 
 
     private SQLiteDatabase database;
@@ -38,7 +34,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
             COLUMN_COMMENT + " TEXT" +
             ")";
 
-    public ActivityDatabaseHelper(Context context) {
+    ActivityDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -53,17 +49,17 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void openDatabase() {
+    void openDatabase() {
         database = getWritableDatabase();
     }
 
-    public void closeDatabase() {
+    void closeDatabase() {
         if (database != null && database.isOpen()) {
             database.close();
         }
     }
 
-    public long insert(String minute, String type, String date, String time, String comment) {
+    long insert(String minute, String type, String date, String time, String comment) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_MINUTE, minute);
         values.put(COLUMN_TYPE, type);
@@ -76,11 +72,11 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void deleteItem(String id) {
+    void deleteItem(String id) {
         getWritableDatabase().execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = " + id);
     }
 
-    public long update(String id, String minute, String type, String date, String time, String comment) {
+    long update(String id, String minute, String type, String date, String time, String comment) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_MINUTE, minute);
         values.put(COLUMN_TYPE, type);
@@ -92,7 +88,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
         return database.update(TABLE_NAME, values, COLUMN_ID + " = " + id, null);
     }
 
-    public Cursor getAllRecords() {
+    Cursor getAllRecords() {
         return database.query(TABLE_NAME, null, null, null, null, null, null);
     }
 }
