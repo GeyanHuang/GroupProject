@@ -15,12 +15,12 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_NAME = "Activity";
-    static final String COLUMN_ID = "ActivityID";
-    static final String COLUMN_MINUTE = "Minute";
-    static final String COLUMN_TYPE = "Type";
-    static final String COLUMN_DATE = "Date";
-    static final String COLUMN_TIME = "Time";
-    static final String COLUMN_COMMENT = "Comment";
+    private static final String COLUMN_ID = "ActivityID";
+    private static final String COLUMN_MINUTE = "Minute";
+    private static final String COLUMN_TYPE = "Type";
+    private static final String COLUMN_DATE = "Date";
+    private static final String COLUMN_TIME = "Time";
+    private static final String COLUMN_COMMENT = "Comment";
 
 
     private SQLiteDatabase database;
@@ -34,7 +34,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
             COLUMN_COMMENT + " TEXT" +
             ")";
 
-    ActivityDatabaseHelper(Context context) {
+    private ActivityDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -49,17 +49,17 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    void openDatabase() {
+    public void openDatabase() {
         database = getWritableDatabase();
     }
 
-    void closeDatabase() {
+    public void closeDatabase() {
         if (database != null && database.isOpen()) {
             database.close();
         }
     }
 
-    long insert(String minute, String type, String date, String time, String comment) {
+    public long insert(String minute, String type, String date, String time, String comment) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_MINUTE, minute);
         values.put(COLUMN_TYPE, type);
@@ -72,11 +72,11 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void deleteItem(String id) {
+    public void deleteItem(String id) {
         getWritableDatabase().execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = " + id);
     }
 
-    long update(String id, String minute, String type, String date, String time, String comment) {
+    public long update(String id, String minute, String type, String date, String time, String comment) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_MINUTE, minute);
         values.put(COLUMN_TYPE, type);
@@ -88,7 +88,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
         return database.update(TABLE_NAME, values, COLUMN_ID + " = " + id, null);
     }
 
-    Cursor getAllRecords() {
+    public Cursor getAllRecords() {
         return database.query(TABLE_NAME, null, null, null, null, null, null);
     }
 }
