@@ -181,10 +181,10 @@ public class ActivityUpdate extends AppCompatActivity {
 
         commentBuilder.setView(commentView);
         commentDialog = commentBuilder.create();
-        commentDialog.show();
         commentDialog.setCanceledOnTouchOutside(false);
-        editText_comment.requestFocus();
         commentDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        commentDialog.show();
+        editText_comment.requestFocus();
     }
 
     public void activity_insert_comment_check(View view) {
