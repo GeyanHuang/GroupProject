@@ -31,10 +31,10 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" +
             COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_MINUTE + " TEXT" +
-            COLUMN_TYPE + " TEXT" +
-            COLUMN_DATE + " TEXT" +
-            COLUMN_TIME + " TEXT" +
+            COLUMN_MINUTE + " TEXT, " +
+            COLUMN_TYPE + " TEXT, " +
+            COLUMN_DATE + " TEXT, " +
+            COLUMN_TIME + " TEXT, " +
             COLUMN_COMMENT + " TEXT" +
             ")";
 
