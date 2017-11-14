@@ -21,11 +21,12 @@
 
         <ImageView
             android:layout_width="30dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:onClick="insert_close"
-            android:src="@drawable/ic_close_white_24dp" />
+            android:src="@drawable/ic_close_white" />
 
         <TextView
             android:layout_width="0dp"
@@ -40,11 +41,12 @@
 
         <ImageView
             android:layout_width="30dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:onClick="insert_check"
-            android:src="@drawable/ic_check_white_24dp" />
+            android:src="@drawable/ic_check_white" />
     </LinearLayout>
 
     <LinearLayout
@@ -69,27 +71,27 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_timer_black_24dp" />
+                android:src="@drawable/ic_timer_black" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_fitness_center_black_24dp" />
+                android:src="@drawable/ic_fitness_black" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_date_range_black_24dp" />
+                android:src="@drawable/ic_date_black" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_watch_later_black_24dp" />
+                android:src="@drawable/ic_time_black" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_description_black_24dp" />
+                android:src="@drawable/ic_comment_black" />
         </LinearLayout>
 
         <View

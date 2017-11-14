@@ -118,15 +118,15 @@ public class ActivityFragment extends Fragment {
             desc.setText(getItem(position).desc);
             String[] items = getResources().getStringArray(R.array.activity_item_list);
             if (getItem(position).item.equals(items[0])) {
-                image.setImageResource(R.drawable.ic_directions_run_black_48dp);
+                image.setImageResource(R.drawable.ic_run_white);
             } else if (getItem(position).item.equals(items[1])) {
-                image.setImageResource(R.drawable.ic_directions_walk_black_48dp);
+                image.setImageResource(R.drawable.ic_walk_white);
             } else if (getItem(position).item.equals(items[2])) {
-                image.setImageResource(R.drawable.ic_directions_bike_black_48dp);
+                image.setImageResource(R.drawable.ic__bike_white);
             } else if (getItem(position).item.equals(items[3])) {
-                image.setImageResource(R.drawable.ic_directions_swim_black_48dp);
+                image.setImageResource(R.drawable.ic_swim_white);
             } else if (getItem(position).item.equals(items[4])) {
-                image.setImageResource(R.drawable.ic_directions_skate_black_48dp);
+                image.setImageResource(R.drawable.ic_skate_white);
             }
             return customView;
         }
