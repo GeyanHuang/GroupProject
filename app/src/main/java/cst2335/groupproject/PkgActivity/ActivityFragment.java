@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -185,7 +186,7 @@ public class ActivityFragment extends Fragment {
                     String comment = data.getStringExtra("Comment");
                     databaseHelper.insert(minutes, type, date, time, comment);
                     showHistory();
-                    Toast.makeText(view.getContext(), R.string.activity_insert_done, Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_insert_done, Snackbar.LENGTH_SHORT).setAction("Action",null).show();
                 }
                 break;
             case 2:
@@ -198,14 +199,14 @@ public class ActivityFragment extends Fragment {
                     String comment = data.getStringExtra("Comment");
                     databaseHelper.update(id, minutes, type, date, time, comment);
                     showHistory();
-                    Toast.makeText(view.getContext(), R.string.activity_update_done, Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_update_done, Snackbar.LENGTH_SHORT).setAction("Action",null).show();
                 }
                 break;
             case 3:
                 String id = data.getStringExtra("Id");
                 databaseHelper.deleteItem(id);
                 showHistory();
-                Toast.makeText(view.getContext(), R.string.activity_delete_done, Toast.LENGTH_SHORT).show();
+                Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_delete_done, Snackbar.LENGTH_SHORT).setAction("Action",null).show();
                 break;
         }
     }

@@ -6,7 +6,7 @@
     tools:context="cst2335.groupproject.PkgActivity.ActivityFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <android.support.constraint.ConstraintLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -15,22 +15,16 @@
             android:id="@+id/listview_activity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_margin="10dp" />
 
         <android.support.design.widget.FloatingActionButton
-            android:background="#ffff"
             android:id="@+id/activity_insertbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="10dp"
-            android:src="@android:drawable/ic_menu_add"/>
-    </android.support.constraint.ConstraintLayout>
+            android:layout_margin="20dp"
+            android:src="@android:drawable/ic_menu_add"
+            app:layout_anchor="@+id/listview_activity"
+            app:layout_anchorGravity="right|bottom" />
+    </android.support.design.widget.CoordinatorLayout>
 
 </FrameLayout>
