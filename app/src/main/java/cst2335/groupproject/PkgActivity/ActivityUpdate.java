@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import cst2335.groupproject.R;
 
@@ -93,7 +94,8 @@ public class ActivityUpdate extends AppCompatActivity {
             setResult(2, resultIntent);
             finish();
         }else {
-            Snackbar.make(view,R.string.activity_insert_empty,Snackbar.LENGTH_SHORT ).setAction("Action", null).show();
+            Toast.makeText(this,R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
+
         }
     }
 
