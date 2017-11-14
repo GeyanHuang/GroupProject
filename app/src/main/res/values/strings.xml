@@ -30,34 +30,6 @@
         <item>Swimming</item>
         <item>Skating</item>
     </string-array>
-    <string-array name="activity_item_min">
-        <item>30 Min</item>
-        <item>45 Min</item>
-        <item>36 Min</item>
-        <item>42 Min</item>
-        <item>110 Min</item>
-    </string-array>
-    <string-array name="activity_item_date">
-        <item>2017-11-01</item>
-        <item>2017-11-02</item>
-        <item>2017-11-03</item>
-        <item>2017-11-04</item>
-        <item>2017-11-05</item>
-    </string-array>
-    <string-array name="activity_item_time">
-        <item>08:12</item>
-        <item>09:08</item>
-        <item>09:18</item>
-        <item>07:32</item>
-        <item>11:24</item>
-    </string-array>
-    <string-array name="activity_item_desc">
-        <item>First day</item>
-        <item>Fell good</item>
-        <item>Doing Ok</item>
-        <item>Pretty good</item>
-        <item>110 Min is good</item>
-    </string-array>
     <string name="app_name">Universal Tools</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -85,4 +57,9 @@
     <string name="activity_delete_dialog_message">Are you sure you want delete?</string>
     <string name="activity_delete_dialog_ok">OK</string>
     <string name="activity_delete_dialog_cancel">Cancel</string>
+    <string name="activity_type_run">Running</string>
+    <string name="activity_type_walk">Walking</string>
+    <string name="activity_type_bike">Biking</string>
+    <string name="activity_type_swim">Swimming</string>
+    <string name="activity_type_skate">Skating</string>
 </resources>

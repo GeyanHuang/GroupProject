@@ -17,10 +17,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 
 import cst2335.groupproject.R;
 
@@ -174,6 +174,38 @@ public class ActivityFragment extends Fragment {
         });
     }
 
+    private String typeToEn(String type) {
+        switch (type) {
+            case "跑步":
+                return "Running";
+            case "走路":
+                return "Walking";
+            case "骑车":
+                return "Biking";
+            case "游泳":
+                return "Swimming";
+            case "滑冰":
+                return "Skating";
+        }
+        return null;
+    }
+
+    private String typeToZh(String type) {
+        switch (type) {
+            case "Running":
+                return "跑步";
+            case "Walking":
+                return "走路";
+            case "Biking":
+                return "骑车";
+            case "Swimming":
+                return "游泳";
+            case "Skating":
+                return "滑冰";
+        }
+        return null;
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (resultCode) {
@@ -184,9 +216,12 @@ public class ActivityFragment extends Fragment {
                     String date = data.getStringExtra("Date");
                     String time = data.getStringExtra("Time");
                     String comment = data.getStringExtra("Comment");
+                    if (Locale.getDefault().getLanguage().equals("zh")) {
+                        type = typeToEn(type);
+                    }
                     databaseHelper.insert(minutes, type, date, time, comment);
                     showHistory();
-                    Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_insert_done, Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+                    Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_insert_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 break;
             case 2:
@@ -197,16 +232,19 @@ public class ActivityFragment extends Fragment {
                     String date = data.getStringExtra("Date");
                     String time = data.getStringExtra("Time");
                     String comment = data.getStringExtra("Comment");
+                    if (Locale.getDefault().getLanguage().equals("zh")) {
+                        type = typeToEn(type);
+                    }
                     databaseHelper.update(id, minutes, type, date, time, comment);
                     showHistory();
-                    Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_update_done, Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+                    Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_update_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 break;
             case 3:
                 String id = data.getStringExtra("Id");
                 databaseHelper.deleteItem(id);
                 showHistory();
-                Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_delete_done, Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+                Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_delete_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 break;
         }
     }
@@ -215,7 +253,11 @@ public class ActivityFragment extends Fragment {
         info.clear();
         Cursor cursor = databaseHelper.getAllRecords();
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-            info.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
+            String type = cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE));
+            if (Locale.getDefault().getLanguage().equals("zh")) {
+                type = typeToZh(type);
+            }
+            info.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
         }
         Collections.sort(info);
         adapter.notifyDataSetChanged();

@@ -58,4 +58,9 @@
     <string name="activity_delete_dialog_message">你确定你要删除?</string>
     <string name="activity_delete_dialog_ok">确认</string>
     <string name="activity_delete_dialog_cancel">取消</string>
+    <string name="activity_type_run">跑步</string>
+    <string name="activity_type_walk">走路</string>
+    <string name="activity_type_bike">骑车</string>
+    <string name="activity_type_swim">游泳</string>
+    <string name="activity_type_skate">滑冰</string>
 </resources>
