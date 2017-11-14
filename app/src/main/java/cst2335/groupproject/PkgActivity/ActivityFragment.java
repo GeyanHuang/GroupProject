@@ -113,7 +113,7 @@ public class ActivityFragment extends Fragment {
             date = customView.findViewById(R.id.textview_activity_date);
             desc = customView.findViewById(R.id.textview_activity_desc);
             item.setText(getItem(position).item);
-            min.setText(getItem(position).min);
+            min.setText(getItem(position).min + " " + getResources().getString(R.string.activity_insert_minute));
             date.setText(getItem(position).date + " " + getItem(position).time);
             desc.setText(getItem(position).desc);
             String[] items = getResources().getStringArray(R.array.activity_item_list);
@@ -211,7 +211,7 @@ public class ActivityFragment extends Fragment {
         switch (resultCode) {
             case 1:
                 if (!data.getStringExtra("Minute").equals("")) {
-                    String minutes = data.getStringExtra("Minute") + " Min";
+                    String minutes = data.getStringExtra("Minute");
                     String type = data.getStringExtra("Type");
                     String date = data.getStringExtra("Date");
                     String time = data.getStringExtra("Time");
@@ -227,7 +227,7 @@ public class ActivityFragment extends Fragment {
             case 2:
                 if (!data.getStringExtra("Minute").equals("")) {
                     String id = data.getStringExtra("Id");
-                    String minutes = data.getStringExtra("Minute") + " Min";
+                    String minutes = data.getStringExtra("Minute");
                     String type = data.getStringExtra("Type");
                     String date = data.getStringExtra("Date");
                     String time = data.getStringExtra("Time");
