@@ -64,7 +64,7 @@ public class ActivityUpdate extends AppCompatActivity {
         if(!date.equals("")) {
             String[] dates = date.split("-");
             x_year = Integer.parseInt(dates[0]);
-            x_month = Integer.parseInt(dates[1]);
+            x_month = Integer.parseInt(dates[1])-1;
             x_day = Integer.parseInt(dates[2]);
         }
 
