@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private class InfoAdapter extends ArrayAdapter<Info> {
+    class InfoAdapter extends ArrayAdapter<Info> {
 
         public InfoAdapter(Context context, ArrayList<Info> info) {
             super(context, R.layout.home_info, info);
