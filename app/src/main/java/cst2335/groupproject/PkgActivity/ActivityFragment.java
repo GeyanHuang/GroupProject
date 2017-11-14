@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import cst2335.groupproject.R;
 
@@ -52,7 +53,7 @@ public class ActivityFragment extends Fragment {
     private ArrayList<Info> info;
     private InfoAdapter adapter;
 
-    private class Info {
+    private class Info implements Comparable<Info> {
         private int activityId;
         private String item;
         private String min, date, time, desc;
@@ -90,6 +91,10 @@ public class ActivityFragment extends Fragment {
             this.desc = desc;
         }
 
+        @Override
+        public int compareTo(Info o) {
+            return (o.getDate() + " " + o.getTime()).compareTo(getDate() + " " + getTime());
+        }
     }
 
     class InfoAdapter extends ArrayAdapter<Info> {
@@ -206,24 +211,14 @@ public class ActivityFragment extends Fragment {
         }
     }
 
-    private void scrollMyListViewToBottom() {
-        listView.post(new Runnable() {
-            @Override
-            public void run() {
-                // Select the last row so it will scroll into view...
-                listView.setSelection(listView.getCount() - 1);
-            }
-        });
-    }
-
     public void showHistory() {
         info.clear();
         Cursor cursor = databaseHelper.getAllRecords();
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
             info.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
         }
+        Collections.sort(info);
         adapter.notifyDataSetChanged();
-        scrollMyListViewToBottom();
     }
 
     @Override
