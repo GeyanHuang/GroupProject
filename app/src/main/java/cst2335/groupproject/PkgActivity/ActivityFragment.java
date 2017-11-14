@@ -211,7 +211,7 @@ public class ActivityFragment extends Fragment {
         }
     }
 
-    public void showHistory() {
+    private void showHistory() {
         info.clear();
         Cursor cursor = databaseHelper.getAllRecords();
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
