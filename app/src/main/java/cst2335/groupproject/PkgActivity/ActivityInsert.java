@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -15,7 +16,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -65,7 +65,7 @@ public class ActivityInsert extends Activity {
             setResult(1, resultIntent);
             finish();
         }else {
-            Toast.makeText(this,R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
+            Snackbar.make(view,R.string.activity_insert_empty,Snackbar.LENGTH_SHORT ).setAction("Action", null).show();
         }
     }
 

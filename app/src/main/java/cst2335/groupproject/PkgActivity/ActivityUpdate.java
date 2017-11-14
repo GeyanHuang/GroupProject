@@ -1,12 +1,12 @@
 package cst2335.groupproject.PkgActivity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,9 +18,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
-
-import java.util.Calendar;
 
 import cst2335.groupproject.R;
 
@@ -96,7 +93,7 @@ public class ActivityUpdate extends AppCompatActivity {
             setResult(2, resultIntent);
             finish();
         }else {
-            Toast.makeText(this,R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
+            Snackbar.make(view,R.string.activity_insert_empty,Snackbar.LENGTH_SHORT ).setAction("Action", null).show();
         }
     }
 
