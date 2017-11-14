@@ -14,13 +14,13 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Activity.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_NAME = "Activity";
-    private static final String COLUMN_ID = "ActivityID";
-    private static final String COLUMN_MINUTE = "Minute";
-    private static final String COLUMN_TYPE = "Type";
-    private static final String COLUMN_DATE = "Date";
-    private static final String COLUMN_TIME = "Time";
-    private static final String COLUMN_COMMENT = "Comment";
+    public static final String TABLE_NAME = "Activity";
+    public static final String COLUMN_ID = "ActivityID";
+    public static final String COLUMN_MINUTE = "Minute";
+    public static final String COLUMN_TYPE = "Type";
+    public static final String COLUMN_DATE = "Date";
+    public static final String COLUMN_TIME = "Time";
+    public static final String COLUMN_COMMENT = "Comment";
 
 
     private SQLiteDatabase database;
@@ -34,7 +34,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
             COLUMN_COMMENT + " TEXT" +
             ")";
 
-    private ActivityDatabaseHelper(Context context) {
+    public ActivityDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
