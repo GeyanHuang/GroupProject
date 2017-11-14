@@ -193,12 +193,12 @@ public class ActivityUpdate extends AppCompatActivity {
     }
 
     public void activity_update_delete(View view) {
+        final Intent resultIntent = new Intent();
+        resultIntent.putExtra("Id",id);
         AlertDialog.Builder builder = new AlertDialog.Builder(ActivityUpdate.this);
         builder.setMessage(R.string.activity_delete_dialog_message);
         builder.setPositiveButton(R.string.activity_delete_dialog_ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent resultIntent = new Intent();
-                        resultIntent.putExtra("Id",id);
                         setResult(3, resultIntent);
                         finish();
                     }
