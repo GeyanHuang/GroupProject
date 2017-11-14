@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -159,5 +160,10 @@ public class ActivityInsert extends Activity {
     public void activity_insert_comment_check(View view) {
         textView_comment.setText(editText_comment.getText());
         commentDialog.dismiss();
+    }
+
+    public void activity_insert_minute(View view) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(editText_minute, InputMethodManager.SHOW_IMPLICIT);
     }
 }

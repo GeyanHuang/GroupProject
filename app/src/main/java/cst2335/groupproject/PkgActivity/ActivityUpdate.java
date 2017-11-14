@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -209,6 +210,10 @@ public class ActivityUpdate extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
 
+    public void activity_insert_minute(View view) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(editText_minute, InputMethodManager.SHOW_IMPLICIT);
     }
 }

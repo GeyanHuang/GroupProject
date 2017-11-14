@@ -90,6 +90,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:onClick="activity_insert_minute"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/bottom_border"
