@@ -33,6 +33,8 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
     private Dialog dialog_setDailyGoal;
     private ImageView setDailyGoalCheck;
 
+    private ActivityDatabaseHelper databaseHelper;
+
     public FragmentActivityDashboard() {
         // Required empty public constructor
     }
@@ -59,6 +61,9 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         String dailyGoal = sharedPref.getString("DailyGoal", "0");
         textView_dailyGoal1.setText(dailyGoal);
         textView_dailyGoal2.setText(dailyGoal);
+
+        databaseHelper = new ActivityDatabaseHelper(view.getContext());
+        databaseHelper.openDatabase();
     }
 
 
@@ -68,6 +73,11 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.activity_nav_bot_dashboard);
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        databaseHelper.closeDatabase();
+    }
 
     @Override
     public void onClick(View v) {
