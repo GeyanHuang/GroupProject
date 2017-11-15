@@ -65,6 +65,10 @@
     <string name="activity_type_skate">滑冰</string>
     <string name="activity_nav_bot_list">活动列表</string>
     <string name="activity_nav_bot_dashboard">仪表板</string>
-    <string name="activity_dashboard_dailygoal">设置每日目标 (分钟)</string>
-    <string name="activity_dashboard_dailyprogress">每日进展</string>
+    <string name="activity_dashboard_setdailygoal">设置每日目标 (分钟)</string>
+    <string name="activity_dashboard_dailyprogress">今日进度</string>
+    <string name="activity_dashboard_todayprogress"> 今日锻炼时间（分钟）</string>
+    <string name="activity_dashboard_dailygoal">目标 (分钟)</string>
+    <string name="activity_dashboard_thismonth">本月锻炼总时间 (分钟))</string>
+    <string name="activity_dashboard_lastmonth">上月锻炼总时间按 (分钟)</string>
 </resources>
