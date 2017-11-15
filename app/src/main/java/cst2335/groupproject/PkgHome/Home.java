@@ -35,23 +35,8 @@ public class Home extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        setDefaultFragment();
     }
 
-    private void setDefaultFragment() {
-        if (!navigationView.getMenu().getItem(1).isChecked()) {
-            navigationView.getMenu().getItem(0).setChecked(true);
-            openHomeFragment();
-        }
-    }
-
-    private void openHomeFragment() {
-        HomeFragment fragment = new HomeFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction =
-                getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
-    }
 
     @Override
     public void onBackPressed() {
@@ -117,7 +102,11 @@ public class Home extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_home) {
-            openHomeFragment();
+            HomeFragment fragment = new HomeFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
