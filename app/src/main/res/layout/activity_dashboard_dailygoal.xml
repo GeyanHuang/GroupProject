@@ -31,7 +31,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="activity_insert_comment_check"
+            android:onClick="Open"
+            android:id="@+id/activity_dashboard_dailygoal_check"
             android:src="@drawable/ic_check_white" />
     </LinearLayout>
 

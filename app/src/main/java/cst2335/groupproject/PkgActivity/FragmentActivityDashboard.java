@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,8 +25,10 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
 
     private View view;
     private LinearLayout setDailyGoal;
-    private TextView dailyGoal;
+    private TextView dailyGoal1, dailyGoal2;
+    private EditText editText_dailyGoal;
     private AlertDialog dailyGoalDialog;
+    private ImageView dailyGoalcheck;
 
     public FragmentActivityDashboard() {
         // Required empty public constructor
@@ -44,7 +48,8 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        dailyGoal = view.findViewById(R.id.activity_dashboard_dailygoal);
+        dailyGoal1 = view.findViewById(R.id.activity_dashboard_dailygoal);
+        dailyGoal2 = view.findViewById(R.id.activity_dashboard_textview_dailygoal);
 
     }
 
@@ -62,12 +67,15 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
             case R.id.activity_dashboard_setdailygoal:
                 AlertDialog.Builder commentBuilder = new AlertDialog.Builder(view.getContext());
                 View commentView = getLayoutInflater().inflate(R.layout.activity_dashboard_dailygoal, null);
+                editText_dailyGoal = commentView.findViewById(R.id.activity_dashboard_edittext_dailygoal);
+                editText_dailyGoal.setText(dailyGoal1.getText());
 
                 commentBuilder.setView(commentView);
                 dailyGoalDialog = commentBuilder.create();
                 dailyGoalDialog.setCanceledOnTouchOutside(false);
                 dailyGoalDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
                 dailyGoalDialog.show();
+                editText_dailyGoal.requestFocus();
                 break;
         }
     }
