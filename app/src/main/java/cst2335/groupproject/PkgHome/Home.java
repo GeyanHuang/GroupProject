@@ -39,7 +39,7 @@ public class Home extends AppCompatActivity
     }
 
     private void setDefaultFragment() {
-        if (false) {
+        if (!navigationView.getMenu().getItem(1).isChecked()) {
             navigationView.getMenu().getItem(0).setChecked(true);
             openHomeFragment();
         }
