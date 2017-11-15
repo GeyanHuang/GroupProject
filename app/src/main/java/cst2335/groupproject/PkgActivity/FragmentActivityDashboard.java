@@ -3,6 +3,8 @@ package cst2335.groupproject.PkgActivity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -51,6 +53,12 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         super.onActivityCreated(savedInstanceState);
         textView_dailyGoal1 = view.findViewById(R.id.activity_dashboard_dailygoal);
         textView_dailyGoal2 = view.findViewById(R.id.activity_dashboard_textview_dailygoal);
+
+        SharedPreferences sharedPref = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
+
+        String dailyGoal = sharedPref.getString("DailyGoal", "0");
+        textView_dailyGoal1.setText(dailyGoal);
+        textView_dailyGoal2.setText(dailyGoal);
     }
 
 
@@ -66,7 +74,7 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         switch (v.getId()) {
             case R.id.activity_dashboard_setdailygoal:
                 AlertDialog.Builder dailyGoalBuilder = new AlertDialog.Builder(view.getContext());
-                View dailyGoalView = getLayoutInflater().inflate(R.layout.activity_dashboard_dailygoal,null);
+                View dailyGoalView = getLayoutInflater().inflate(R.layout.activity_dashboard_dailygoal, null);
                 setDailyGoalCheck = dailyGoalView.findViewById(R.id.activity_dashboard_dailygoal_check);
                 setDailyGoalCheck.setOnClickListener(this);
                 editText_setDailyGoal = dailyGoalView.findViewById(R.id.activity_dashboard_edittext_dailygoal);
@@ -82,6 +90,12 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
             case R.id.activity_dashboard_dailygoal_check:
                 textView_dailyGoal1.setText(editText_setDailyGoal.getText());
                 textView_dailyGoal2.setText(editText_setDailyGoal.getText());
+
+                SharedPreferences sharedPref = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("DailyGoal", editText_setDailyGoal.getText().toString());
+                editor.apply();
+
                 dialog_setDailyGoal.dismiss();
                 break;
         }
