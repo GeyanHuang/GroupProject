@@ -22,7 +22,8 @@
         <activity
             android:name=".PkgActivity.ActivityInsert"
             android:windowSoftInputMode="stateVisible" />
-        <activity android:name=".PkgActivity.ActivityUpdate"></activity>
+        <activity android:name=".PkgActivity.ActivityUpdate" />
+        <activity android:name=".ActivityNavBot"></activity>
     </application>
 
 </manifest>

@@ -63,4 +63,6 @@
     <string name="activity_type_bike">骑车</string>
     <string name="activity_type_swim">游泳</string>
     <string name="activity_type_skate">滑冰</string>
+    <string name="activity_nav_bot_list">List</string>
+    <string name="activity_nav_bot_dashboard">Dashboard</string>
 </resources>
