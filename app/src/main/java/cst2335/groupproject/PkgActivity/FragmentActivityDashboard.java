@@ -55,8 +55,8 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         textView_dailyGoal2 = view.findViewById(R.id.activity_dashboard_textview_dailygoal);
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
+
         String dailyGoal = sharedPref.getString("DailyGoal", "0");
-        
         textView_dailyGoal1.setText(dailyGoal);
         textView_dailyGoal2.setText(dailyGoal);
     }
