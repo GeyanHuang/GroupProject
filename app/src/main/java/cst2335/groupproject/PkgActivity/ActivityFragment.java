@@ -172,6 +172,9 @@ public class ActivityFragment extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
+        databaseHelper = new ActivityDatabaseHelper(view.getContext());
+        databaseHelper.openDatabase();
+        showHistory();
     }
 
     private String typeToEn(String type) {
@@ -261,14 +264,6 @@ public class ActivityFragment extends Fragment {
         }
         Collections.sort(info);
         adapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        databaseHelper = new ActivityDatabaseHelper(view.getContext());
-        databaseHelper.openDatabase();
-        showHistory();
     }
 
     @Override
