@@ -27,7 +27,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" +
             COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            COLUMN_MINUTE + " TEXT, " +
+            COLUMN_MINUTE + " INTEGER, " +
             COLUMN_TYPE + " TEXT, " +
             COLUMN_DATE + " TEXT, " +
             COLUMN_TIME + " TEXT, " +
@@ -61,7 +61,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
 
     public long insert(String minute, String type, String date, String time, String comment) {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_MINUTE, minute);
+        values.put(COLUMN_MINUTE, Integer.parseInt(minute));
         values.put(COLUMN_TYPE, type);
         values.put(COLUMN_DATE, date);
         values.put(COLUMN_TIME, time);
@@ -78,7 +78,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
 
     public long update(String id, String minute, String type, String date, String time, String comment) {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_MINUTE, minute);
+        values.put(COLUMN_MINUTE, Integer.parseInt(minute));
         values.put(COLUMN_TYPE, type);
         values.put(COLUMN_DATE, date);
         values.put(COLUMN_TIME, time);

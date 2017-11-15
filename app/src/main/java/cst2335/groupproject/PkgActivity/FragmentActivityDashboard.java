@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -64,8 +65,18 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
 
         databaseHelper = new ActivityDatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
+
+        textView_dailyGoal1.setText(getTodayExerciseTime()+"");
     }
 
+    private int getTodayExerciseTime(){
+        Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date = '2018-06-16'", null);
+        if(cur.moveToFirst())
+        {
+            return cur.getInt(0);
+        }
+        return 0;
+    }
 
     @Override
     public void onResume() {
