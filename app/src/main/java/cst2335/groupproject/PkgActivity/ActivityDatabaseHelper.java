@@ -23,7 +23,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_COMMENT = "Comment";
 
 
-    private SQLiteDatabase database;
+    public SQLiteDatabase database;
 
     private static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" +
             COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +

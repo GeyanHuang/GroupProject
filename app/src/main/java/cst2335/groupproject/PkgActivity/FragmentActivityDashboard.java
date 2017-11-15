@@ -18,7 +18,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.Calendar;
 
 import cst2335.groupproject.R;
 
@@ -29,10 +32,13 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
 
     private View view;
     private LinearLayout setDailyGoal;
-    private TextView textView_dailyGoal1, textView_dailyGoal2;
+    private TextView textView_dailyGoal1, textView_dailyGoal2, textView_todayTime, textView_thisMonth, textView_lastMonth;
     private EditText editText_setDailyGoal;
     private Dialog dialog_setDailyGoal;
     private ImageView setDailyGoalCheck;
+    private ProgressBar progressBar;
+
+    private  String year, month, day;
 
     private ActivityDatabaseHelper databaseHelper;
 
@@ -56,6 +62,10 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         super.onActivityCreated(savedInstanceState);
         textView_dailyGoal1 = view.findViewById(R.id.activity_dashboard_dailygoal);
         textView_dailyGoal2 = view.findViewById(R.id.activity_dashboard_textview_dailygoal);
+        textView_todayTime = view.findViewById(R.id.activity_dashboard_textview_todayexercise);
+        textView_thisMonth = view.findViewById(R.id.activity_dashboard_thismonth);
+        textView_lastMonth = view.findViewById(R.id.activity_dashboard_lastmonth);
+        progressBar = view.findViewById(R.id.activity_dashboard_progressbar);
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
 
@@ -66,16 +76,70 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         databaseHelper = new ActivityDatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
 
-        textView_dailyGoal1.setText(getTodayExerciseTime()+"");
+        textView_todayTime.setText(getTodayExerciseTime()+"");
+        textView_thisMonth.setText(getThisMonthExerciseTime()+"");
+        textView_lastMonth.setText(getLastMonthExerciseTime()+"");
+
+        setProgressBar();
+    }
+
+    private void setTodayDate(){
+        final Calendar cal = Calendar.getInstance();
+        int x_year = cal.get(Calendar.YEAR);
+        int x_month = cal.get(Calendar.MONTH);
+        int x_day = cal.get(Calendar.DAY_OF_MONTH);
+        year = Integer.toString(x_year) ;
+        month = Integer.toString((x_month+1)) ;
+        day = Integer.toString(x_day) ;
+        if(x_month < 9){
+
+            month = "0" + (x_month+1);
+        }
+        if(x_day < 10){
+
+            day  = "0" + x_day ;
+        }
     }
 
     private int getTodayExerciseTime(){
-        Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date = '2018-06-16'", null);
+        setTodayDate();
+        String date = (year + "-" + month + "-" + day);
+
+        Cursor cur = databaseHelper.database.rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date = '"+date+"'", null);
         if(cur.moveToFirst())
         {
             return cur.getInt(0);
         }
         return 0;
+    }
+
+    private int getThisMonthExerciseTime(){
+        setTodayDate();
+        String date = (year + "-" + month);
+
+        Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date LIKE '%"+date+"%'", null);
+        if(cur.moveToFirst())
+        {
+            return cur.getInt(0);
+        }
+        return 0;
+    }
+
+    private int getLastMonthExerciseTime(){
+        setTodayDate();
+        String date = (year + "-" + (Integer.parseInt(month)-1));
+
+        Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date LIKE '%"+date+"%'", null);
+        if(cur.moveToFirst())
+        {
+            return cur.getInt(0);
+        }
+        return 0;
+    }
+
+    private void setProgressBar(){
+        int progress = (int)((Double.parseDouble(textView_todayTime.getText().toString())/Double.parseDouble(textView_dailyGoal2.getText().toString()))*100);
+        progressBar.setProgress(progress);
     }
 
     @Override
@@ -117,6 +181,7 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
                 editor.putString("DailyGoal", editText_setDailyGoal.getText().toString());
                 editor.apply();
 
+                setProgressBar();
                 dialog_setDailyGoal.dismiss();
                 break;
         }
