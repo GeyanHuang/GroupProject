@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import cst2335.groupproject.PkgActivity.ActivityFragment;
+import cst2335.groupproject.PkgActivity.FragmentNavBot;
 import cst2335.groupproject.PkgAutomobile.AutomobileFragment;
 import cst2335.groupproject.PkgFood.FoodFragment;
 import cst2335.groupproject.PkgHouse.HouseFragment;
@@ -78,7 +78,7 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_activity) {
-            ActivityFragment fragment = new ActivityFragment();
+            FragmentNavBot fragment = new FragmentNavBot();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);

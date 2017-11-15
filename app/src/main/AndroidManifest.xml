@@ -23,7 +23,6 @@
             android:name=".PkgActivity.ActivityInsert"
             android:windowSoftInputMode="stateVisible" />
         <activity android:name=".PkgActivity.ActivityUpdate" />
-        <activity android:name=".PkgActivity.ActivityNavBot"></activity>
     </application>
 
 </manifest>
