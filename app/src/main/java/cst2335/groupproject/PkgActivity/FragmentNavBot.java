@@ -34,6 +34,14 @@ public class FragmentNavBot extends Fragment {
         return view;
     }
 
+    private void openList(){
+        ActivityFragment fragment = new ActivityFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -43,11 +51,7 @@ public class FragmentNavBot extends Fragment {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (id == R.id.activity_nav_bot_list) {
-                    ActivityFragment fragment = new ActivityFragment();
-                    android.support.v4.app.FragmentTransaction fragmentTransaction =
-                            getChildFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
-                    fragmentTransaction.commit();
+                    openList();
                 }
                 if (id == R.id.activity_nav_bot_dashboard) {
                     FragmentActivityDashboard fragment = new FragmentActivityDashboard();
@@ -55,10 +59,12 @@ public class FragmentNavBot extends Fragment {
                             getChildFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
                     fragmentTransaction.commit();
-                }
+            }
                 return true;
             }
         });
+        botNav.getMenu().getItem(0).setChecked(true);
+        openList();
     }
 
     @Override
