@@ -47,13 +47,27 @@
                     android:layout_height="60dp"
                     android:background="@drawable/bottom_border"
                     android:orientation="horizontal">
-
-                    <TextView
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:hint="@string/activity_insert_time"
-                        android:textSize="20sp" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:hint="@string/activity_dashboard_dailygoal"
+                            android:textSize="12sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="120"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
 
                     <View
                         android:layout_width="0dp"
