@@ -64,7 +64,6 @@
     <string name="activity_type_skate">Skating</string>
     <string name="activity_nav_bot_list">Activity List</string>
     <string name="activity_nav_bot_dashboard">Dashboard</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="activity_dashboard_dailygoal">Set Daily Goal</string>
+    <string name="activity_dashboard_dailyprogress">Daily Progress</string>
 </resources>
