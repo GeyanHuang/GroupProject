@@ -50,7 +50,11 @@ public class FragmentNavBot extends Fragment {
                     fragmentTransaction.commit();
                 }
                 if (id == R.id.activity_nav_bot_dashboard) {
-
+                    FragmentActivityDashboard fragment = new FragmentActivityDashboard();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction =
+                            getChildFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
+                    fragmentTransaction.commit();
                 }
                 return true;
             }
