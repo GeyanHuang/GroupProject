@@ -1,6 +1,7 @@
 package cst2335.groupproject.PkgActivity;
 
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,6 +24,7 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
     private View view;
     private LinearLayout setDailyGoal;
     private TextView dailyGoal;
+    private AlertDialog dailyGoalDialog;
 
     public FragmentActivityDashboard() {
         // Required empty public constructor
@@ -56,9 +60,17 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.activity_dashboard_setdailygoal:
+                AlertDialog.Builder commentBuilder = new AlertDialog.Builder(view.getContext());
+                View commentView = getLayoutInflater().inflate(R.layout.activity_dashboard_dailygoal, null);
 
+                commentBuilder.setView(commentView);
+                dailyGoalDialog = commentBuilder.create();
+                dailyGoalDialog.setCanceledOnTouchOutside(false);
+                dailyGoalDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+                dailyGoalDialog.show();
                 break;
         }
     }
+
 }
 
