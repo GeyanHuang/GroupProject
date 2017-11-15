@@ -31,7 +31,6 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="Open"
             android:id="@+id/activity_dashboard_dailygoal_check"
             android:src="@drawable/ic_check_white" />
     </LinearLayout>
@@ -40,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/edit_text_backgroud"
-        android:id="@+id/activity_insert_edittext_comment"
+        android:id="@+id/activity_dashboard_edittext_dailygoal"
         android:inputType="number"
         android:gravity="top"
         android:layout_margin="10dp"/>

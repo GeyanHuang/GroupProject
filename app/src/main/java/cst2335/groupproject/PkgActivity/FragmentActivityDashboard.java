@@ -2,6 +2,7 @@ package cst2335.groupproject.PkgActivity;
 
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,10 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
 
     private View view;
     private LinearLayout setDailyGoal;
+    private TextView textView_dailyGoal1, textView_dailyGoal2;
+    private EditText editText_setDailyGoal;
+    private Dialog dialog_setDailyGoal;
+    private ImageView setDailyGoalCheck;
 
     public FragmentActivityDashboard() {
         // Required empty public constructor
@@ -44,7 +49,8 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        textView_dailyGoal1 = view.findViewById(R.id.activity_dashboard_dailygoal);
+        textView_dailyGoal2 = view.findViewById(R.id.activity_dashboard_textview_dailygoal);
     }
 
 
@@ -59,6 +65,25 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.activity_dashboard_setdailygoal:
+                AlertDialog.Builder dailyGoalBuilder = new AlertDialog.Builder(view.getContext());
+                View dailyGoalView = getLayoutInflater().inflate(R.layout.activity_dashboard_dailygoal,null);
+                setDailyGoalCheck = dailyGoalView.findViewById(R.id.activity_dashboard_dailygoal_check);
+                setDailyGoalCheck.setOnClickListener(this);
+                editText_setDailyGoal = dailyGoalView.findViewById(R.id.activity_dashboard_edittext_dailygoal);
+                editText_setDailyGoal.setText(textView_dailyGoal1.getText());
+
+                dailyGoalBuilder.setView(dailyGoalView);
+                dialog_setDailyGoal = dailyGoalBuilder.create();
+                dialog_setDailyGoal.setCanceledOnTouchOutside(false);
+                dialog_setDailyGoal.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+                dialog_setDailyGoal.show();
+                editText_setDailyGoal.requestFocus();
+                break;
+            case R.id.activity_dashboard_dailygoal_check:
+                textView_dailyGoal1.setText(editText_setDailyGoal.getText());
+                textView_dailyGoal2.setText(editText_setDailyGoal.getText());
+                dialog_setDailyGoal.dismiss();
+                break;
         }
     }
 
