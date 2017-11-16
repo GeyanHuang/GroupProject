@@ -41,6 +41,8 @@ public class ActivityMenuHelp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_help);
+        this.setFinishOnTouchOutside(false);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -51,6 +53,10 @@ public class ActivityMenuHelp extends AppCompatActivity {
 
 
 
+    }
+
+    public void activity_help_dialog_ok(View view) {
+        finish();
     }
 
     /**

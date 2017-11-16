@@ -70,7 +70,7 @@
     <string name="activity_dashboard_dailygoal">Daily Goal (Minute)</string>
     <string name="activity_dashboard_thismonth">This Month Total Exercise Time (Minute)</string>
     <string name="activity_dashboard_lastmonth">Last Month Total Exercise Time (Minute)</string>
-    <string name="title_activity_menu_help">ActivityMenuHelp</string>
+    <string name="title_activity_menu_help">Help (Swipe to switch pages)</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="help_skip">Skip</string>
 </resources>

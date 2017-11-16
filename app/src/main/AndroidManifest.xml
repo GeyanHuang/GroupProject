@@ -26,7 +26,8 @@
         <activity
             android:name=".PkgActivity.ActivityMenuHelp"
             android:label="@string/title_activity_menu_help"
-            android:theme="@android:style/Theme.Dialog"/>
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
     </application>
 
 </manifest>
