@@ -34,7 +34,7 @@ public class FragmentNavBot extends Fragment {
         return view;
     }
 
-    private void openList(){
+    private void openList() {
         ActivityFragment fragment = new ActivityFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getChildFragmentManager().beginTransaction();
@@ -59,7 +59,7 @@ public class FragmentNavBot extends Fragment {
                             getChildFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
                     fragmentTransaction.commit();
-            }
+                }
                 return true;
             }
         });

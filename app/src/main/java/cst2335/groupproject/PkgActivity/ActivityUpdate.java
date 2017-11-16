@@ -58,17 +58,17 @@ public class ActivityUpdate extends AppCompatActivity {
             spinner_type.setSelection(spinnerPosition);
         }
 
-        editText_minute.setText(minute.replace(" Min",""));
+        editText_minute.setText(minute.replace(" Min", ""));
         textView_comment.setText(comment);
 
-        if(!date.equals("")) {
+        if (!date.equals("")) {
             String[] dates = date.split("-");
             x_year = Integer.parseInt(dates[0]);
-            x_month = Integer.parseInt(dates[1])-1;
+            x_month = Integer.parseInt(dates[1]) - 1;
             x_day = Integer.parseInt(dates[2]);
         }
 
-        if(!time.equals("")) {
+        if (!time.equals("")) {
             String[] times = time.split(":");
             x_hour = Integer.parseInt(times[0]);
             x_minute = Integer.parseInt(times[1]);
@@ -82,18 +82,18 @@ public class ActivityUpdate extends AppCompatActivity {
 
     public void insert_check(View view) {
 
-        if(!editText_minute.getText().toString().equals("")){
+        if (!editText_minute.getText().toString().equals("")) {
             Intent resultIntent = new Intent();
-            resultIntent.putExtra("Id",id);
-            resultIntent.putExtra("Minute",editText_minute.getText().toString());
-            resultIntent.putExtra("Type",spinner_type.getSelectedItem().toString());
-            resultIntent.putExtra("Date",textView_date.getText().toString());
-            resultIntent.putExtra("Time",textView_time.getText().toString());
-            resultIntent.putExtra("Comment",textView_comment.getText().toString());
+            resultIntent.putExtra("Id", id);
+            resultIntent.putExtra("Minute", editText_minute.getText().toString());
+            resultIntent.putExtra("Type", spinner_type.getSelectedItem().toString());
+            resultIntent.putExtra("Date", textView_date.getText().toString());
+            resultIntent.putExtra("Time", textView_time.getText().toString());
+            resultIntent.putExtra("Comment", textView_comment.getText().toString());
             setResult(2, resultIntent);
             finish();
-        }else {
-            Toast.makeText(this,R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -129,17 +129,17 @@ public class ActivityUpdate extends AppCompatActivity {
         }
     };
 
-    private void setDate(){
-        String year = Integer.toString(x_year) ;
-        String month = Integer.toString((x_month+1)) ;
-        String day = Integer.toString(x_day) ;
-        if(x_month < 9){
+    private void setDate() {
+        String year = Integer.toString(x_year);
+        String month = Integer.toString((x_month + 1));
+        String day = Integer.toString(x_day);
+        if (x_month < 9) {
 
-            month = "0" + (x_month+1);
+            month = "0" + (x_month + 1);
         }
-        if(x_day < 10){
+        if (x_day < 10) {
 
-            day  = "0" + x_day ;
+            day = "0" + x_day;
         }
         textView_date.setText((year + "-" + month + "-" + day));
     }
@@ -158,23 +158,23 @@ public class ActivityUpdate extends AppCompatActivity {
         }
     };
 
-    private void setTime(){
-        String hour = Integer.toString(x_hour) ;
-        String minute = Integer.toString(x_minute) ;
-        if(x_hour < 10){
+    private void setTime() {
+        String hour = Integer.toString(x_hour);
+        String minute = Integer.toString(x_minute);
+        if (x_hour < 10) {
 
             hour = "0" + x_hour;
         }
-        if(x_minute < 10){
+        if (x_minute < 10) {
 
-            minute  = "0" + x_minute;
+            minute = "0" + x_minute;
         }
         textView_time.setText(hour + ":" + minute);
     }
 
     public void activity_insert_comment_dialog(View view) {
         AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
-        View commentView = getLayoutInflater().inflate(R.layout.activity_insert_comment,null);
+        View commentView = getLayoutInflater().inflate(R.layout.activity_insert_comment, null);
         editText_comment = commentView.findViewById(R.id.activity_insert_edittext_comment);
         editText_comment.setText(textView_comment.getText());
 
@@ -193,15 +193,15 @@ public class ActivityUpdate extends AppCompatActivity {
 
     public void activity_update_delete(View view) {
         final Intent resultIntent = new Intent();
-        resultIntent.putExtra("Id",id);
+        resultIntent.putExtra("Id", id);
         AlertDialog.Builder builder = new AlertDialog.Builder(ActivityUpdate.this);
         builder.setMessage(R.string.activity_delete_dialog_message);
         builder.setPositiveButton(R.string.activity_delete_dialog_ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        setResult(3, resultIntent);
-                        finish();
-                    }
-                })
+            public void onClick(DialogInterface dialog, int id) {
+                setResult(3, resultIntent);
+                finish();
+            }
+        })
                 .setNegativeButton(R.string.activity_delete_dialog_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
@@ -212,6 +212,6 @@ public class ActivityUpdate extends AppCompatActivity {
 
     public void activity_insert_minute(View view) {
         InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(editText_minute, InputMethodManager.SHOW_IMPLICIT);
+        imm.showSoftInput(editText_minute, InputMethodManager.SHOW_IMPLICIT);
     }
 }

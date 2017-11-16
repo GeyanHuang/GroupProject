@@ -29,18 +29,18 @@
         android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/textview_activity_min"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Min"
-                android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textview_activity_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Min"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/textview_activity_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Desc" />
+        <TextView
+            android:id="@+id/textview_activity_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desc" />
 
         <View
             android:layout_width="0dp"

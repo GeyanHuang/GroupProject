@@ -76,10 +76,10 @@ public class HomeFragment extends Fragment {
         info = new ArrayList<>();
         String[] items = getResources().getStringArray(R.array.home_item_list);
         String[] contents = getResources().getStringArray(R.array.home_content_list);
-        for(int i = 0; i < items.length; i++)
-        info.add(new Info(items[i], contents[i]));
+        for (int i = 0; i < items.length; i++)
+            info.add(new Info(items[i], contents[i]));
         listView = view.findViewById(R.id.listview_home);
-        InfoAdapter adapter = new InfoAdapter(view.getContext(),info);
+        InfoAdapter adapter = new InfoAdapter(view.getContext(), info);
         listView.setAdapter(adapter);
     }
 

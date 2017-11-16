@@ -26,22 +26,22 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:id="@+id/activity_dashboard_dailygoal_check"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/activity_dashboard_dailygoal_check"
             android:src="@drawable/ic_check_white" />
     </LinearLayout>
 
     <EditText
+        android:id="@+id/activity_dashboard_edittext_dailygoal"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_margin="10dp"
         android:background="@drawable/edit_text_backgroud"
-        android:id="@+id/activity_dashboard_edittext_dailygoal"
-        android:inputType="number"
         android:gravity="top"
-        android:layout_margin="10dp"/>
+        android:inputType="number" />
 
 </LinearLayout>

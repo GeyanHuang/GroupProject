@@ -132,22 +132,23 @@
             android:layout_height="60dp"
             android:background="@drawable/bottom_border"
             android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="10dp"
-                    android:hint="@string/activity_dashboard_thismonth"
-                    android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/activity_dashboard_thismonth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginRight="10dp"
-                    android:text="0"
-                    android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:hint="@string/activity_dashboard_thismonth"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/activity_dashboard_thismonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                android:text="0"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -155,6 +156,7 @@
             android:layout_height="60dp"
             android:background="@drawable/bottom_border"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

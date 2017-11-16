@@ -55,17 +55,17 @@ public class ActivityInsert extends Activity {
     }
 
     public void insert_check(View view) {
-        if(!editText_minute.getText().toString().equals("")){
+        if (!editText_minute.getText().toString().equals("")) {
             Intent resultIntent = new Intent();
-            resultIntent.putExtra("Minute",editText_minute.getText().toString());
-            resultIntent.putExtra("Type",spinner_type.getSelectedItem().toString());
-            resultIntent.putExtra("Date",textView_date.getText().toString());
-            resultIntent.putExtra("Time",textView_time.getText().toString());
-            resultIntent.putExtra("Comment",textView_comment.getText().toString());
+            resultIntent.putExtra("Minute", editText_minute.getText().toString());
+            resultIntent.putExtra("Type", spinner_type.getSelectedItem().toString());
+            resultIntent.putExtra("Date", textView_date.getText().toString());
+            resultIntent.putExtra("Time", textView_time.getText().toString());
+            resultIntent.putExtra("Comment", textView_comment.getText().toString());
             setResult(1, resultIntent);
             finish();
-        }else {
-            Toast.makeText(this,R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -100,17 +100,17 @@ public class ActivityInsert extends Activity {
         }
     };
 
-    private void setDate(){
-        String year = Integer.toString(x_year) ;
-        String month = Integer.toString((x_month+1)) ;
-        String day = Integer.toString(x_day) ;
-        if(x_month < 9){
+    private void setDate() {
+        String year = Integer.toString(x_year);
+        String month = Integer.toString((x_month + 1));
+        String day = Integer.toString(x_day);
+        if (x_month < 9) {
 
-            month = "0" + (x_month+1);
+            month = "0" + (x_month + 1);
         }
-        if(x_day < 10){
+        if (x_day < 10) {
 
-            day  = "0" + x_day ;
+            day = "0" + x_day;
         }
         textView_date.setText((year + "-" + month + "-" + day));
     }
@@ -129,23 +129,23 @@ public class ActivityInsert extends Activity {
         }
     };
 
-    private void setTime(){
-        String hour = Integer.toString(x_hour) ;
-        String minute = Integer.toString(x_minute) ;
-        if(x_hour < 10){
+    private void setTime() {
+        String hour = Integer.toString(x_hour);
+        String minute = Integer.toString(x_minute);
+        if (x_hour < 10) {
 
             hour = "0" + x_hour;
         }
-        if(x_minute < 10){
+        if (x_minute < 10) {
 
-            minute  = "0" + x_minute;
+            minute = "0" + x_minute;
         }
         textView_time.setText(hour + ":" + minute);
     }
 
     public void activity_insert_comment_dialog(View view) {
         AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
-        View commentView = getLayoutInflater().inflate(R.layout.activity_insert_comment,null);
+        View commentView = getLayoutInflater().inflate(R.layout.activity_insert_comment, null);
         editText_comment = commentView.findViewById(R.id.activity_insert_edittext_comment);
         editText_comment.setText(textView_comment.getText());
 

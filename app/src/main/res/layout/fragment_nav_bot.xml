@@ -1,9 +1,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:design="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:design="http://schemas.android.com/apk/res-auto"
     tools:context="cst2335.groupproject.PkgActivity.FragmentNavBot">
 
     <RelativeLayout
@@ -15,19 +15,18 @@
             android:id="@+id/activity_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/activity_nav_bar">
-        </FrameLayout>
+            android:layout_above="@+id/activity_nav_bar"></FrameLayout>
+
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/activity_nav_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:background="@color/colorAccent"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
-            design:menu="@menu/nav_bot_items"
-            android:layout_alignParentBottom="true"
-            />
+            design:menu="@menu/nav_bot_items" />
     </RelativeLayout>
 
 </FrameLayout>

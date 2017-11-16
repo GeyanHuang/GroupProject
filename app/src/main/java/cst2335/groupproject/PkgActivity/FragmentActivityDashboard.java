@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,7 +37,7 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
     private ImageView setDailyGoalCheck;
     private ProgressBar progressBar;
 
-    private  String year, month, day;
+    private String year, month, day;
 
     private ActivityDatabaseHelper databaseHelper;
 
@@ -76,69 +75,66 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         databaseHelper = new ActivityDatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
 
-        textView_todayTime.setText(getTodayExerciseTime()+"");
-        textView_thisMonth.setText(getThisMonthExerciseTime()+"");
-        textView_lastMonth.setText(getLastMonthExerciseTime()+"");
+        textView_todayTime.setText(getTodayExerciseTime() + "");
+        textView_thisMonth.setText(getThisMonthExerciseTime() + "");
+        textView_lastMonth.setText(getLastMonthExerciseTime() + "");
 
         setProgressBar();
     }
 
-    private void setTodayDate(){
+    private void setTodayDate() {
         final Calendar cal = Calendar.getInstance();
         int x_year = cal.get(Calendar.YEAR);
         int x_month = cal.get(Calendar.MONTH);
         int x_day = cal.get(Calendar.DAY_OF_MONTH);
-        year = Integer.toString(x_year) ;
-        month = Integer.toString((x_month+1)) ;
-        day = Integer.toString(x_day) ;
-        if(x_month < 9){
+        year = Integer.toString(x_year);
+        month = Integer.toString((x_month + 1));
+        day = Integer.toString(x_day);
+        if (x_month < 9) {
 
-            month = "0" + (x_month+1);
+            month = "0" + (x_month + 1);
         }
-        if(x_day < 10){
+        if (x_day < 10) {
 
-            day  = "0" + x_day ;
+            day = "0" + x_day;
         }
     }
 
-    private int getTodayExerciseTime(){
+    private int getTodayExerciseTime() {
         setTodayDate();
         String date = (year + "-" + month + "-" + day);
 
-        Cursor cur = databaseHelper.database.rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date = '"+date+"'", null);
-        if(cur.moveToFirst())
-        {
+        Cursor cur = databaseHelper.database.rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date = '" + date + "'", null);
+        if (cur.moveToFirst()) {
             return cur.getInt(0);
         }
         return 0;
     }
 
-    private int getThisMonthExerciseTime(){
+    private int getThisMonthExerciseTime() {
         setTodayDate();
         String date = (year + "-" + month);
 
-        Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date LIKE '%"+date+"%'", null);
-        if(cur.moveToFirst())
-        {
+        Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date LIKE '%" + date + "%'", null);
+        if (cur.moveToFirst()) {
             return cur.getInt(0);
         }
         return 0;
     }
 
-    private int getLastMonthExerciseTime(){
+    private int getLastMonthExerciseTime() {
         setTodayDate();
-        String date = (year + "-" + (Integer.parseInt(month)-1));
+        String date = (year + "-" + (Integer.parseInt(month) - 1));
 
-        Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date LIKE '%"+date+"%'", null);
-        if(cur.moveToFirst())
-        {
+        Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date LIKE '%" + date + "%'", null);
+        if (cur.moveToFirst()) {
             return cur.getInt(0);
         }
         return 0;
     }
 
-    private void setProgressBar(){
-        int progress = (int)((Double.parseDouble(textView_todayTime.getText().toString())/Double.parseDouble(textView_dailyGoal2.getText().toString()))*100);
+    private void setProgressBar() {
+        int progress = (int) ((Double.parseDouble(textView_todayTime.getText().toString()) / Double.parseDouble(textView_dailyGoal2.getText().toString())) * 100);
         progressBar.setProgress(progress);
     }
 
