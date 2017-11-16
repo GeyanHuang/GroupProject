@@ -1,5 +1,6 @@
 package cst2335.groupproject.PkgHome;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import cst2335.groupproject.PkgActivity.ActivityMenuHelp;
 import cst2335.groupproject.PkgActivity.FragmentNavBot;
 import cst2335.groupproject.PkgAutomobile.AutomobileFragment;
 import cst2335.groupproject.PkgFood.FoodFragment;
@@ -64,6 +66,12 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(Home.this, ActivityMenuHelp.class);
+            startActivity(intent);
+            return true;
+        }
+
         if (id == R.id.action_quit) {
             finishAffinity();
             return true;
