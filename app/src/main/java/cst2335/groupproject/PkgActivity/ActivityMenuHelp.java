@@ -50,6 +50,7 @@ public class ActivityMenuHelp extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
+
     }
 
     /**
@@ -109,4 +110,5 @@ public class ActivityMenuHelp extends AppCompatActivity {
             return 3;
         }
     }
+
 }
