@@ -71,6 +71,6 @@
     <string name="activity_dashboard_dailygoal">目标 (分钟)</string>
     <string name="activity_dashboard_thismonth">本月锻炼总时间 (分钟)</string>
     <string name="activity_dashboard_lastmonth">上月锻炼总时间 (分钟)</string>
-    <string name="title_activity_menu_help">帮助 (滑动切换页面)</string>
+    <string name="title_activity_menu_help">帮助</string>
     <string name="help_skip">跳过</string>
 </resources>
