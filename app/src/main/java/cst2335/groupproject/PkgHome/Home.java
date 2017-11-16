@@ -78,7 +78,6 @@ public class Home extends AppCompatActivity
             helpBuilder.setView(helpView);
             dialog_Help = helpBuilder.create();
             dialog_Help.setCanceledOnTouchOutside(false);
-            dialog_Help.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
             dialog_Help.show();
             return true;
         }
