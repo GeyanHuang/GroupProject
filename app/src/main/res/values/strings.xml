@@ -71,6 +71,6 @@
     <string name="activity_dashboard_thismonth">This Month Total Exercise Time (Minute)</string>
     <string name="activity_dashboard_lastmonth">Last Month Total Exercise Time (Minute)</string>
     <string name="title_activity_menu_help">ActivityMenuHelp</string>
-    <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="help_skip">Skip</string>
 </resources>
