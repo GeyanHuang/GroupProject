@@ -47,7 +47,6 @@ public class ActivityMenuHelp extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-
     }
 
     public void activity_help_dialog_ok(View view) {
@@ -84,6 +83,7 @@ public class ActivityMenuHelp extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_activity_menu_help, container, false);
             ImageView imageView = (ImageView) rootView.findViewById(R.id.section_label);
+            ImageView help_progress = (ImageView) rootView.findViewById(R.id.help_progress);
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
@@ -91,7 +91,9 @@ public class ActivityMenuHelp extends AppCompatActivity {
                         imageView.setImageResource(R.drawable.activity_help_p1_zh);
                     }else {
                         imageView.setImageResource(R.drawable.activity_help_p1);
+
                     }
+                    help_progress.setImageResource(R.drawable.help_tab1);
                     break;
                 case 2:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
@@ -99,6 +101,7 @@ public class ActivityMenuHelp extends AppCompatActivity {
                     }else{
                         imageView.setImageResource(R.drawable.activity_help_p2);
                     }
+                    help_progress.setImageResource(R.drawable.help_tab2);
                     break;
                 case 3:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
@@ -106,6 +109,7 @@ public class ActivityMenuHelp extends AppCompatActivity {
                     }else{
                         imageView.setImageResource(R.drawable.activity_help_p3);
                     }
+                    help_progress.setImageResource(R.drawable.help_tab3);
                     break;
             }
 
