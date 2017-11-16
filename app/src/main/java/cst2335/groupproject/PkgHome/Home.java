@@ -1,5 +1,7 @@
 package cst2335.groupproject.PkgHome;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
 
 import cst2335.groupproject.PkgActivity.ActivityMenuHelp;
 import cst2335.groupproject.PkgActivity.FragmentNavBot;
@@ -21,6 +25,7 @@ import cst2335.groupproject.R;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private NavigationView navigationView;
+    private Dialog dialog_Help;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +72,14 @@ public class Home extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_help) {
-            Intent intent = new Intent(Home.this, ActivityMenuHelp.class);
-            startActivity(intent);
+            AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+            View helpView = getLayoutInflater().inflate(R.layout.activity_menu_help, null);
+
+            helpBuilder.setView(helpView);
+            dialog_Help = helpBuilder.create();
+            dialog_Help.setCanceledOnTouchOutside(false);
+            dialog_Help.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+            dialog_Help.show();
             return true;
         }
 
