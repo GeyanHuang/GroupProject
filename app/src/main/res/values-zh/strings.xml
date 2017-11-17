@@ -73,4 +73,7 @@
     <string name="activity_dashboard_lastmonth">上月锻炼总时间 (分钟)</string>
     <string name="title_activity_menu_help">帮助</string>
     <string name="help_skip">跳过</string>
+    <string name="enter_food">进入食品营养信息跟踪...</string>
+    <string name="enter_house">进入房子恒温器...</string>
+    <string name="enter_automobile">进入汽车...</string>
 </resources>
