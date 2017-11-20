@@ -53,6 +53,15 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         view = inflater.inflate(R.layout.fragment_activity_dashboard, container, false);
         setDailyGoal = view.findViewById(R.id.activity_dashboard_setdailygoal);
         setDailyGoal.setOnClickListener(this);
+        SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("Name", "FragmentActivityDashboard");
+        editor.apply();
+
+        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
+        SharedPreferences.Editor anotherEditor = sharedPreferences.edit();
+        anotherEditor.putString("Name", "FragmentActivityDashboard");
+        anotherEditor.apply();
         return view;
     }
 

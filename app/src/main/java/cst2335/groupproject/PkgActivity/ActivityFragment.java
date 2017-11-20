@@ -48,6 +48,11 @@ public class ActivityFragment extends Fragment {
         editor.putString("Name", "ActivityFragment");
         editor.apply();
 
+        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
+        SharedPreferences.Editor anotherEditor = sharedPreferences.edit();
+        anotherEditor.putString("Name", "ActivityFragment");
+        anotherEditor.apply();
+
         return view;
     }
 

@@ -67,7 +67,7 @@ public class Home extends AppCompatActivity
         SharedPreferences sharedPref = getSharedPreferences("Layout", Context.MODE_PRIVATE);
         String name = sharedPref.getString("Name", "0");
 
-        if(name.equals("ActivityFragment")){
+        if(name.equals("ActivityFragment")||name.equals("FragmentActivityDashboard")){
             showActivityHelp(true);
         }else {
             showActivityHelp(false);

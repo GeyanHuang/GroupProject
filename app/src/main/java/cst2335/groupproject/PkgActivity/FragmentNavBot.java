@@ -1,6 +1,8 @@
 package cst2335.groupproject.PkgActivity;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import cst2335.groupproject.R;
 
@@ -42,6 +45,14 @@ public class FragmentNavBot extends Fragment {
         fragmentTransaction.commit();
     }
 
+    private void openDashboard() {
+        FragmentActivityDashboard fragment = new FragmentActivityDashboard();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -54,17 +65,23 @@ public class FragmentNavBot extends Fragment {
                     openList();
                 }
                 if (id == R.id.activity_nav_bot_dashboard) {
-                    FragmentActivityDashboard fragment = new FragmentActivityDashboard();
-                    android.support.v4.app.FragmentTransaction fragmentTransaction =
-                            getChildFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
-                    fragmentTransaction.commit();
+                    openDashboard();
                 }
                 return true;
             }
         });
-        botNav.getMenu().getItem(0).setChecked(true);
-        openList();
+        SharedPreferences sharedPref = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
+        String name = sharedPref.getString("Name", "0");
+
+        if(name.equals("ActivityFragment")){
+            botNav.getMenu().getItem(0).setChecked(true);
+            openList();
+        }
+        if(name.equals("FragmentActivityDashboard")){
+            botNav.getMenu().getItem(1).setChecked(true);
+            openDashboard();
+        }
+
     }
 
     @Override
