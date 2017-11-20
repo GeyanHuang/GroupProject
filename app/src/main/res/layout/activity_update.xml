@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -49,183 +49,207 @@
             android:src="@drawable/ic_check_white" />
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="66dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <!--Images-->
-        <LinearLayout
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_timer_black" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_fitness_black" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_date_black" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_time_black" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_comment_black" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="20dp"
-            android:layout_height="0dp" />
-
-        <!--Contents-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
-                android:onClick="activity_insert_minute"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/activity_insert_edittext_minute"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/edit_text_backgroud"
-                    android:hint="@string/activity_insert_minute"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_timer_black" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
-                android:orientation="horizontal">
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-                <Spinner
-                    android:id="@+id/activity_insert_spinner_type"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:spinnerMode="dialog" />
+                    android:background="@drawable/bottom_border"
+                    android:onClick="activity_insert_minute"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/activity_insert_edittext_minute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/edit_text_backgroud"
+                        android:hint="@string/activity_insert_minute"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
-                android:onClick="activity_insert_date"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:hint="@string/activity_insert_date"
-                    android:textSize="20sp" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_fitness_black" />
 
                 <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-                <TextView
-                    android:id="@+id/activity_insert_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="YYYY-MM-DD"
-                    android:textSize="20sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:orientation="horizontal">
+                    <Spinner
+                        android:id="@+id/activity_insert_spinner_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:entries="@array/activity_item_list"
+                        android:spinnerMode="dialog" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
-                android:onClick="activity_insert_time"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:hint="@string/activity_insert_time"
-                    android:textSize="20sp" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_date_black" />
 
                 <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
 
-                <TextView
-                    android:id="@+id/activity_insert_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="HH:MM"
-                    android:textSize="20sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:onClick="activity_insert_date"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="@string/activity_insert_date"
+                        android:textSize="20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/activity_insert_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="YYYY-MM-DD"
+                        android:textSize="20sp" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
-                android:onClick="activity_insert_comment_dialog"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/activity_insert_textview_comment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:hint="@string/activity_insert_comment"
-                    android:maxLines="1"
-                    android:text=""
-                    android:textSize="20sp" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_time_black" />
 
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:onClick="activity_insert_time"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="@string/activity_insert_time"
+                        android:textSize="20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/activity_insert_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="HH:MM"
+                        android:textSize="20sp" />
+                </LinearLayout>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_comment_black" />
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border"
+                    android:onClick="activity_insert_comment_dialog"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/activity_insert_textview_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="@string/activity_insert_comment"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                style="@style/small_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="activity_update_delete"
+                android:text="@string/activity_update_delete"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"/>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
-    <Button
-        style="@style/small_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="120dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:onClick="activity_update_delete"
-        android:text="@string/activity_update_delete"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
