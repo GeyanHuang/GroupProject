@@ -73,11 +73,10 @@ public class FragmentNavBot extends Fragment {
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
         String name = sharedPref.getString("Name", "0");
 
-        if(name.equals("ActivityFragment")){
+        if (name.equals("ActivityFragment")) {
             botNav.getMenu().getItem(0).setChecked(true);
             openList();
-        }
-        if(name.equals("FragmentActivityDashboard")){
+        } else {
             botNav.getMenu().getItem(1).setChecked(true);
             openDashboard();
         }
