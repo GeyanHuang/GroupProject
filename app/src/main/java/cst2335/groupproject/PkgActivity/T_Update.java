@@ -50,7 +50,7 @@ public class T_Update extends AppCompatActivity {
         String date = getIntent().getStringExtra("Date");
         String time = getIntent().getStringExtra("Time");
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.activity_item_list, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tracker_list_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_type.setAdapter(adapter);
         if (!type.equals(null)) {
@@ -93,7 +93,7 @@ public class T_Update extends AppCompatActivity {
             setResult(2, resultIntent);
             finish();
         } else {
-            Toast.makeText(this, R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.tracker_insert_empty, Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -195,14 +195,14 @@ public class T_Update extends AppCompatActivity {
         final Intent resultIntent = new Intent();
         resultIntent.putExtra("Id", id);
         AlertDialog.Builder builder = new AlertDialog.Builder(T_Update.this);
-        builder.setMessage(R.string.activity_delete_dialog_message);
-        builder.setPositiveButton(R.string.activity_delete_dialog_ok, new DialogInterface.OnClickListener() {
+        builder.setMessage(R.string.tracker_delete_dialog_message);
+        builder.setPositiveButton(R.string.tracker_delete_dialog_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 setResult(3, resultIntent);
                 finish();
             }
         })
-                .setNegativeButton(R.string.activity_delete_dialog_cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.tracker_delete_dialog_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
                     }

@@ -80,8 +80,8 @@ public class M_Overview extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         info = new ArrayList<>();
-        String[] items = getResources().getStringArray(R.array.home_item_list);
-        String[] contents = getResources().getStringArray(R.array.home_content_list);
+        String[] items = getResources().getStringArray(R.array.overview_list_item);
+        String[] contents = getResources().getStringArray(R.array.overview_list_content);
         for (int i = 0; i < items.length; i++)
             info.add(new Info(items[i], contents[i]));
         listView = view.findViewById(R.id.overview_main_listView);
@@ -92,6 +92,6 @@ public class M_Overview extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.home_title);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.overview_title);
     }
 }

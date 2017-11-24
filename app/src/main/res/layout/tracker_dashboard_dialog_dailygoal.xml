@@ -20,7 +20,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="@string/activity_dashboard_dailygoal"
+            android:text="@string/tracker_dashboard_dailyGoal"
             android:textColor="@color/white"
             android:textSize="20sp" />
 

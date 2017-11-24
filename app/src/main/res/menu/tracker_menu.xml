@@ -5,13 +5,13 @@
                 <item
                     android:id="@+id/tracker_menu_action_help"
                     android:orderInCategory="100"
-                    android:title="@string/action_help"
+                    android:title="@string/tracker_action_help"
                     app:showAsAction="never" />
 
                 <item
                     android:id="@+id/tracker_menu_action_quit"
                     android:orderInCategory="100"
-                    android:title="@string/action_quit"/>
+                    android:title="@string/tracker_action_quit"/>
         </group>
 
 </menu>

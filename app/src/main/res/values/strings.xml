@@ -1,5 +1,4 @@
 <resources>
-    MainPageHome array-->
     <string-array name="home_item_list">
         <item>Season</item>
         <item>Course</item>
@@ -22,7 +21,6 @@
         <item>Hao Liu</item>
         <item>Bin Yang</item>
     </string-array>
-    <!--Activity array-->
     <string-array name="activity_item_list">
         <item>Running</item>
         <item>Walking</item>
@@ -31,48 +29,46 @@
         <item>Skating</item>
     </string-array>
     <string name="app_name">Universal Tools</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_help">Help</string>
-    <string name="action_quit">Quit</string>
-    <string name="menu_activity">Activity Tracking</string>
-    <string name="menu_food">Food Nutrition information tracker</string>
-    <string name="menu_house">House Thermostat</string>
-    <string name="menu_automobile">Automobile</string>
-    <string name="activity_insert">Insert</string>
-    <string name="activity_insert_title">New Event</string>
-    <string name="activity_insert_minute">Minutes</string>
-    <string name="activity_insert_date">Date</string>
-    <string name="activity_insert_time">Time</string>
-    <string name="activity_insert_type">Type</string>
-    <string name="activity_insert_comment">Comments</string>
-    <string name="activity_update_title">Update Event</string>
-    <string name="activity_update_delete">Delete</string>
-    <string name="home_title">Overview</string>
-    <string name="nav_others">Others</string>
-    <string name="activity_insert_empty">Please input the minutes you have exercised!</string>
-    <string name="activity_insert_done">Insert successful!</string>
-    <string name="activity_update_done">Update successful!</string>
-    <string name="activity_delete_done">Delete successful!</string>
-    <string name="activity_delete_dialog_message">Are you sure you want delete?</string>
-    <string name="activity_delete_dialog_ok">OK</string>
-    <string name="activity_delete_dialog_cancel">Cancel</string>
-    <string name="activity_type_run">Running</string>
-    <string name="activity_type_walk">Walking</string>
-    <string name="activity_type_bike">Biking</string>
-    <string name="activity_type_swim">Swimming</string>
-    <string name="activity_type_skate">Skating</string>
-    <string name="activity_nav_bot_list">Activity List</string>
-    <string name="activity_nav_bot_dashboard">Dashboard</string>
-    <string name="activity_dashboard_setdailygoal">Set Daily Goal (Minute)</string>
-    <string name="activity_dashboard_dailyprogress">Today Progress</string>
-    <string name="activity_dashboard_todayprogress">Today Exercise (Minutes)</string>
-    <string name="activity_dashboard_dailygoal">Daily Goal (Minute)</string>
-    <string name="activity_dashboard_thismonth">This Month Total Exercise Time (Minute)</string>
-    <string name="activity_dashboard_lastmonth">Last Month Total Exercise Time (Minute)</string>
-    <string name="title_activity_menu_help">Help</string>
-    <string name="help_skip">Skip</string>
-    <string name="enter_food">Enter Food Nutrition information tracker...</string>
-    <string name="enter_house">Enter House Thermostat...</string>
+    <string name="main_navigation_drawer_open">Open navigation drawer</string>
+    <string name="main_navigation_drawer_close">Close navigation drawer</string>
+    <string name="main_menu_activity">Activity Tracking</string>
+    <string name="main_menu_food">Food Nutrition information tracker</string>
+    <string name="main_menu_house">House Thermostat</string>
+    <string name="main_menu_automobile">Automobile</string>
+    <string name="overview_title">Overview</string>
+    <string name="food_main_enter_food">Enter Food Nutrition information tracker...</string>
+    <string name="house_main_enter_house">Enter House Thermostat...</string>
     <string name="automobile_main_enter_automobile">Enter Automobile...</string>
+    <string name="tracker_action_help">Help</string>
+    <string name="tracker_action_quit">Quit</string>
+    <string name="tracker_insert">Insert</string>
+    <string name="tracker_insert_title">New Event</string>
+    <string name="tracker_insert_minute">Minutes</string>
+    <string name="tracker_insert_date">Date</string>
+    <string name="tracker_insert_time">Time</string>
+    <string name="tracker_insert_type">Type</string>
+    <string name="tracker_insert_comment">Comments</string>
+    <string name="tracker_update_title">Update Event</string>
+    <string name="tracker_update_delete">Delete</string>
+    <string name="tracker_insert_empty">Please input the minutes you have exercised!</string>
+    <string name="tracker_insert_done">Insert successful!</string>
+    <string name="tracker_update_done">Update successful!</string>
+    <string name="tracker_delete_done">Delete successful!</string>
+    <string name="tracker_delete_dialog_message">Are you sure you want delete?</string>
+    <string name="tracker_delete_dialog_ok">OK</string>
+    <string name="tracker_delete_dialog_cancel">Cancel</string>
+    <string name="tracker_type_run">Running</string>
+    <string name="tracker_type_walk">Walking</string>
+    <string name="tracker_type_bike">Biking</string>
+    <string name="tracker_type_swim">Swimming</string>
+    <string name="tracker_type_skate">Skating</string>
+    <string name="tracker_nav_bot_list">Activity List</string>
+    <string name="tracker_nav_bot_dashboard">Dashboard</string>
+    <string name="tracker_dashboard_setDailyGoal">Set Daily Goal (Minute)</string>
+    <string name="tracker_dashboard_dailyProgress">Today Progress</string>
+    <string name="tracker_dashboard_todayProgress">Today Exercise (Minutes)</string>
+    <string name="tracker_dashboard_dailyGoal">Daily Goal (Minute)</string>
+    <string name="tracker_dashboard_thisMonthTime">This Month Total Exercise Time (Minute)</string>
+    <string name="tracker_dashboard_lastMonthTime">Last Month Total Exercise Time (Minute)</string>
+    <string name="tracker_help_title">Help</string>
 </resources>

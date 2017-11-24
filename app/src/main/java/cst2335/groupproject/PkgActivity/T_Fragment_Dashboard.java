@@ -150,7 +150,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.activity_nav_bot_dashboard);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.tracker_nav_bot_dashboard);
     }
 
     @Override

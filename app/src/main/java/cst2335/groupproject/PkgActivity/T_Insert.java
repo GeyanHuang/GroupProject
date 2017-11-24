@@ -65,7 +65,7 @@ public class T_Insert extends Activity {
             setResult(1, resultIntent);
             finish();
         } else {
-            Toast.makeText(this, R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.tracker_insert_empty, Toast.LENGTH_SHORT).show();
         }
     }
 

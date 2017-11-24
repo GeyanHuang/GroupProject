@@ -25,7 +25,7 @@
         <activity android:name=".PkgActivity.T_Update" />
         <activity
             android:name=".PkgActivity.T_Help"
-            android:label="@string/title_activity_menu_help"
+            android:label="@string/tracker_help_title"
             android:excludeFromRecents="true"
             android:theme="@style/Theme.AppCompat.Dialog"/>
     </application>

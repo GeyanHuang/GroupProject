@@ -20,7 +20,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="@string/activity_insert_comment"
+            android:text="@string/tracker_insert_comment"
             android:textColor="@color/white"
             android:textSize="20sp" />
 

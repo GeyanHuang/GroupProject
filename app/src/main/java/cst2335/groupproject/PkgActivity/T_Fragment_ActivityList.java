@@ -125,10 +125,10 @@ public class T_Fragment_ActivityList extends Fragment {
             date = customView.findViewById(R.id.tracker_activityList_info_textView_date_and_time);
             desc = customView.findViewById(R.id.tracker_activityList_info_textView_comment);
             item.setText(getItem(position).item);
-            min.setText(getItem(position).min + " " + getResources().getString(R.string.activity_insert_minute));
+            min.setText(getItem(position).min + " " + getResources().getString(R.string.tracker_insert_minute));
             date.setText(getItem(position).date + " " + getItem(position).time);
             desc.setText(getItem(position).desc);
-            String[] items = getResources().getStringArray(R.array.activity_item_list);
+            String[] items = getResources().getStringArray(R.array.tracker_list_type);
             if (getItem(position).item.equals(items[0])) {
                 image.setImageResource(R.drawable.ic_tracker_run_white);
             } else if (getItem(position).item.equals(items[1])) {
@@ -236,7 +236,7 @@ public class T_Fragment_ActivityList extends Fragment {
                     }
                     databaseHelper.insert(minutes, type, date, time, comment);
                     showHistory();
-                    Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.activity_insert_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                    Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.tracker_insert_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 break;
             case 2:
@@ -252,14 +252,14 @@ public class T_Fragment_ActivityList extends Fragment {
                     }
                     databaseHelper.update(id, minutes, type, date, time, comment);
                     showHistory();
-                    Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.activity_update_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                    Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.tracker_update_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 break;
             case 3:
                 String id = data.getStringExtra("Id");
                 databaseHelper.deleteItem(id);
                 showHistory();
-                Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.activity_delete_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.tracker_delete_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 break;
         }
     }
@@ -287,6 +287,6 @@ public class T_Fragment_ActivityList extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.activity_nav_bot_list);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.tracker_nav_bot_list);
     }
 }

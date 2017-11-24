@@ -41,7 +41,7 @@ public class F_Main extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.menu_food);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.main_menu_food);
     }
 
 }

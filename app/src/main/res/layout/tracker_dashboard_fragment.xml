@@ -23,7 +23,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:hint="@string/activity_dashboard_setdailygoal"
+                    android:hint="@string/tracker_dashboard_setDailyGoal"
                     android:textSize="20sp" />
 
                 <View
@@ -60,7 +60,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginRight="10dp"
-                        android:hint="@string/activity_dashboard_todayprogress"
+                        android:hint="@string/tracker_dashboard_todayProgress"
                         android:textSize="12sp" />
 
                     <TextView
@@ -85,7 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:hint="@string/activity_dashboard_dailygoal"
+                        android:hint="@string/tracker_dashboard_dailyGoal"
                         android:textSize="12sp" />
 
                     <TextView
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:hint="@string/activity_dashboard_dailyprogress"
+                    android:hint="@string/tracker_dashboard_dailyProgress"
                     android:textSize="20sp" />
 
                 <View
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="10dp"
-                    android:hint="@string/activity_dashboard_thismonth"
+                    android:hint="@string/tracker_dashboard_thisMonthTime"
                     android:textSize="12sp" />
 
                 <TextView
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="10dp"
-                    android:hint="@string/activity_dashboard_lastmonth"
+                    android:hint="@string/tracker_dashboard_lastMonthTime"
                     android:textSize="12sp" />
 
                 <TextView

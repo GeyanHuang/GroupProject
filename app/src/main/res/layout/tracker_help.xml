@@ -20,7 +20,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/tracker_help_container"
         android:onClick="activity_help_dialog_ok"
-        android:text="@string/activity_delete_dialog_ok"
+        android:text="@string/tracker_delete_dialog_ok"
         android:textColor="@color/white" />
 
 </RelativeLayout>
