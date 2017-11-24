@@ -54,7 +54,7 @@ public class T_Insert extends Activity {
 
     }
 
-    public void insert_check(View view) {
+    public void tracker_insert_check(View view) {
         if (!editText_minute.getText().toString().equals("")) {
             Intent resultIntent = new Intent();
             resultIntent.putExtra("Minute", editText_minute.getText().toString());
@@ -69,7 +69,7 @@ public class T_Insert extends Activity {
         }
     }
 
-    public void insert_close(View view) {
+    public void tracker_insert_close(View view) {
         finish();
     }
 
@@ -85,7 +85,7 @@ public class T_Insert extends Activity {
         }
     }
 
-    public void activity_insert_date(View view) {
+    public void tracker_insert_date(View view) {
         showDialog(DIALOG_ID_DATE);
     }
 
@@ -115,7 +115,7 @@ public class T_Insert extends Activity {
         textView_date.setText((year + "-" + month + "-" + day));
     }
 
-    public void activity_insert_time(View view) {
+    public void tracker_insert_time(View view) {
         showDialog(DIALOG_ID_TIME);
     }
 
@@ -143,7 +143,7 @@ public class T_Insert extends Activity {
         textView_time.setText(hour + ":" + minute);
     }
 
-    public void activity_insert_comment_dialog(View view) {
+    public void tracker_insert_comment_dialog(View view) {
         AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
         View commentView = getLayoutInflater().inflate(R.layout.tracker_insert_dialog_comment, null);
         editText_comment = commentView.findViewById(R.id.tracker_insert_dialog_comment_editText);
@@ -157,12 +157,12 @@ public class T_Insert extends Activity {
         editText_comment.requestFocus();
     }
 
-    public void activity_insert_comment_check(View view) {
+    public void tracker_insert_comment_check(View view) {
         textView_comment.setText(editText_comment.getText());
         commentDialog.dismiss();
     }
 
-    public void activity_insert_minute(View view) {
+    public void tracker_insert_minute(View view) {
         InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
         imm.showSoftInput(editText_minute, InputMethodManager.SHOW_IMPLICIT);
     }

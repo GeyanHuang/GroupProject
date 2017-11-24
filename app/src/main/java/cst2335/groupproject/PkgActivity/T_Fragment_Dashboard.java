@@ -30,8 +30,8 @@ import cst2335.groupproject.R;
 public class T_Fragment_Dashboard extends Fragment implements View.OnClickListener {
 
     private View view;
-    private LinearLayout setDailyGoal;
-    private TextView textView_dailyGoal1, textView_dailyGoal2, textView_todayTime, textView_thisMonth, textView_lastMonth;
+    private LinearLayout layout_setDailyGoal;
+    private TextView textView_setDailyGoal, textView_dailyGoal, textView_todayTime, textView_thisMonth, textView_lastMonth;
     private EditText editText_setDailyGoal;
     private Dialog dialog_setDailyGoal;
     private ImageView setDailyGoalCheck;
@@ -51,15 +51,15 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.tracker_dashboard_fragment, container, false);
-        setDailyGoal = view.findViewById(R.id.tracker_dashboard_fragment_setDailyGoal);
-        setDailyGoal.setOnClickListener(this);
-        SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        layout_setDailyGoal = view.findViewById(R.id.tracker_dashboard_fragment_setDailyGoal);
+        layout_setDailyGoal.setOnClickListener(this);
+        SharedPreferences sharedPreferences1 = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences1.edit();
         editor.putString("Name", "T_Fragment_Dashboard");
         editor.apply();
 
-        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor anotherEditor = sharedPreferences.edit();
+        SharedPreferences sharedPreferences2 = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
+        SharedPreferences.Editor anotherEditor = sharedPreferences2.edit();
         anotherEditor.putString("Name", "T_Fragment_Dashboard");
         anotherEditor.apply();
         return view;
@@ -68,18 +68,18 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        textView_dailyGoal1 = view.findViewById(R.id.tracker_dashboard_fragment_textView_setDailyGoal);
-        textView_dailyGoal2 = view.findViewById(R.id.tracker_dashboard_fragment_textView_dailyGoal);
+        textView_setDailyGoal = view.findViewById(R.id.tracker_dashboard_fragment_textView_setDailyGoal);
+        textView_dailyGoal = view.findViewById(R.id.tracker_dashboard_fragment_textView_dailyGoal);
         textView_todayTime = view.findViewById(R.id.tracker_dashboard_fragment_textView_todayExerciseTime);
         textView_thisMonth = view.findViewById(R.id.tracker_dashboard_fragment_thisMonthTime);
         textView_lastMonth = view.findViewById(R.id.tracker_dashboard_fragment_lastMonthTime);
         progressBar = view.findViewById(R.id.tracker_dashboard_fragment_progressbar);
 
-        SharedPreferences sharedPref = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
 
-        String dailyGoal = sharedPref.getString("DailyGoal", "0");
-        textView_dailyGoal1.setText(dailyGoal);
-        textView_dailyGoal2.setText(dailyGoal);
+        String dailyGoal = sharedPreferences.getString("DailyGoal", "0");
+        textView_setDailyGoal.setText(dailyGoal);
+        textView_dailyGoal.setText(dailyGoal);
 
         databaseHelper = new T_DatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
@@ -143,7 +143,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
     }
 
     private void setProgressBar() {
-        int progress = (int) ((Double.parseDouble(textView_todayTime.getText().toString()) / Double.parseDouble(textView_dailyGoal2.getText().toString())) * 100);
+        int progress = (int) ((Double.parseDouble(textView_todayTime.getText().toString()) / Double.parseDouble(textView_dailyGoal.getText().toString())) * 100);
         progressBar.setProgress(progress);
     }
 
@@ -168,7 +168,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
                 setDailyGoalCheck = dailyGoalView.findViewById(R.id.tracker_dashboard_dialog_dailyGoal_check);
                 setDailyGoalCheck.setOnClickListener(this);
                 editText_setDailyGoal = dailyGoalView.findViewById(R.id.tracker_dashboard_dialog_dailyGoal_editText);
-                editText_setDailyGoal.setText(textView_dailyGoal1.getText());
+                editText_setDailyGoal.setText(textView_setDailyGoal.getText());
 
                 dailyGoalBuilder.setView(dailyGoalView);
                 dialog_setDailyGoal = dailyGoalBuilder.create();
@@ -178,11 +178,11 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
                 editText_setDailyGoal.requestFocus();
                 break;
             case R.id.tracker_dashboard_dialog_dailyGoal_check:
-                textView_dailyGoal1.setText(editText_setDailyGoal.getText());
-                textView_dailyGoal2.setText(editText_setDailyGoal.getText());
+                textView_setDailyGoal.setText(editText_setDailyGoal.getText());
+                textView_dailyGoal.setText(editText_setDailyGoal.getText());
 
-                SharedPreferences sharedPref = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
+                SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("DailyGoal", editText_setDailyGoal.getText().toString());
                 editor.apply();
 

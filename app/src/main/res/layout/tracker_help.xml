@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/tracker_help_container"
-        android:onClick="activity_help_dialog_ok"
+        android:onClick="tracker_help_dialog_ok"
         android:text="@string/tracker_delete_dialog_ok"
         android:textColor="@color/white" />
 

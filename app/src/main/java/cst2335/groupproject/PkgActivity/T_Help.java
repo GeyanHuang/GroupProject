@@ -49,7 +49,7 @@ public class T_Help extends AppCompatActivity {
 
     }
 
-    public void activity_help_dialog_ok(View view) {
+    public void tracker_help_dialog_ok(View view) {
         finish();
     }
 

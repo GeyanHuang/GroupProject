@@ -23,7 +23,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="insert_close"
+            android:onClick="tracker_insert_close"
             android:src="@drawable/ic_tracker_close_white" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="insert_check"
+            android:onClick="tracker_insert_check"
             android:src="@drawable/ic_tracker_check_white" />
     </LinearLayout>
 
@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/ic_tracker_xml_border_bottom"
-                    android:onClick="activity_insert_minute"
+                    android:onClick="tracker_insert_minute"
                     android:orientation="horizontal">
 
                     <EditText
@@ -142,7 +142,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/ic_tracker_xml_border_bottom"
-                    android:onClick="activity_insert_date"
+                    android:onClick="tracker_insert_date"
                     android:orientation="horizontal">
 
                     <TextView
@@ -185,7 +185,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/ic_tracker_xml_border_bottom"
-                    android:onClick="activity_insert_time"
+                    android:onClick="tracker_insert_time"
                     android:orientation="horizontal">
 
                     <TextView
@@ -228,7 +228,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/ic_tracker_xml_border_bottom"
-                    android:onClick="activity_insert_comment_dialog"
+                    android:onClick="tracker_insert_comment_dialog"
                     android:orientation="horizontal">
 
                     <TextView
@@ -248,7 +248,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:onClick="activity_update_delete"
+                android:onClick="tracker_update"
                 android:text="@string/tracker_update_delete"
                 android:textColor="@color/white" />
         </LinearLayout>

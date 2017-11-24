@@ -72,7 +72,7 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void deleteItem(String id) {
+    public void delete(String id) {
         getWritableDatabase().execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = " + id);
     }
 
@@ -88,7 +88,7 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
         return database.update(TABLE_NAME, values, COLUMN_ID + " = " + id, null);
     }
 
-    public Cursor getAllRecords() {
+    public Cursor read() {
         return database.query(TABLE_NAME, null, null, null, null, null, null);
     }
 }
