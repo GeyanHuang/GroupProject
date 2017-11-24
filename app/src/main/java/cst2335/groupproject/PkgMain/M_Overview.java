@@ -30,7 +30,7 @@ public class M_Overview extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.overview_main, container, false);
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -58,13 +58,13 @@ public class M_Overview extends Fragment {
     class InfoAdapter extends ArrayAdapter<Info> {
 
         public InfoAdapter(Context context, ArrayList<Info> info) {
-            super(context, R.layout.home_info, info);
+            super(context, R.layout.main_overview_info, info);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            View customView = inflater.inflate(R.layout.home_info, parent, false);
+            View customView = inflater.inflate(R.layout.main_overview_info, parent, false);
             item = customView.findViewById(R.id.textview_home_item);
             content = customView.findViewById(R.id.textview_home_content);
 

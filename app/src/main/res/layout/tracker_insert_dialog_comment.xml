@@ -31,7 +31,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:onClick="activity_insert_comment_check"
-            android:src="@drawable/ic_check_white" />
+            android:src="@drawable/ic_tracker_check_white" />
     </LinearLayout>
 
     <EditText
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_margin="10dp"
-        android:background="@drawable/edit_text_backgroud"
+        android:background="@drawable/ic_tracker_xml_edittext_backgroud"
         android:gravity="top"
         android:inputType="textCapSentences" />
 

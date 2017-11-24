@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo_algonquin" />
+            android:src="@drawable/ic_tracker_algonquin" />
 
         <ListView
             android:id="@+id/listview_home"

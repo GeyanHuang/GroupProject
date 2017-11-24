@@ -32,7 +32,7 @@ public class T_Main extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_nav_bot, container, false);
+        view = inflater.inflate(R.layout.tracker_main, container, false);
         return view;
     }
 

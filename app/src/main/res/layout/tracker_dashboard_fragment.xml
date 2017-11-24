@@ -18,7 +18,7 @@
                 android:id="@+id/activity_dashboard_setdailygoal"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
+                android:background="@drawable/ic_tracker_xml_border_bottom"
                 android:orientation="horizontal">
 
                 <TextView
@@ -46,7 +46,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
+                android:background="@drawable/ic_tracker_xml_border_bottom"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -54,7 +54,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/right_border"
+                    android:background="@drawable/ic_tracker_xml_border_right"
                     android:orientation="vertical">
 
                     <TextView
@@ -104,7 +104,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
+                android:background="@drawable/ic_tracker_xml_border_bottom"
                 android:orientation="horizontal">
 
                 <TextView
@@ -132,7 +132,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
+                android:background="@drawable/ic_tracker_xml_border_bottom"
                 android:orientation="vertical">
 
                 <TextView
@@ -156,7 +156,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/bottom_border"
+                android:background="@drawable/ic_tracker_xml_border_bottom"
                 android:orientation="vertical">
 
                 <TextView

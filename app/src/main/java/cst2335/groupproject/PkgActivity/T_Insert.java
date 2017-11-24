@@ -33,7 +33,7 @@ public class T_Insert extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insert);
+        setContentView(R.layout.tracker_insert);
 
         editText_minute = findViewById(R.id.activity_insert_edittext_minute);
         spinner_type = findViewById(R.id.activity_insert_spinner_type);
@@ -145,7 +145,7 @@ public class T_Insert extends Activity {
 
     public void activity_insert_comment_dialog(View view) {
         AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
-        View commentView = getLayoutInflater().inflate(R.layout.activity_insert_comment, null);
+        View commentView = getLayoutInflater().inflate(R.layout.tracker_insert_dialog_comment, null);
         editText_comment = commentView.findViewById(R.id.activity_insert_edittext_comment);
         editText_comment.setText(textView_comment.getText());
 

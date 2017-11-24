@@ -41,7 +41,7 @@ public class T_Fragment_ActivityList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_activity, container, false);
+        view = inflater.inflate(R.layout.tracker_activitylist_fragment, container, false);
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -112,13 +112,13 @@ public class T_Fragment_ActivityList extends Fragment {
     class InfoAdapter extends ArrayAdapter<Info> {
 
         public InfoAdapter(Context context, ArrayList<Info> info) {
-            super(context, R.layout.home_info, info);
+            super(context, R.layout.main_overview_info, info);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            View customView = inflater.inflate(R.layout.activity_info, parent, false);
+            View customView = inflater.inflate(R.layout.tracker_activitylist_info, parent, false);
             item = customView.findViewById(R.id.textview_activity_item);
             image = customView.findViewById(R.id.imageview_activity_item);
             min = customView.findViewById(R.id.textview_activity_min);
@@ -130,15 +130,15 @@ public class T_Fragment_ActivityList extends Fragment {
             desc.setText(getItem(position).desc);
             String[] items = getResources().getStringArray(R.array.activity_item_list);
             if (getItem(position).item.equals(items[0])) {
-                image.setImageResource(R.drawable.ic_run_white);
+                image.setImageResource(R.drawable.ic_tracker_run_white);
             } else if (getItem(position).item.equals(items[1])) {
-                image.setImageResource(R.drawable.ic_walk_white);
+                image.setImageResource(R.drawable.ic_tracker_walk_white);
             } else if (getItem(position).item.equals(items[2])) {
-                image.setImageResource(R.drawable.ic__bike_white);
+                image.setImageResource(R.drawable.ic_tracker_bike_white);
             } else if (getItem(position).item.equals(items[3])) {
-                image.setImageResource(R.drawable.ic_swim_white);
+                image.setImageResource(R.drawable.ic_tracker_swim_white);
             } else if (getItem(position).item.equals(items[4])) {
-                image.setImageResource(R.drawable.ic_skate_white);
+                image.setImageResource(R.drawable.ic_tracker_skate_white);
             }
             return customView;
         }

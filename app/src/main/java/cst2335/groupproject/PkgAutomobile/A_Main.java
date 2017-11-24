@@ -28,7 +28,7 @@ public class A_Main extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_automobile, container, false);
+        View view = inflater.inflate(R.layout.automobile_main, container, false);
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

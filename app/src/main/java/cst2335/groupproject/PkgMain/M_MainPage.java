@@ -28,7 +28,7 @@ public class M_MainPage extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.mian_page);
 
         SharedPreferences sharedPref = getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();

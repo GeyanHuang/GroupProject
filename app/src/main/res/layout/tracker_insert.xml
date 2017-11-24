@@ -5,19 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cst2335.groupproject.PkgActivity.T_Update">
+    tools:context="cst2335.groupproject.PkgActivity.T_Insert">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
         android:background="@color/colorPrimary"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="30dp"
@@ -26,7 +20,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:onClick="insert_close"
-            android:src="@drawable/ic_close_white" />
+            android:src="@drawable/ic_tracker_close_white" />
 
         <TextView
             android:layout_width="0dp"
@@ -35,7 +29,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="@string/activity_update_title"
+            android:text="@string/activity_insert_title"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -46,7 +40,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:onClick="insert_check"
-            android:src="@drawable/ic_check_white" />
+            android:src="@drawable/ic_tracker_check_white" />
     </LinearLayout>
 
     <ScrollView
@@ -67,7 +61,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_timer_black" />
+                    android:src="@drawable/ic_tracker_timer_black" />
 
                 <View
                     android:layout_width="20dp"
@@ -76,7 +70,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bottom_border"
+                    android:background="@drawable/ic_tracker_xml_border_bottom"
                     android:onClick="activity_insert_minute"
                     android:orientation="horizontal">
 
@@ -85,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/edit_text_backgroud"
+                        android:background="@drawable/ic_tracker_xml_edittext_backgroud"
                         android:hint="@string/activity_insert_minute"
                         android:inputType="number"
                         android:maxLines="1"
@@ -103,7 +97,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_fitness_black" />
+                    android:src="@drawable/ic_tracker_fitness_black" />
 
                 <View
                     android:layout_width="20dp"
@@ -112,7 +106,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bottom_border"
+                    android:background="@drawable/ic_tracker_xml_border_bottom"
                     android:orientation="horizontal">
                     <Spinner
                         android:id="@+id/activity_insert_spinner_type"
@@ -133,7 +127,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_date_black" />
+                    android:src="@drawable/ic_tracker_date_black" />
 
                 <View
                     android:layout_width="20dp"
@@ -142,7 +136,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bottom_border"
+                    android:background="@drawable/ic_tracker_xml_border_bottom"
                     android:onClick="activity_insert_date"
                     android:orientation="horizontal">
                     <TextView
@@ -175,7 +169,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_time_black" />
+                    android:src="@drawable/ic_tracker_time_black" />
 
                 <View
                     android:layout_width="20dp"
@@ -184,7 +178,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bottom_border"
+                    android:background="@drawable/ic_tracker_xml_border_bottom"
                     android:onClick="activity_insert_time"
                     android:orientation="horizontal">
                     <TextView
@@ -217,7 +211,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_comment_black" />
+                    android:src="@drawable/ic_tracker_comment_black" />
 
                 <View
                     android:layout_width="20dp"
@@ -226,7 +220,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bottom_border"
+                    android:background="@drawable/ic_tracker_xml_border_bottom"
                     android:onClick="activity_insert_comment_dialog"
                     android:orientation="horizontal">
                     <TextView
@@ -240,16 +234,6 @@
                         android:textSize="20sp" />
                 </LinearLayout>
             </LinearLayout>
-            <Button
-                style="@style/small_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="activity_update_delete"
-                android:text="@string/activity_update_delete"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/white"/>
         </LinearLayout>
     </ScrollView>
-
-
 </LinearLayout>

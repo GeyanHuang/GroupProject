@@ -50,7 +50,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_activity_dashboard, container, false);
+        view = inflater.inflate(R.layout.tracker_dashboard_fragment, container, false);
         setDailyGoal = view.findViewById(R.id.activity_dashboard_setdailygoal);
         setDailyGoal.setOnClickListener(this);
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
@@ -164,7 +164,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         switch (v.getId()) {
             case R.id.activity_dashboard_setdailygoal:
                 AlertDialog.Builder dailyGoalBuilder = new AlertDialog.Builder(view.getContext());
-                View dailyGoalView = getLayoutInflater().inflate(R.layout.activity_dashboard_dailygoal, null);
+                View dailyGoalView = getLayoutInflater().inflate(R.layout.tracker_dashboard_dialog_dailygoal, null);
                 setDailyGoalCheck = dailyGoalView.findViewById(R.id.activity_dashboard_dailygoal_check);
                 setDailyGoalCheck.setOnClickListener(this);
                 editText_setDailyGoal = dailyGoalView.findViewById(R.id.activity_dashboard_edittext_dailygoal);

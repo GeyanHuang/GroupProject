@@ -36,7 +36,7 @@ public class T_Help extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_help);
+        setContentView(R.layout.tracker_help);
         this.setFinishOnTouchOutside(false);
 
         // Create the adapter that will return a fragment for each of the three
@@ -81,35 +81,35 @@ public class T_Help extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_activity_menu_help, container, false);
+            View rootView = inflater.inflate(R.layout.tracker_help_fragment, container, false);
             ImageView imageView = (ImageView) rootView.findViewById(R.id.section_label);
             ImageView help_progress = (ImageView) rootView.findViewById(R.id.help_progress);
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
-                        imageView.setImageResource(R.drawable.activity_help_p1_zh);
+                        imageView.setImageResource(R.drawable.ic_tracker_help_p1_zh);
                     }else {
-                        imageView.setImageResource(R.drawable.activity_help_p1);
+                        imageView.setImageResource(R.drawable.ic_tracker_help_p1);
 
                     }
-                    help_progress.setImageResource(R.drawable.help_tab1);
+                    help_progress.setImageResource(R.drawable.ic_tracker_help_tab1);
                     break;
                 case 2:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
-                        imageView.setImageResource(R.drawable.activity_help_p2_zh);
+                        imageView.setImageResource(R.drawable.ic_tracker_help_p2_zh);
                     }else{
-                        imageView.setImageResource(R.drawable.activity_help_p2);
+                        imageView.setImageResource(R.drawable.ic_tracker_help_p2);
                     }
-                    help_progress.setImageResource(R.drawable.help_tab2);
+                    help_progress.setImageResource(R.drawable.ic_tracker_help_tab2);
                     break;
                 case 3:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
-                        imageView.setImageResource(R.drawable.activity_help_p3_zh);
+                        imageView.setImageResource(R.drawable.ic_tracker_help_p3_zh);
                     }else{
-                        imageView.setImageResource(R.drawable.activity_help_p3);
+                        imageView.setImageResource(R.drawable.ic_tracker_help_p3);
                     }
-                    help_progress.setImageResource(R.drawable.help_tab3);
+                    help_progress.setImageResource(R.drawable.ic_tracker_help_tab3);
                     break;
             }
 
