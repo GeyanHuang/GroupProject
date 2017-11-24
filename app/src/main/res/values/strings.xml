@@ -1,5 +1,5 @@
 <resources>
-    <string-array name="home_item_list">
+    <string-array name="overview_list_item">
         <item>Season</item>
         <item>Course</item>
         <item>Assignment</item>
@@ -10,7 +10,7 @@
         <item>House Thermostat Author</item>
         <item>Automobile Author</item>
     </string-array>
-    <string-array name="home_content_list">
+    <string-array name="overview_list_content">
         <item>2017 Fall</item>
         <item>CST2335 Mobile Graphical Interface Prog</item>
         <item>Final Assignment</item>
@@ -21,7 +21,7 @@
         <item>Hao Liu</item>
         <item>Bin Yang</item>
     </string-array>
-    <string-array name="activity_item_list">
+    <string-array name="tracker_list_type">
         <item>Running</item>
         <item>Walking</item>
         <item>Biking</item>

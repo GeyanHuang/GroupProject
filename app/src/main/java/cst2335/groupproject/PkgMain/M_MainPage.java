@@ -30,8 +30,8 @@ public class M_MainPage extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
 
-        SharedPreferences sharedPref = getSharedPreferences("Layout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        SharedPreferences sharedPreferences = getSharedPreferences("Layout", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("Name", "M_MainPage");
         editor.apply();
 

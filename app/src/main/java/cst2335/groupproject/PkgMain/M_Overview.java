@@ -32,8 +32,8 @@ public class M_Overview extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.overview_main, container, false);
 
-        SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("Name", "M_Overview");
         editor.apply();
         // Inflate the layout for this fragment
