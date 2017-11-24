@@ -74,5 +74,5 @@
     <string name="help_skip">Skip</string>
     <string name="enter_food">Enter Food Nutrition information tracker...</string>
     <string name="enter_house">Enter House Thermostat...</string>
-    <string name="enter_automobile">Enter Automobile...</string>
+    <string name="automobile_main_enter_automobile">Enter Automobile...</string>
 </resources>

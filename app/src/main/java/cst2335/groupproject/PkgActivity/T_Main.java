@@ -60,10 +60,10 @@ public class T_Main extends Fragment {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (id == R.id.activity_nav_bot_list) {
+                if (id == R.id.tracker_nav_bot_list) {
                     openList();
                 }
-                if (id == R.id.activity_nav_bot_dashboard) {
+                if (id == R.id.tracker_nav_bot_dashboard) {
                     openDashboard();
                 }
                 return true;

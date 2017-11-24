@@ -78,7 +78,7 @@ public class M_MainPage extends AppCompatActivity
     public void showActivityHelp(boolean showMenu){
         if(menu == null)
             return;
-        menu.setGroupVisible(R.id.menu_activity, showMenu);
+        menu.setGroupVisible(R.id.tracker_menu_group, showMenu);
     }
 
     @Override
@@ -89,14 +89,14 @@ public class M_MainPage extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_help) {
+        if (id == R.id.tracker_menu_action_help) {
             Intent intent = new Intent(M_MainPage.this, T_Help.class);
             startActivity(intent);
 
             return true;
         }
 
-        if (id == R.id.action_quit) {
+        if (id == R.id.tracker_menu_action_quit) {
             finishAffinity();
             return true;
         }
@@ -113,32 +113,32 @@ public class M_MainPage extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_activity) {
+        if (id == R.id.main_drawer_nav_activity) {
             showActivityHelp(true);
             T_Main fragment = new T_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_food) {
+        } else if (id == R.id.main_drawer_nav_food) {
             F_Main fragment = new F_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_house) {
+        } else if (id == R.id.main_drawer_nav_house) {
             H_Main fragment = new H_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_automobile) {
+        } else if (id == R.id.main_drawer_nav_automobile) {
             A_Main fragment = new A_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_home) {
+        } else if (id == R.id.main_drawer_nav_home) {
             M_Overview fragment = new M_Overview();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();

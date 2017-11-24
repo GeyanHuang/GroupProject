@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/activity_nav_bot_list"
+        android:id="@+id/tracker_nav_bot_list"
         android:icon="@drawable/ic_tracker_list_white"
         android:title="@string/activity_nav_bot_list" />
     <item
-        android:id="@+id/activity_nav_bot_dashboard"
+        android:id="@+id/tracker_nav_bot_dashboard"
         android:icon="@drawable/ic_tracker_dashboard_white"
         android:title="@string/activity_nav_bot_dashboard" />
 </menu>

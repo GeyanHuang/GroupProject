@@ -75,5 +75,5 @@
     <string name="help_skip">跳过</string>
     <string name="enter_food">进入食品营养信息跟踪...</string>
     <string name="enter_house">进入房子恒温器...</string>
-    <string name="enter_automobile">进入汽车...</string>
+    <string name="automobile_main_enter_automobile">进入汽车...</string>
 </resources>
