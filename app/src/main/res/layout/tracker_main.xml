@@ -26,7 +26,7 @@
             android:background="@color/colorAccent"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
-            design:menu="@menu/nav_bot_items" />
+            design:menu="@menu/tracker_nav_bot" />
     </RelativeLayout>
 
 </FrameLayout>

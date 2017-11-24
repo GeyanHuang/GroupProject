@@ -63,7 +63,7 @@ public class M_MainPage extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         this.menu = menu;
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.tracker_menu, menu);
         SharedPreferences sharedPref = getSharedPreferences("Layout", Context.MODE_PRIVATE);
         String name = sharedPref.getString("Name", "0");
 
