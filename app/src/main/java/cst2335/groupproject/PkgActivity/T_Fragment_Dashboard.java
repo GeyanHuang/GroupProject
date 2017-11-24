@@ -51,7 +51,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.tracker_dashboard_fragment, container, false);
-        setDailyGoal = view.findViewById(R.id.activity_dashboard_setdailygoal);
+        setDailyGoal = view.findViewById(R.id.tracker_dashboard_fragment_setDailyGoal);
         setDailyGoal.setOnClickListener(this);
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -68,12 +68,12 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        textView_dailyGoal1 = view.findViewById(R.id.activity_dashboard_dailygoal);
-        textView_dailyGoal2 = view.findViewById(R.id.activity_dashboard_textview_dailygoal);
-        textView_todayTime = view.findViewById(R.id.activity_dashboard_textview_todayexercise);
-        textView_thisMonth = view.findViewById(R.id.activity_dashboard_thismonth);
-        textView_lastMonth = view.findViewById(R.id.activity_dashboard_lastmonth);
-        progressBar = view.findViewById(R.id.activity_dashboard_progressbar);
+        textView_dailyGoal1 = view.findViewById(R.id.tracker_dashboard_fragment_textView_setDailyGoal);
+        textView_dailyGoal2 = view.findViewById(R.id.tracker_dashboard_fragment_textView_dailyGoal);
+        textView_todayTime = view.findViewById(R.id.tracker_dashboard_fragment_textView_todayExerciseTime);
+        textView_thisMonth = view.findViewById(R.id.tracker_dashboard_fragment_thisMonthTime);
+        textView_lastMonth = view.findViewById(R.id.tracker_dashboard_fragment_lastMonthTime);
+        progressBar = view.findViewById(R.id.tracker_dashboard_fragment_progressbar);
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("User info", Context.MODE_PRIVATE);
 
@@ -162,12 +162,12 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.activity_dashboard_setdailygoal:
+            case R.id.tracker_dashboard_fragment_setDailyGoal:
                 AlertDialog.Builder dailyGoalBuilder = new AlertDialog.Builder(view.getContext());
                 View dailyGoalView = getLayoutInflater().inflate(R.layout.tracker_dashboard_dialog_dailygoal, null);
-                setDailyGoalCheck = dailyGoalView.findViewById(R.id.activity_dashboard_dailygoal_check);
+                setDailyGoalCheck = dailyGoalView.findViewById(R.id.tracker_dashboard_dialog_dailyGoal_check);
                 setDailyGoalCheck.setOnClickListener(this);
-                editText_setDailyGoal = dailyGoalView.findViewById(R.id.activity_dashboard_edittext_dailygoal);
+                editText_setDailyGoal = dailyGoalView.findViewById(R.id.tracker_dashboard_dialog_dailyGoal_editText);
                 editText_setDailyGoal.setText(textView_dailyGoal1.getText());
 
                 dailyGoalBuilder.setView(dailyGoalView);
@@ -177,7 +177,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
                 dialog_setDailyGoal.show();
                 editText_setDailyGoal.requestFocus();
                 break;
-            case R.id.activity_dashboard_dailygoal_check:
+            case R.id.tracker_dashboard_dialog_dailyGoal_check:
                 textView_dailyGoal1.setText(editText_setDailyGoal.getText());
                 textView_dailyGoal2.setText(editText_setDailyGoal.getText());
 

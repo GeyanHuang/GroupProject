@@ -25,7 +25,7 @@
             android:textSize="20sp" />
 
         <ImageView
-            android:id="@+id/activity_dashboard_dailygoal_check"
+            android:id="@+id/tracker_dashboard_dialog_dailyGoal_check"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
@@ -35,7 +35,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/activity_dashboard_edittext_dailygoal"
+        android:id="@+id/tracker_dashboard_dialog_dailyGoal_editText"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_margin="10dp"

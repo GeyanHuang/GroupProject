@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:layout_margin="10dp"
-    android:orientation="vertical"
-    tools:context="cst2335.groupproject.PkgActivity.T_Help">
+    android:orientation="vertical">
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/container"
+        android:id="@+id/tracker_help_container"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
@@ -20,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/container"
+        android:layout_below="@+id/tracker_help_container"
         android:onClick="activity_help_dialog_ok"
         android:text="@string/activity_delete_dialog_ok"
         android:textColor="@color/white" />

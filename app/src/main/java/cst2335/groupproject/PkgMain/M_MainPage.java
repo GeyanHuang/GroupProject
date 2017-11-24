@@ -28,14 +28,14 @@ public class M_MainPage extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mian_page);
+        setContentView(R.layout.main_page);
 
         SharedPreferences sharedPref = getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("Name", "M_MainPage");
         editor.apply();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.main_app_bar_toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -44,7 +44,7 @@ public class M_MainPage extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.main_page_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -118,31 +118,31 @@ public class M_MainPage extends AppCompatActivity
             T_Main fragment = new T_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_food) {
             F_Main fragment = new F_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_house) {
             H_Main fragment = new H_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_automobile) {
             A_Main fragment = new A_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_home) {
             M_Overview fragment = new M_Overview();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.replace(R.id.main_app_bar_container_fragment, fragment);
             fragmentTransaction.commit();
         }
 

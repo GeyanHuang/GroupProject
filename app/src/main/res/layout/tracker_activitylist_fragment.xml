@@ -1,9 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="cst2335.groupproject.PkgActivity.T_Fragment_ActivityList">
+    android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.design.widget.CoordinatorLayout
@@ -12,18 +10,18 @@
         android:orientation="vertical">
 
         <ListView
-            android:id="@+id/listview_activity"
+            android:id="@+id/tracker_activityList_fragment_listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/activity_insertbutton"
+            android:id="@+id/tracker_activityList_fragment_button_insert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:src="@android:drawable/ic_menu_add"
-            app:layout_anchor="@+id/listview_activity"
+            app:layout_anchor="@+id/tracker_activityList_fragment_listView"
             app:layout_anchorGravity="right|bottom" />
     </android.support.design.widget.CoordinatorLayout>
 

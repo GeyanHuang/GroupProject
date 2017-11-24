@@ -44,7 +44,7 @@ public class T_Help extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(R.id.tracker_help_container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
     }
@@ -82,8 +82,8 @@ public class T_Help extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.tracker_help_fragment, container, false);
-            ImageView imageView = (ImageView) rootView.findViewById(R.id.section_label);
-            ImageView help_progress = (ImageView) rootView.findViewById(R.id.help_progress);
+            ImageView imageView = (ImageView) rootView.findViewById(R.id.tracker_help_fragment_section_label);
+            ImageView help_progress = (ImageView) rootView.findViewById(R.id.tracker_help_fragment_progress);
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:

@@ -1,8 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="cst2335.groupproject.PkgActivity.T_Fragment_Dashboard">
+    android:layout_height="match_parent">
 
 
     <ScrollView
@@ -15,7 +13,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/activity_dashboard_setdailygoal"
+                android:id="@+id/tracker_dashboard_fragment_setDailyGoal"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/ic_tracker_xml_border_bottom"
@@ -34,7 +32,7 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:id="@+id/activity_dashboard_dailygoal"
+                    android:id="@+id/tracker_dashboard_fragment_textView_setDailyGoal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -66,7 +64,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/activity_dashboard_textview_todayexercise"
+                        android:id="@+id/tracker_dashboard_fragment_textView_todayExerciseTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -91,7 +89,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/activity_dashboard_textview_dailygoal"
+                        android:id="@+id/tracker_dashboard_fragment_textView_dailyGoal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -120,7 +118,7 @@
                     android:layout_weight="1" />
 
                 <ProgressBar
-                    android:id="@+id/activity_dashboard_progressbar"
+                    android:id="@+id/tracker_dashboard_fragment_progressbar"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
@@ -144,7 +142,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/activity_dashboard_thismonth"
+                    android:id="@+id/tracker_dashboard_fragment_thisMonthTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -168,7 +166,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/activity_dashboard_lastmonth"
+                    android:id="@+id/tracker_dashboard_fragment_lastMonthTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

@@ -58,15 +58,15 @@ public class M_Overview extends Fragment {
     class InfoAdapter extends ArrayAdapter<Info> {
 
         public InfoAdapter(Context context, ArrayList<Info> info) {
-            super(context, R.layout.main_overview_info, info);
+            super(context, R.layout.overview_info, info);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            View customView = inflater.inflate(R.layout.main_overview_info, parent, false);
-            item = customView.findViewById(R.id.textview_home_item);
-            content = customView.findViewById(R.id.textview_home_content);
+            View customView = inflater.inflate(R.layout.overview_info, parent, false);
+            item = customView.findViewById(R.id.main_overview_info_textView_item);
+            content = customView.findViewById(R.id.main_overview_info_textView_content);
 
             item.setText(getItem(position).item);
             content.setText(getItem(position).content);
@@ -84,7 +84,7 @@ public class M_Overview extends Fragment {
         String[] contents = getResources().getStringArray(R.array.home_content_list);
         for (int i = 0; i < items.length; i++)
             info.add(new Info(items[i], contents[i]));
-        listView = view.findViewById(R.id.listview_home);
+        listView = view.findViewById(R.id.overview_main_listView);
         InfoAdapter adapter = new InfoAdapter(view.getContext(), info);
         listView.setAdapter(adapter);
     }

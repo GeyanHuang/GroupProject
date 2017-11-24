@@ -35,11 +35,11 @@ public class T_Insert extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tracker_insert);
 
-        editText_minute = findViewById(R.id.activity_insert_edittext_minute);
-        spinner_type = findViewById(R.id.activity_insert_spinner_type);
-        textView_date = findViewById(R.id.activity_insert_date);
-        textView_time = findViewById(R.id.activity_insert_time);
-        textView_comment = findViewById(R.id.activity_insert_textview_comment);
+        editText_minute = findViewById(R.id.tracker_insert_editText_minute);
+        spinner_type = findViewById(R.id.tracker_insert_spinner_type);
+        textView_date = findViewById(R.id.tracker_insert_textView_date);
+        textView_time = findViewById(R.id.tracker_insert_textView_time);
+        textView_comment = findViewById(R.id.tracker_insert_textView_comment);
 
 
         final Calendar cal = Calendar.getInstance();
@@ -146,7 +146,7 @@ public class T_Insert extends Activity {
     public void activity_insert_comment_dialog(View view) {
         AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
         View commentView = getLayoutInflater().inflate(R.layout.tracker_insert_dialog_comment, null);
-        editText_comment = commentView.findViewById(R.id.activity_insert_edittext_comment);
+        editText_comment = commentView.findViewById(R.id.tracker_insert_dialog_comment_editText);
         editText_comment.setText(textView_comment.getText());
 
         commentBuilder.setView(commentView);

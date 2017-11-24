@@ -112,18 +112,18 @@ public class T_Fragment_ActivityList extends Fragment {
     class InfoAdapter extends ArrayAdapter<Info> {
 
         public InfoAdapter(Context context, ArrayList<Info> info) {
-            super(context, R.layout.main_overview_info, info);
+            super(context, R.layout.overview_info, info);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             View customView = inflater.inflate(R.layout.tracker_activitylist_info, parent, false);
-            item = customView.findViewById(R.id.textview_activity_item);
-            image = customView.findViewById(R.id.imageview_activity_item);
-            min = customView.findViewById(R.id.textview_activity_min);
-            date = customView.findViewById(R.id.textview_activity_date);
-            desc = customView.findViewById(R.id.textview_activity_desc);
+            item = customView.findViewById(R.id.tracker_activityList_info_textView_type);
+            image = customView.findViewById(R.id.tracker_activityList_info_imageView_type);
+            min = customView.findViewById(R.id.tracker_activityList_info_textView_minute);
+            date = customView.findViewById(R.id.tracker_activityList_info_textView_date_and_time);
+            desc = customView.findViewById(R.id.tracker_activityList_info_textView_comment);
             item.setText(getItem(position).item);
             min.setText(getItem(position).min + " " + getResources().getString(R.string.activity_insert_minute));
             date.setText(getItem(position).date + " " + getItem(position).time);
@@ -149,7 +149,7 @@ public class T_Fragment_ActivityList extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         info = new ArrayList<>();
-        listView = view.findViewById(R.id.listview_activity);
+        listView = view.findViewById(R.id.tracker_activityList_fragment_listView);
         adapter = new InfoAdapter(view.getContext(), info);
         listView.setAdapter(adapter);
 
@@ -175,7 +175,7 @@ public class T_Fragment_ActivityList extends Fragment {
             }
         });
 
-        insert = view.findViewById(R.id.activity_insertbutton);
+        insert = view.findViewById(R.id.tracker_activityList_fragment_button_insert);
 
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,7 +236,7 @@ public class T_Fragment_ActivityList extends Fragment {
                     }
                     databaseHelper.insert(minutes, type, date, time, comment);
                     showHistory();
-                    Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_insert_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                    Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.activity_insert_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 break;
             case 2:
@@ -252,14 +252,14 @@ public class T_Fragment_ActivityList extends Fragment {
                     }
                     databaseHelper.update(id, minutes, type, date, time, comment);
                     showHistory();
-                    Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_update_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                    Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.activity_update_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 break;
             case 3:
                 String id = data.getStringExtra("Id");
                 databaseHelper.deleteItem(id);
                 showHistory();
-                Snackbar.make(view.findViewById(R.id.activity_insertbutton), R.string.activity_delete_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.activity_delete_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 break;
         }
     }

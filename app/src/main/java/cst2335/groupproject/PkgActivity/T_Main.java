@@ -40,7 +40,7 @@ public class T_Main extends Fragment {
         T_Fragment_ActivityList fragment = new T_Fragment_ActivityList();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getChildFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
+        fragmentTransaction.replace(R.id.tracker_main_container_fragment, fragment);
         fragmentTransaction.commit();
     }
 
@@ -48,14 +48,14 @@ public class T_Main extends Fragment {
         T_Fragment_Dashboard fragment = new T_Fragment_Dashboard();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getChildFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
+        fragmentTransaction.replace(R.id.tracker_main_container_fragment, fragment);
         fragmentTransaction.commit();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        botNav = view.findViewById(R.id.activity_nav_bar);
+        botNav = view.findViewById(R.id.tracker_main_nav_bar);
         botNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
