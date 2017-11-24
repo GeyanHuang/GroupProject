@@ -1,4 +1,4 @@
-package cst2335.groupproject.PkgHouse;
+package cst2335.groupproject.PkgAutomobile;
 
 
 import android.content.Context;
@@ -16,10 +16,10 @@ import cst2335.groupproject.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HouseFragment extends Fragment {
+public class A_Main extends Fragment {
 
 
-    public HouseFragment() {
+    public A_Main() {
         // Required empty public constructor
     }
 
@@ -28,18 +28,19 @@ public class HouseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_house, container, false);
+        View view = inflater.inflate(R.layout.fragment_automobile, container, false);
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("Name", "HouseFragment");
+        editor.putString("Name", "A_Main");
         editor.apply();
+
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.menu_house);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.menu_automobile);
     }
 }

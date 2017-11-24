@@ -1,4 +1,4 @@
-package cst2335.groupproject.PkgHome;
+package cst2335.groupproject.PkgMain;
 
 
 import android.content.Context;
@@ -22,8 +22,8 @@ import cst2335.groupproject.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
-    public HomeFragment() {
+public class M_Overview extends Fragment {
+    public M_Overview() {
         // Required empty public constructor
     }
 
@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("Name", "HomeFragment");
+        editor.putString("Name", "M_Overview");
         editor.apply();
         // Inflate the layout for this fragment
         return view;

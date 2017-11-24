@@ -29,10 +29,10 @@ import cst2335.groupproject.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ActivityFragment extends Fragment {
+public class T_Fragment_ActivityList extends Fragment {
 
 
-    public ActivityFragment() {
+    public T_Fragment_ActivityList() {
         // Required empty public constructor
     }
 
@@ -45,18 +45,18 @@ public class ActivityFragment extends Fragment {
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("Name", "ActivityFragment");
+        editor.putString("Name", "T_Fragment_ActivityList");
         editor.apply();
 
         SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
         SharedPreferences.Editor anotherEditor = sharedPreferences.edit();
-        anotherEditor.putString("Name", "ActivityFragment");
+        anotherEditor.putString("Name", "T_Fragment_ActivityList");
         anotherEditor.apply();
 
         return view;
     }
 
-    private ActivityDatabaseHelper databaseHelper;
+    private T_DatabaseHelper databaseHelper;
     private View view;
     private ListView listView;
     private TextView item, min, date, desc;
@@ -164,7 +164,7 @@ public class ActivityFragment extends Fragment {
                 String date = info.getDate();
                 String time = info.getTime();
                 String comment = info.getDesc();
-                Intent intent = new Intent(view.getContext(), ActivityUpdate.class);
+                Intent intent = new Intent(view.getContext(), T_Update.class);
                 intent.putExtra("Id", id);
                 intent.putExtra("Type", type);
                 intent.putExtra("Minute", minute);
@@ -180,11 +180,11 @@ public class ActivityFragment extends Fragment {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), ActivityInsert.class);
+                Intent intent = new Intent(view.getContext(), T_Insert.class);
                 startActivityForResult(intent, 1);
             }
         });
-        databaseHelper = new ActivityDatabaseHelper(view.getContext());
+        databaseHelper = new T_DatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
         showHistory();
     }

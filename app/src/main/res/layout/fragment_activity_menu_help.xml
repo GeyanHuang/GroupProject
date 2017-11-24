@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cst2335.groupproject.PkgActivity.ActivityMenuHelp$PlaceholderFragment">
+    tools:context="cst2335.groupproject.PkgActivity.T_Help$PlaceholderFragment">
 
     <ImageView
         android:id="@+id/section_label"

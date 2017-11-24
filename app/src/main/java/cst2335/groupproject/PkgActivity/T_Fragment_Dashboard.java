@@ -27,7 +27,7 @@ import cst2335.groupproject.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentActivityDashboard extends Fragment implements View.OnClickListener {
+public class T_Fragment_Dashboard extends Fragment implements View.OnClickListener {
 
     private View view;
     private LinearLayout setDailyGoal;
@@ -39,9 +39,9 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
 
     private String year, month, day;
 
-    private ActivityDatabaseHelper databaseHelper;
+    private T_DatabaseHelper databaseHelper;
 
-    public FragmentActivityDashboard() {
+    public T_Fragment_Dashboard() {
         // Required empty public constructor
     }
 
@@ -55,12 +55,12 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         setDailyGoal.setOnClickListener(this);
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("Name", "FragmentActivityDashboard");
+        editor.putString("Name", "T_Fragment_Dashboard");
         editor.apply();
 
         SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
         SharedPreferences.Editor anotherEditor = sharedPreferences.edit();
-        anotherEditor.putString("Name", "FragmentActivityDashboard");
+        anotherEditor.putString("Name", "T_Fragment_Dashboard");
         anotherEditor.apply();
         return view;
     }
@@ -81,7 +81,7 @@ public class FragmentActivityDashboard extends Fragment implements View.OnClickL
         textView_dailyGoal1.setText(dailyGoal);
         textView_dailyGoal2.setText(dailyGoal);
 
-        databaseHelper = new ActivityDatabaseHelper(view.getContext());
+        databaseHelper = new T_DatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
 
         textView_todayTime.setText(getTodayExerciseTime() + "");

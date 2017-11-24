@@ -13,18 +13,17 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import cst2335.groupproject.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentNavBot extends Fragment {
+public class T_Main extends Fragment {
     View view;
     private BottomNavigationView botNav;
 
-    public FragmentNavBot() {
+    public T_Main() {
         // Required empty public constructor
     }
 
@@ -38,7 +37,7 @@ public class FragmentNavBot extends Fragment {
     }
 
     private void openList() {
-        ActivityFragment fragment = new ActivityFragment();
+        T_Fragment_ActivityList fragment = new T_Fragment_ActivityList();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getChildFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
@@ -46,7 +45,7 @@ public class FragmentNavBot extends Fragment {
     }
 
     private void openDashboard() {
-        FragmentActivityDashboard fragment = new FragmentActivityDashboard();
+        T_Fragment_Dashboard fragment = new T_Fragment_Dashboard();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getChildFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.activity_fragment_container, fragment);
@@ -73,7 +72,7 @@ public class FragmentNavBot extends Fragment {
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
         String name = sharedPref.getString("Name", "0");
 
-        if (name.equals("ActivityFragment")) {
+        if (name.equals("T_Fragment_ActivityList")) {
             botNav.getMenu().getItem(0).setChecked(true);
             openList();
         } else {

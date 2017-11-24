@@ -1,4 +1,4 @@
-package cst2335.groupproject.PkgHome;
+package cst2335.groupproject.PkgMain;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,14 +13,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import cst2335.groupproject.PkgActivity.ActivityMenuHelp;
-import cst2335.groupproject.PkgActivity.FragmentNavBot;
-import cst2335.groupproject.PkgAutomobile.AutomobileFragment;
-import cst2335.groupproject.PkgFood.FoodFragment;
-import cst2335.groupproject.PkgHouse.HouseFragment;
+import cst2335.groupproject.PkgActivity.T_Help;
+import cst2335.groupproject.PkgActivity.T_Main;
+import cst2335.groupproject.PkgAutomobile.A_Main;
+import cst2335.groupproject.PkgFood.F_Main;
+import cst2335.groupproject.PkgHouse.H_Main;
 import cst2335.groupproject.R;
 
-public class Home extends AppCompatActivity
+public class M_MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private NavigationView navigationView;
     private Menu menu;
@@ -32,7 +32,7 @@ public class Home extends AppCompatActivity
 
         SharedPreferences sharedPref = getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("Name", "Home");
+        editor.putString("Name", "M_MainPage");
         editor.apply();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -67,7 +67,7 @@ public class Home extends AppCompatActivity
         SharedPreferences sharedPref = getSharedPreferences("Layout", Context.MODE_PRIVATE);
         String name = sharedPref.getString("Name", "0");
 
-        if(name.equals("ActivityFragment")||name.equals("FragmentActivityDashboard")){
+        if(name.equals("T_Fragment_ActivityList")||name.equals("T_Fragment_Dashboard")){
             showActivityHelp(true);
         }else {
             showActivityHelp(false);
@@ -84,13 +84,13 @@ public class Home extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the M_MainPage/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_help) {
-            Intent intent = new Intent(Home.this, ActivityMenuHelp.class);
+            Intent intent = new Intent(M_MainPage.this, T_Help.class);
             startActivity(intent);
 
             return true;
@@ -115,31 +115,31 @@ public class Home extends AppCompatActivity
 
         if (id == R.id.nav_activity) {
             showActivityHelp(true);
-            FragmentNavBot fragment = new FragmentNavBot();
+            T_Main fragment = new T_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_food) {
-            FoodFragment fragment = new FoodFragment();
+            F_Main fragment = new F_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_house) {
-            HouseFragment fragment = new HouseFragment();
+            H_Main fragment = new H_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_automobile) {
-            AutomobileFragment fragment = new AutomobileFragment();
+            A_Main fragment = new A_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_home) {
-            HomeFragment fragment = new HomeFragment();
+            M_Overview fragment = new M_Overview();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);

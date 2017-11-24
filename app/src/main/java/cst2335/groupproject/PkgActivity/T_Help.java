@@ -16,7 +16,7 @@ import java.util.Locale;
 
 import cst2335.groupproject.R;
 
-public class ActivityMenuHelp extends AppCompatActivity {
+public class T_Help extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide

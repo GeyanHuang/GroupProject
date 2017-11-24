@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cst2335.groupproject.PkgActivity.ActivityFragment">
+    tools:context="cst2335.groupproject.PkgActivity.T_Fragment_ActivityList">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.design.widget.CoordinatorLayout

@@ -1,17 +1,15 @@
 package cst2335.groupproject.PkgActivity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -19,9 +17,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import cst2335.groupproject.R;
 
-public class ActivityUpdate extends AppCompatActivity {
+public class T_Insert extends Activity {
     TextView textView_date, textView_time, textView_comment;
     Spinner spinner_type;
     AlertDialog commentDialog;
@@ -30,12 +30,10 @@ public class ActivityUpdate extends AppCompatActivity {
     static final int DIALOG_ID_TIME = 2;
     EditText editText_minute, editText_comment;
 
-    String id;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update);
+        setContentView(R.layout.activity_insert);
 
         editText_minute = findViewById(R.id.activity_insert_edittext_minute);
         spinner_type = findViewById(R.id.activity_insert_spinner_type);
@@ -43,58 +41,31 @@ public class ActivityUpdate extends AppCompatActivity {
         textView_time = findViewById(R.id.activity_insert_time);
         textView_comment = findViewById(R.id.activity_insert_textview_comment);
 
-        id = getIntent().getStringExtra("Id");
-        String type = getIntent().getStringExtra("Type");
-        String minute = getIntent().getStringExtra("Minute");
-        String comment = getIntent().getStringExtra("Comment");
-        String date = getIntent().getStringExtra("Date");
-        String time = getIntent().getStringExtra("Time");
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.activity_item_list, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_type.setAdapter(adapter);
-        if (!type.equals(null)) {
-            int spinnerPosition = adapter.getPosition(type);
-            spinner_type.setSelection(spinnerPosition);
-        }
-
-        editText_minute.setText(minute.replace(" Min", ""));
-        textView_comment.setText(comment);
-
-        if (!date.equals("")) {
-            String[] dates = date.split("-");
-            x_year = Integer.parseInt(dates[0]);
-            x_month = Integer.parseInt(dates[1]) - 1;
-            x_day = Integer.parseInt(dates[2]);
-        }
-
-        if (!time.equals("")) {
-            String[] times = time.split(":");
-            x_hour = Integer.parseInt(times[0]);
-            x_minute = Integer.parseInt(times[1]);
-        }
+        final Calendar cal = Calendar.getInstance();
+        x_year = cal.get(Calendar.YEAR);
+        x_month = cal.get(Calendar.MONTH);
+        x_day = cal.get(Calendar.DAY_OF_MONTH);
+        x_hour = cal.get(Calendar.HOUR_OF_DAY);
+        x_minute = cal.get(Calendar.MINUTE);
 
         setDate();
         setTime();
 
-        editText_minute.requestFocus();
     }
 
     public void insert_check(View view) {
-
         if (!editText_minute.getText().toString().equals("")) {
             Intent resultIntent = new Intent();
-            resultIntent.putExtra("Id", id);
             resultIntent.putExtra("Minute", editText_minute.getText().toString());
             resultIntent.putExtra("Type", spinner_type.getSelectedItem().toString());
             resultIntent.putExtra("Date", textView_date.getText().toString());
             resultIntent.putExtra("Time", textView_time.getText().toString());
             resultIntent.putExtra("Comment", textView_comment.getText().toString());
-            setResult(2, resultIntent);
+            setResult(1, resultIntent);
             finish();
         } else {
             Toast.makeText(this, R.string.activity_insert_empty, Toast.LENGTH_SHORT).show();
-
         }
     }
 
@@ -189,25 +160,6 @@ public class ActivityUpdate extends AppCompatActivity {
     public void activity_insert_comment_check(View view) {
         textView_comment.setText(editText_comment.getText());
         commentDialog.dismiss();
-    }
-
-    public void activity_update_delete(View view) {
-        final Intent resultIntent = new Intent();
-        resultIntent.putExtra("Id", id);
-        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityUpdate.this);
-        builder.setMessage(R.string.activity_delete_dialog_message);
-        builder.setPositiveButton(R.string.activity_delete_dialog_ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                setResult(3, resultIntent);
-                finish();
-            }
-        })
-                .setNegativeButton(R.string.activity_delete_dialog_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-
-                    }
-                })
-                .show();
     }
 
     public void activity_insert_minute(View view) {

@@ -16,10 +16,10 @@ import cst2335.groupproject.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FoodFragment extends Fragment {
+public class F_Main extends Fragment {
 
 
-    public FoodFragment() {
+    public F_Main() {
         // Required empty public constructor
     }
 
@@ -32,7 +32,7 @@ public class FoodFragment extends Fragment {
 
         SharedPreferences sharedPref = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("Name", "FoodFragment");
+        editor.putString("Name", "F_Main");
         editor.apply();
 
         return view;

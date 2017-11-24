@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Geyan Huang on 2017-11-12.
  */
 
-public class ActivityDatabaseHelper extends SQLiteOpenHelper {
+public class T_DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Activity.db";
     private static final int DATABASE_VERSION = 1;
 
@@ -34,7 +34,7 @@ public class ActivityDatabaseHelper extends SQLiteOpenHelper {
             COLUMN_COMMENT + " TEXT" +
             ")";
 
-    public ActivityDatabaseHelper(Context context) {
+    public T_DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

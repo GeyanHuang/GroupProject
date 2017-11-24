@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PkgHome.Home"
+            android:name=".PkgMain.M_MainPage"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,11 +20,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PkgActivity.ActivityInsert"
+            android:name=".PkgActivity.T_Insert"
             android:windowSoftInputMode="stateVisible" />
-        <activity android:name=".PkgActivity.ActivityUpdate" />
+        <activity android:name=".PkgActivity.T_Update" />
         <activity
-            android:name=".PkgActivity.ActivityMenuHelp"
+            android:name=".PkgActivity.T_Help"
             android:label="@string/title_activity_menu_help"
             android:excludeFromRecents="true"
             android:theme="@style/Theme.AppCompat.Dialog"/>

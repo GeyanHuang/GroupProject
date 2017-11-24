@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="cst2335.groupproject.PkgActivity.ActivityInsert">
+    tools:context="cst2335.groupproject.PkgActivity.T_Insert">
 
     <LinearLayout
         android:layout_width="match_parent"
