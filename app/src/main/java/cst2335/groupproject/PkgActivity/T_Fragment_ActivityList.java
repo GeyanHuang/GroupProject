@@ -300,7 +300,7 @@ public class T_Fragment_ActivityList extends Fragment {
                 }
                 Collections.sort(arrayLists[0]);
             }catch (Exception ex){
-                
+
             }
             return null;
         }
