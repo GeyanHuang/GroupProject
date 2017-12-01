@@ -313,7 +313,6 @@ public class T_Fragment_ActivityList extends Fragment {
         @Override
         protected void onPostExecute(ArrayList<Info> infos) {
             adapter.notifyDataSetChanged();
-            cancel(true);
         }
     }
 }
