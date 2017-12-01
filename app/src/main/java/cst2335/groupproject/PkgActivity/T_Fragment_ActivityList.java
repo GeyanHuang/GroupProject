@@ -66,6 +66,7 @@ public class T_Fragment_ActivityList extends Fragment {
     private FloatingActionButton button_insert;
     private ArrayList<Info> list_info;
     private InfoAdapter adapter;
+    private ReadDatabase readDatabase;
 
     private class Info implements Comparable<Info> {
         private int activityId;
@@ -153,6 +154,7 @@ public class T_Fragment_ActivityList extends Fragment {
         list_info = new ArrayList<>();
         listView = view.findViewById(R.id.tracker_activityList_fragment_listView);
         adapter = new InfoAdapter(view.getContext(), list_info);
+        readDatabase = new ReadDatabase();
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -267,9 +269,7 @@ public class T_Fragment_ActivityList extends Fragment {
     }
 
     private void showHistory() {
-        ReadDatabase readDatabase = new ReadDatabase();
         readDatabase.execute(list_info);
-
     }
 
     @Override
