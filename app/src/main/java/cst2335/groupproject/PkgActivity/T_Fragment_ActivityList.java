@@ -3,6 +3,7 @@ package cst2335.groupproject.PkgActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -265,17 +266,9 @@ public class T_Fragment_ActivityList extends Fragment {
     }
 
     private void showHistory() {
-        list_info.clear();
-        Cursor cursor = databaseHelper.read();
-        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-            String type = cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE));
-            if (Locale.getDefault().getLanguage().equals("zh")) {
-                type = typeToZh(type);
-            }
-            list_info.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
-        }
-        Collections.sort(list_info);
-        adapter.notifyDataSetChanged();
+        ReadDatabase readDatabase = new ReadDatabase();
+        readDatabase.execute(list_info);
+
     }
 
     @Override
@@ -288,5 +281,36 @@ public class T_Fragment_ActivityList extends Fragment {
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.tracker_nav_bot_list);
+    }
+
+        public class ReadDatabase extends AsyncTask<ArrayList<Info>, Integer, ArrayList<Info>> {
+
+        private ArrayList<Info> tempList;
+
+        @Override
+        protected ArrayList<Info> doInBackground(ArrayList<Info>[] arrayLists) {
+            tempList = new ArrayList();
+            Cursor cursor = databaseHelper.read();
+            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                String type = cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE));
+                if (Locale.getDefault().getLanguage().equals("zh")) {
+                    type = typeToZh(type);
+                }
+                tempList.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
+            }
+            Collections.sort(tempList);
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            list_info.clear();
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Info> infos) {
+            list_info.addAll(tempList);
+            adapter.notifyDataSetChanged();
+        }
     }
 }

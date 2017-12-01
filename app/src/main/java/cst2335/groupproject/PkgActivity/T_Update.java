@@ -78,6 +78,7 @@ public class T_Update extends AppCompatActivity {
         setTime();
 
         editText_minute.requestFocus();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
     public void tracker_insert_check(View view) {
