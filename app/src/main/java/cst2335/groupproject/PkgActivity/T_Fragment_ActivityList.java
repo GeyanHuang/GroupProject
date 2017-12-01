@@ -286,17 +286,22 @@ public class T_Fragment_ActivityList extends Fragment {
 
     public class ReadDatabase extends AsyncTask<ArrayList<Info>, Integer, ArrayList<Info>> {
 
+
         @Override
         protected ArrayList<Info> doInBackground(ArrayList<Info>[] arrayLists) {
-            Cursor cursor = databaseHelper.read();
-            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-                String type = cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE));
-                if (Locale.getDefault().getLanguage().equals("zh")) {
-                    type = typeToZh(type);
+            try{
+                Cursor cursor = databaseHelper.read();
+                for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                    String type = cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE));
+                    if (Locale.getDefault().getLanguage().equals("zh")) {
+                        type = typeToZh(type);
+                    }
+                    arrayLists[0].add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
                 }
-                arrayLists[0].add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
+                Collections.sort(arrayLists[0]);
+            }catch (Exception ex){
+                
             }
-            Collections.sort(arrayLists[0]);
             return null;
         }
 
@@ -308,6 +313,7 @@ public class T_Fragment_ActivityList extends Fragment {
         @Override
         protected void onPostExecute(ArrayList<Info> infos) {
             adapter.notifyDataSetChanged();
+            cancel(true);
         }
     }
 }
