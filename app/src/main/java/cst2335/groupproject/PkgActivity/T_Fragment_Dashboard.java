@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -36,6 +37,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
     private Dialog dialog_setDailyGoal;
     private ImageView setDailyGoalCheck;
     private ProgressBar progressBar;
+    private ReadDatabase readDatabase;
 
     private String year, month, day;
 
@@ -84,11 +86,8 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         databaseHelper = new T_DatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
 
-        textView_todayTime.setText(getTodayExerciseTime() + "");
-        textView_thisMonth.setText(getThisMonthExerciseTime() + "");
-        textView_lastMonth.setText(getLastMonthExerciseTime() + "");
-
-        setProgressBar();
+        readDatabase = new ReadDatabase();
+        readDatabase.execute();
     }
 
     private void setTodayDate() {
@@ -186,11 +185,32 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
                 editor.putString("DailyGoal", editText_setDailyGoal.getText().toString());
                 editor.apply();
 
-                setProgressBar();
+                readDatabase.execute();
                 dialog_setDailyGoal.dismiss();
                 break;
         }
     }
 
+    public class ReadDatabase extends AsyncTask<String, Integer, String> {
+
+        private String todayTime, thisMonth, lastMonth;
+
+        @Override
+        protected String doInBackground(String... strings) {
+            todayTime = getTodayExerciseTime() + "";
+            thisMonth = getThisMonthExerciseTime() + "";
+            lastMonth = getLastMonthExerciseTime() + "";
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(String s) {
+            textView_todayTime.setText(todayTime);
+            textView_thisMonth.setText(thisMonth);
+            textView_lastMonth.setText(lastMonth);
+            setProgressBar();
+        }
+    }
 }
 

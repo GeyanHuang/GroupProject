@@ -284,29 +284,30 @@ public class T_Fragment_ActivityList extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.tracker_nav_bot_list);
     }
 
-        public class ReadDatabase extends AsyncTask<ArrayList<Info>, Integer, ArrayList<Info>> {
+    public class ReadDatabase extends AsyncTask<ArrayList<Info>, Integer, ArrayList<Info>> {
 
         @Override
         protected ArrayList<Info> doInBackground(ArrayList<Info>[] arrayLists) {
-            ArrayList<Info> tempList = new ArrayList();
             Cursor cursor = databaseHelper.read();
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                 String type = cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE));
                 if (Locale.getDefault().getLanguage().equals("zh")) {
                     type = typeToZh(type);
                 }
-                tempList.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
+                arrayLists[0].add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
             }
-            Collections.sort(tempList);
-            return tempList;
+            Collections.sort(arrayLists[0]);
+            return null;
         }
 
+        @Override
+        protected void onPreExecute() {
+            list_info.clear();
+        }
 
         @Override
         protected void onPostExecute(ArrayList<Info> infos) {
-            list_info.clear();
-            list_info.addAll(infos);
             adapter.notifyDataSetChanged();
         }
-        }
+    }
 }
