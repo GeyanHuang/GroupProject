@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -285,11 +286,9 @@ public class T_Fragment_ActivityList extends Fragment {
 
         public class ReadDatabase extends AsyncTask<ArrayList<Info>, Integer, ArrayList<Info>> {
 
-        private ArrayList<Info> tempList;
-
         @Override
         protected ArrayList<Info> doInBackground(ArrayList<Info>[] arrayLists) {
-            tempList = new ArrayList();
+            ArrayList<Info> tempList = new ArrayList();
             Cursor cursor = databaseHelper.read();
             for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                 String type = cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE));
@@ -299,18 +298,16 @@ public class T_Fragment_ActivityList extends Fragment {
                 tempList.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
             }
             Collections.sort(tempList);
-            return null;
+            SystemClock.sleep(1000);
+            return tempList;
         }
 
-        @Override
-        protected void onPreExecute() {
-            list_info.clear();
-        }
 
         @Override
         protected void onPostExecute(ArrayList<Info> infos) {
-            list_info.addAll(tempList);
+            list_info.clear();
+            list_info.addAll(infos);
             adapter.notifyDataSetChanged();
         }
-    }
+        }
 }
