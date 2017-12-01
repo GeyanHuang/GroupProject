@@ -298,7 +298,6 @@ public class T_Fragment_ActivityList extends Fragment {
                 tempList.add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
             }
             Collections.sort(tempList);
-            SystemClock.sleep(1000);
             return tempList;
         }
 
