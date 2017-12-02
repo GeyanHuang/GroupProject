@@ -28,22 +28,38 @@ import cst2335.groupproject.R;
  */
 public class M_MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    /**
+     * Navigation drawer
+     */
     private NavigationView navigationView;
+
+    /**
+     * The menu
+     */
     private Menu menu;
 
+    /**
+     * Using M_SharedPreference
+     */
+    private M_SharedPreference sharedPreference  = new M_SharedPreference();
+
+    /**
+     * On create function
+     * @param savedInstanceState The savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Layout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Name", "M_MainPage");
-        editor.apply();
+        // Record current layout
+        sharedPreference.setLayout(this,"M_MainPage");
 
+        // Set toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_app_bar_toolbar);
         setSupportActionBar(toolbar);
 
+        // Set navigation drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.main_navigation_drawer_open, R.string.main_navigation_drawer_close);
@@ -55,6 +71,9 @@ public class M_MainPage extends AppCompatActivity
     }
 
 
+    /**
+     * On back pressed function
+     */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -70,23 +89,32 @@ public class M_MainPage extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         this.menu = menu;
         getMenuInflater().inflate(R.menu.tracker_menu, menu);
-        SharedPreferences sharedPref = getSharedPreferences("Layout", Context.MODE_PRIVATE);
-        String name = sharedPref.getString("Name", "0");
 
+        // Only show menu when using activity tracker
+        String name = sharedPreference.getLayout(this);
         if(name.equals("T_Fragment_ActivityList")||name.equals("T_Fragment_Dashboard")){
-            showActivityHelp(true);
+            showTrackerHelp(true);
         }else {
-            showActivityHelp(false);
+            showTrackerHelp(false);
         }
         return true;
     }
 
-    public void showActivityHelp(boolean showMenu){
+    /**
+     * Function for hiding and showing menu
+     * @param showMenu The boolean that decide show or hide menu
+     */
+    public void showTrackerHelp(boolean showMenu){
         if(menu == null)
             return;
         menu.setGroupVisible(R.id.tracker_menu_group, showMenu);
     }
 
+    /**
+     * Function for menu actions
+     * @param item  The menu item
+     * @return On option item selected
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -95,13 +123,14 @@ public class M_MainPage extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        // Menu item help
         if (id == R.id.tracker_menu_action_help) {
             Intent intent = new Intent(M_MainPage.this, T_Help.class);
             startActivity(intent);
-
             return true;
         }
 
+        // Menu item quit
         if (id == R.id.tracker_menu_action_quit) {
             finishAffinity();
             return true;
@@ -110,17 +139,21 @@ public class M_MainPage extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-
+    /**
+     * Function for navigation drawer action
+     * @param item The navigation drawer item
+     * @return The boolean
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        showActivityHelp(false);
+        showTrackerHelp(false);
 
         int id = item.getItemId();
 
         if (id == R.id.main_drawer_nav_activity) {
-            showActivityHelp(true);
+            showTrackerHelp(true);
             T_Main fragment = new T_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
