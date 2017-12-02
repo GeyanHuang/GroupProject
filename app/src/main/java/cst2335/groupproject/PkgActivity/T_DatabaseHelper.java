@@ -7,9 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by Geyan Huang on 2017-11-12.
+ * This class is used for creating and using activity tracker database
+ *
+ * @author Geyan Huang
+ *
  */
-
 public class T_DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Activity.db";
     private static final int DATABASE_VERSION = 1;

@@ -21,6 +21,12 @@ import android.widget.Toast;
 
 import cst2335.groupproject.R;
 
+/**
+ * This class is used for creating the update GUI of activity tracker
+ *
+ * @author Geyan Huang
+ *
+ */
 public class T_Update extends AppCompatActivity {
     TextView textView_date, textView_time, textView_comment;
     Spinner spinner_type;

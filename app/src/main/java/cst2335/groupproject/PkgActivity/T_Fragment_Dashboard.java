@@ -25,7 +25,10 @@ import java.util.Calendar;
 import cst2335.groupproject.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * This class is used for creating the dashboard GUI of activity tracker
+ *
+ * @author Geyan Huang
+ *
  */
 public class T_Fragment_Dashboard extends Fragment implements View.OnClickListener {
 

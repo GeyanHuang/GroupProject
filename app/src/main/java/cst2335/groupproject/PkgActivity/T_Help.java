@@ -19,12 +19,10 @@ import cst2335.groupproject.R;
 public class T_Help extends AppCompatActivity {
 
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     * This class is used for creating the help GUI of activity tracker
+     *
+     * @author Geyan Huang
+     *
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 

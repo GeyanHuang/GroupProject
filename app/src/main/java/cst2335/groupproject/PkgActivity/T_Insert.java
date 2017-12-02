@@ -21,6 +21,12 @@ import java.util.Calendar;
 
 import cst2335.groupproject.R;
 
+/**
+ * This class is used for creating the insert GUI of activity tracker
+ *
+ * @author Geyan Huang
+ *
+ */
 public class T_Insert extends Activity {
     TextView textView_date, textView_time, textView_comment;
     Spinner spinner_type;

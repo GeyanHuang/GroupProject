@@ -17,7 +17,10 @@ import android.view.ViewGroup;
 import cst2335.groupproject.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * This class is used for creating the main GUI of activity tracker which include fragment container and bottom navigation bar
+ *
+ * @author Geyan Huang
+ *
  */
 public class T_Main extends Fragment {
     View view;
