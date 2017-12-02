@@ -1,6 +1,11 @@
 package cst2335.groupproject.PkgFood;
 
-
+/**
+ * This class is used for creating the main GUI of food information tracker
+ *
+ *
+ *
+ */
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;

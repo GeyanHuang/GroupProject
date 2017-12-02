@@ -20,6 +20,12 @@ import cst2335.groupproject.PkgFood.F_Main;
 import cst2335.groupproject.PkgHouse.H_Main;
 import cst2335.groupproject.R;
 
+/**
+ * This class is used for creating the main GUI of program
+ *
+ * @author Geyan Huang
+ *
+ */
 public class M_MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private NavigationView navigationView;

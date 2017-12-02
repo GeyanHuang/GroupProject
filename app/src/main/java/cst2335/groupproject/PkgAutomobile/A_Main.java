@@ -14,7 +14,10 @@ import cst2335.groupproject.R;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * This class is used for creating the main GUI of automobile
+ *
+ *
+ *
  */
 public class A_Main extends Fragment {
 

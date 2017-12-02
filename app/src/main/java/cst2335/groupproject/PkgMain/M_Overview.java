@@ -20,7 +20,10 @@ import cst2335.groupproject.R;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * This class is used for creating the main GUI of overview
+ *
+ * @author Geyan Huang
+ *
  */
 public class M_Overview extends Fragment {
     public M_Overview() {
