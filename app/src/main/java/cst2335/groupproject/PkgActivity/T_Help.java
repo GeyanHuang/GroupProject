@@ -34,6 +34,10 @@ public class T_Help extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    /**
+     * On create
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,10 @@ public class T_Help extends AppCompatActivity {
 
     }
 
+    /**
+     * Function for OK button
+     * @param view The view of the activity
+     */
     public void tracker_help_dialog_ok(View view) {
         finish();
     }
@@ -64,6 +72,9 @@ public class T_Help extends AppCompatActivity {
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        /**
+         * Place holder fragment
+         */
         public PlaceholderFragment() {
         }
 
@@ -79,6 +90,13 @@ public class T_Help extends AppCompatActivity {
             return fragment;
         }
 
+        /**
+         * On create view
+         * @param inflater The inflater
+         * @param container The container
+         * @param savedInstanceState The savedInstanceState
+         * @return The root view
+         */
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -86,6 +104,7 @@ public class T_Help extends AppCompatActivity {
             ImageView imageView = (ImageView) rootView.findViewById(R.id.tracker_help_fragment_section_label);
             ImageView help_progress = (ImageView) rootView.findViewById(R.id.tracker_help_fragment_progress);
 
+            // Switch between pages
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
@@ -124,10 +143,19 @@ public class T_Help extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+        /**
+         * Constructor
+         * @param fm The fragmentManager
+         */
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
+        /**
+         * Get item
+         * @param position The position
+         * @return The fragment
+         */
         @Override
         public Fragment getItem(int position) {
             // getType is called to instantiate the fragment for the given page.
@@ -135,6 +163,10 @@ public class T_Help extends AppCompatActivity {
             return PlaceholderFragment.newInstance(position + 1);
         }
 
+        /**
+         * Get count
+         * @return The number
+         */
         @Override
         public int getCount() {
             return 3;
