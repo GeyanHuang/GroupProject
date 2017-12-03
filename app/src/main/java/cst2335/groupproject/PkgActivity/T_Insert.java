@@ -197,7 +197,7 @@ public class T_Insert extends Activity {
     };
 
     /**
-     * function for setting time
+     * Function for setting time
      */
     private void setTime() {
         String hour = Integer.toString(x_hour);
@@ -233,7 +233,7 @@ public class T_Insert extends Activity {
     }
 
     /**
-     * Function for click comment check
+     * Function for clicking comment check
      *
      * @param view The view of activity
      */

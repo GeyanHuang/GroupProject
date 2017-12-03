@@ -25,19 +25,54 @@ import cst2335.groupproject.R;
  * This class is used for creating the update GUI of activity tracker
  *
  * @author Geyan Huang
- *
  */
 public class T_Update extends AppCompatActivity {
+
+    /**
+     * TextViews
+     */
     TextView textView_date, textView_time, textView_comment;
+
+    /**
+     * Spinner
+     */
     Spinner spinner_type;
+
+    /**
+     * The alert dialog for comment
+     */
     AlertDialog commentDialog;
+
+    /**
+     * Year, month, day, hour, minute
+     */
     int x_year, x_month, x_day, x_hour, x_minute;
+
+    /**
+     * The dialog ID for data picker
+     */
     static final int DIALOG_ID_DATE = 1;
+
+    /**
+     * The dialog ID for time picker
+     */
     static final int DIALOG_ID_TIME = 2;
+
+    /**
+     * EditTexts
+     */
     EditText editText_minute, editText_comment;
 
+    /**
+     * The id of row in database
+     */
     String id;
 
+    /**
+     * On create
+     *
+     * @param savedInstanceState The savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +84,7 @@ public class T_Update extends AppCompatActivity {
         textView_time = findViewById(R.id.tracker_insert_textView_time);
         textView_comment = findViewById(R.id.tracker_insert_textView_comment);
 
+        // Get everything from activity list
         id = getIntent().getStringExtra("Id");
         String type = getIntent().getStringExtra("Type");
         String minute = getIntent().getStringExtra("Minute");
@@ -56,6 +92,7 @@ public class T_Update extends AppCompatActivity {
         String date = getIntent().getStringExtra("Date");
         String time = getIntent().getStringExtra("Time");
 
+        // Set spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tracker_list_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_type.setAdapter(adapter);
@@ -83,10 +120,16 @@ public class T_Update extends AppCompatActivity {
         setDate();
         setTime();
 
+        // Hide soft keyboard
         editText_minute.requestFocus();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
+    /**
+     * Function for clicking check
+     *
+     * @param view The view of activity
+     */
     public void tracker_insert_check(View view) {
 
         if (!editText_minute.getText().toString().equals("")) {
@@ -105,6 +148,11 @@ public class T_Update extends AppCompatActivity {
         }
     }
 
+    /**
+     * Function for clicking cancel
+     *
+     * @param view The view of activity
+     */
     public void tracker_insert_close(View view) {
         finish();
     }
@@ -121,10 +169,18 @@ public class T_Update extends AppCompatActivity {
         }
     }
 
+    /**
+     * Function for clicking date
+     *
+     * @param view The view of activity
+     */
     public void tracker_insert_date(View view) {
         showDialog(DIALOG_ID_DATE);
     }
 
+    /**
+     * Date Picker
+     */
     private DatePickerDialog.OnDateSetListener dpickerListner = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -136,6 +192,9 @@ public class T_Update extends AppCompatActivity {
         }
     };
 
+    /**
+     * Function for setting date
+     */
     private void setDate() {
         String year = Integer.toString(x_year);
         String month = Integer.toString((x_month + 1));
@@ -151,10 +210,18 @@ public class T_Update extends AppCompatActivity {
         textView_date.setText((year + "-" + month + "-" + day));
     }
 
+    /**
+     * Function for clicking time
+     *
+     * @param view The view of activity
+     */
     public void tracker_insert_time(View view) {
         showDialog(DIALOG_ID_TIME);
     }
 
+    /**
+     * Time picker
+     */
     private TimePickerDialog.OnTimeSetListener tpickerListner = new TimePickerDialog.OnTimeSetListener() {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -165,6 +232,9 @@ public class T_Update extends AppCompatActivity {
         }
     };
 
+    /**
+     * Function for setting time
+     */
     private void setTime() {
         String hour = Integer.toString(x_hour);
         String minute = Integer.toString(x_minute);
@@ -179,6 +249,11 @@ public class T_Update extends AppCompatActivity {
         textView_time.setText(hour + ":" + minute);
     }
 
+    /**
+     * Function for clicking comment
+     *
+     * @param view The view of activity
+     */
     public void tracker_insert_comment_dialog(View view) {
         AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
         View commentView = getLayoutInflater().inflate(R.layout.tracker_insert_dialog_comment, null);
@@ -193,12 +268,22 @@ public class T_Update extends AppCompatActivity {
         editText_comment.requestFocus();
     }
 
+    /**
+     * Function for clicking comment check
+     *
+     * @param view The view of activity
+     */
     public void tracker_insert_comment_check(View view) {
         textView_comment.setText(editText_comment.getText());
         commentDialog.dismiss();
     }
 
-    public void tracker_update(View view) {
+    /**
+     * Fuction for clicking delete button
+     *
+     * @param view The view of activity
+     */
+    public void tracker_delete(View view) {
         final Intent resultIntent = new Intent();
         resultIntent.putExtra("Id", id);
         AlertDialog.Builder builder = new AlertDialog.Builder(T_Update.this);
@@ -217,6 +302,11 @@ public class T_Update extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * Function for clicking minute
+     *
+     * @param view
+     */
     public void tracker_insert_minute(View view) {
         InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
         imm.showSoftInput(editText_minute, InputMethodManager.SHOW_IMPLICIT);

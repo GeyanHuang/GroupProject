@@ -249,7 +249,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:onClick="tracker_update"
+                android:onClick="tracker_delete"
                 android:text="@string/tracker_update_delete"
                 android:textColor="@color/white" />
 
