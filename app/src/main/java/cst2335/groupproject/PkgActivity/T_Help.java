@@ -16,13 +16,16 @@ import java.util.Locale;
 
 import cst2335.groupproject.R;
 
+/**
+ * This class is used for creating the help GUI of activity tracker
+ *
+ * @author Geyan Huang
+ *
+ */
 public class T_Help extends AppCompatActivity {
 
     /**
-     * This class is used for creating the help GUI of activity tracker
-     *
-     * @author Geyan Huang
-     *
+     * SectionPagerAdapter
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
