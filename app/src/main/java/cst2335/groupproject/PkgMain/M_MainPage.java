@@ -1,8 +1,6 @@
 package cst2335.groupproject.PkgMain;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,10 +22,15 @@ import cst2335.groupproject.R;
  * This class is used for creating the main GUI of program
  *
  * @author Geyan Huang
- *
  */
 public class M_MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    /**
+     * Using M_SharedPreference
+     */
+    private M_SharedPreference sharedPreference = new M_SharedPreference();
+
     /**
      * Navigation drawer
      */
@@ -39,12 +42,8 @@ public class M_MainPage extends AppCompatActivity
     private Menu menu;
 
     /**
-     * Using M_SharedPreference
-     */
-    private M_SharedPreference sharedPreference  = new M_SharedPreference();
-
-    /**
      * On create function
+     *
      * @param savedInstanceState The savedInstanceState
      */
     @Override
@@ -53,7 +52,7 @@ public class M_MainPage extends AppCompatActivity
         setContentView(R.layout.main_page);
 
         // Record current layout
-        sharedPreference.setLayout(this,"M_MainPage");
+        sharedPreference.setLayout(this, "M_MainPage");
 
         // Set toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_app_bar_toolbar);
@@ -92,9 +91,9 @@ public class M_MainPage extends AppCompatActivity
 
         // Only show menu when using activity tracker
         String name = sharedPreference.getLayout(this);
-        if(name.equals("T_Fragment_ActivityList")||name.equals("T_Fragment_Dashboard")){
+        if (name.equals("T_Fragment_ActivityList") || name.equals("T_Fragment_Dashboard")) {
             showTrackerHelp(true);
-        }else {
+        } else {
             showTrackerHelp(false);
         }
         return true;
@@ -102,17 +101,19 @@ public class M_MainPage extends AppCompatActivity
 
     /**
      * Function for hiding and showing menu
+     *
      * @param showMenu The boolean that decide show or hide menu
      */
-    public void showTrackerHelp(boolean showMenu){
-        if(menu == null)
+    public void showTrackerHelp(boolean showMenu) {
+        if (menu == null)
             return;
         menu.setGroupVisible(R.id.tracker_menu_group, showMenu);
     }
 
     /**
      * Function for menu actions
-     * @param item  The menu item
+     *
+     * @param item The menu item
      * @return On option item selected
      */
     @Override
@@ -141,6 +142,7 @@ public class M_MainPage extends AppCompatActivity
 
     /**
      * Function for navigation drawer action
+     *
      * @param item The navigation drawer item
      * @return The boolean
      */
@@ -189,4 +191,5 @@ public class M_MainPage extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
-    }}
+    }
+}

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cst2335.groupproject.PkgMain.M_SharedPreference;
 import cst2335.groupproject.R;
 
 /**
@@ -25,6 +26,11 @@ import cst2335.groupproject.R;
 public class T_Main extends Fragment {
     View view;
     private BottomNavigationView botNav;
+
+    /**
+     * Using M_SharedPreference
+     */
+    private M_SharedPreference sharedPreference  = new M_SharedPreference();
 
     public T_Main() {
         // Required empty public constructor

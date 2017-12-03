@@ -2,7 +2,6 @@ package cst2335.groupproject.PkgMain;
 
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,47 +22,110 @@ import cst2335.groupproject.R;
  * This class is used for creating the main GUI of overview
  *
  * @author Geyan Huang
- *
  */
 public class M_Overview extends Fragment {
+
+    /**
+     * Using M_SharedPreference
+     */
+    private M_SharedPreference sharedPreference = new M_SharedPreference();
+
+    /**
+     * The fragment view
+     */
+    private View view;
+
+    /**
+     * The list view for showing overview
+     */
+    private ListView listView;
+
+    /**
+     * The view for item and content
+     */
+    private TextView item, content;
+
+    /**
+     * ArrayList for showing overview information
+     */
+    private ArrayList<Info> info;
+
+    /**
+     * Constructor
+     */
     public M_Overview() {
         // Required empty public constructor
     }
 
+    /**
+     * Create view
+     *
+     * @param inflater           The inflater
+     * @param container          The container
+     * @param savedInstanceState The savedInstanceState
+     * @return The view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.overview_main, container, false);
 
-        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Name", "M_Overview");
-        editor.apply();
-        // Inflate the layout for this fragment
+        // Record current layout
+        sharedPreference.setLayout(view.getContext(), "M_Overview");
+
         return view;
     }
 
-    private View view;
-    private ListView listView;
-    private TextView item, content;
-    private ArrayList<Info> info;
-
+    /**
+     * Customize class for store overview information
+     */
     private class Info {
+
+        /**
+         * The item
+         */
         private String item;
+
+        /**
+         * The content
+         */
         private String content;
 
+        /**
+         * The constructor
+         *
+         * @param item    Overview item
+         * @param content Overview content
+         */
         public Info(String item, String content) {
             this.item = item;
             this.content = content;
         }
     }
 
+    /**
+     * The array adapter for overview
+     */
     class InfoAdapter extends ArrayAdapter<Info> {
 
+        /**
+         * The constructor
+         *
+         * @param context The context
+         * @param info    Customize data type
+         */
         public InfoAdapter(Context context, ArrayList<Info> info) {
             super(context, R.layout.overview_info, info);
         }
 
+        /**
+         * Get view
+         *
+         * @param position    The position of arrayList
+         * @param convertView The convertView
+         * @param parent      The parent
+         * @return The view to listView
+         */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -78,11 +140,18 @@ public class M_Overview extends Fragment {
         }
     }
 
+    /**
+     * On activity created
+     *
+     * @param savedInstanceState The savedInstanceState
+     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         info = new ArrayList<>();
+
+        // Get list from String XML
         String[] items = getResources().getStringArray(R.array.overview_list_item);
         String[] contents = getResources().getStringArray(R.array.overview_list_content);
         for (int i = 0; i < items.length; i++)
@@ -92,9 +161,13 @@ public class M_Overview extends Fragment {
         listView.setAdapter(adapter);
     }
 
+    /**
+     * On resume
+     */
     @Override
     public void onResume() {
         super.onResume();
+        // Set title for action bar
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.overview_title);
     }
 }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cst2335.groupproject.PkgMain.M_SharedPreference;
 import cst2335.groupproject.R;
 
 
@@ -21,6 +22,10 @@ import cst2335.groupproject.R;
  */
 public class A_Main extends Fragment {
 
+    /**
+     * Using M_SharedPreference
+     */
+    private M_SharedPreference sharedPreference  = new M_SharedPreference();
 
     public A_Main() {
         // Required empty public constructor

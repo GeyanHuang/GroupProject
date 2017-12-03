@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
+import cst2335.groupproject.PkgMain.M_SharedPreference;
 import cst2335.groupproject.R;
 
 /**
@@ -31,6 +32,11 @@ import cst2335.groupproject.R;
  *
  */
 public class T_Fragment_Dashboard extends Fragment implements View.OnClickListener {
+
+    /**
+     * Using M_SharedPreference
+     */
+    private M_SharedPreference sharedPreference  = new M_SharedPreference();
 
     private View view;
     private LinearLayout layout_setDailyGoal;

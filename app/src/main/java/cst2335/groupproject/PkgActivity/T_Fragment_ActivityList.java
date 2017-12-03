@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
 
+import cst2335.groupproject.PkgMain.M_SharedPreference;
 import cst2335.groupproject.R;
 
 
@@ -36,6 +37,10 @@ import cst2335.groupproject.R;
  */
 public class T_Fragment_ActivityList extends Fragment {
 
+    /**
+     * Using M_SharedPreference
+     */
+    private M_SharedPreference sharedPreference  = new M_SharedPreference();
 
     public T_Fragment_ActivityList() {
         // Required empty public constructor
