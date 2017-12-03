@@ -203,12 +203,27 @@ public class T_Fragment_ActivityList extends Fragment {
         }
     }
 
+    /***
+     * The class for customize arrayAdapter
+     */
     class InfoAdapter extends ArrayAdapter<Info> {
 
+        /**
+         * The constructor
+         * @param context The context
+         * @param info The customize data type
+         */
         public InfoAdapter(Context context, ArrayList<Info> info) {
             super(context, R.layout.overview_info, info);
         }
 
+        /**
+         * Get view
+         * @param position The position of arrayList
+         * @param convertView The convert view
+         * @param parent The parent
+         * @return The view for listView
+         */
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -238,15 +253,21 @@ public class T_Fragment_ActivityList extends Fragment {
         }
     }
 
+    /**
+     * On activity created
+     * @param savedInstanceState The savedInstanceState
+     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // Connect listView, arrayList, and arrayAdapter
         list_info = new ArrayList<>();
         listView = view.findViewById(R.id.tracker_activityList_fragment_listView);
         adapter = new InfoAdapter(view.getContext(), list_info);
         listView.setAdapter(adapter);
 
+        // Function for clicking listView
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -269,6 +290,8 @@ public class T_Fragment_ActivityList extends Fragment {
             }
         });
 
+
+        // Function for clicking insert button
         button_insert = view.findViewById(R.id.tracker_activityList_fragment_button_insert);
 
         button_insert.setOnClickListener(new View.OnClickListener() {
@@ -278,11 +301,18 @@ public class T_Fragment_ActivityList extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
+
+        //open database and read database
         databaseHelper = new T_DatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
         showHistory();
     }
 
+    /**
+     * Translate activity from Chinese to English
+     * @param type The activity type
+     * @return The English activity type
+     */
     private String typeToEn(String type) {
         switch (type) {
             case "跑步":
@@ -299,6 +329,11 @@ public class T_Fragment_ActivityList extends Fragment {
         return null;
     }
 
+    /**
+     * Translate activity type from English to Chinese
+     * @param type The activity type
+     * @return The Chinese activity type
+     */
     private String typeToZh(String type) {
         switch (type) {
             case "Running":
@@ -315,9 +350,19 @@ public class T_Fragment_ActivityList extends Fragment {
         return null;
     }
 
+    /**
+     * On activity result, it used to get data and do actions when insert, update, and delete
+     * @param requestCode The requestCode
+     * @param resultCode The resultCode
+     * @param data The data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        // Check resultCode
         switch (resultCode) {
+
+            // Insert
             case 1:
                 if (!data.getStringExtra("Minute").equals("")) {
                     String minutes = data.getStringExtra("Minute");
@@ -325,15 +370,21 @@ public class T_Fragment_ActivityList extends Fragment {
                     String date = data.getStringExtra("Date");
                     String time = data.getStringExtra("Time");
                     String comment = data.getStringExtra("Comment");
+
+                    // Always insert English activity type to database
                     if (Locale.getDefault().getLanguage().equals("zh")) {
                         type = typeToEn(type);
                     }
                     databaseHelper.insert(minutes, type, date, time, comment);
                     showHistory();
+
+                    // Snack bar shows notification
                     Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.tracker_insert_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 break;
-            case 2:
+
+                // Update
+                case 2:
                 if (!data.getStringExtra("Minute").equals("")) {
                     String id = data.getStringExtra("Id");
                     String minutes = data.getStringExtra("Minute");
@@ -341,45 +392,73 @@ public class T_Fragment_ActivityList extends Fragment {
                     String date = data.getStringExtra("Date");
                     String time = data.getStringExtra("Time");
                     String comment = data.getStringExtra("Comment");
+
+                    // Always update English activity type to database
                     if (Locale.getDefault().getLanguage().equals("zh")) {
                         type = typeToEn(type);
                     }
                     databaseHelper.update(id, minutes, type, date, time, comment);
                     showHistory();
+
+                    // Snack bar shows notification
                     Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.tracker_update_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 }
                 break;
+
+            // Delete
             case 3:
+
+                // Delete row using ID
                 String id = data.getStringExtra("Id");
                 databaseHelper.delete(id);
                 showHistory();
+
+                // Snack bar shows notification
                 Snackbar.make(view.findViewById(R.id.tracker_activityList_fragment_button_insert), R.string.tracker_delete_done, Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                 break;
         }
     }
 
+    /**
+     * Read from database by using AsyncTask
+     */
     private void showHistory() {
         readDatabase = new ReadDatabase();
         readDatabase.execute(list_info);
     }
 
+    /**
+     * Close database when destroy view
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         databaseHelper.closeDatabase();
     }
 
+    /**
+     * Set action bar title when on resume
+     */
     @Override
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.tracker_nav_bot_list);
     }
 
+    /**
+     * AsyncTask for reading data from database
+     */
     public class ReadDatabase extends AsyncTask<ArrayList<Info>, Integer, ArrayList<Info>> {
 
-
+        /**
+         * Function to do in background, it is used to read data from database to arrayList
+         * @param arrayLists The current used arrayList
+         * @return null
+         */
         @Override
         protected ArrayList<Info> doInBackground(ArrayList<Info>[] arrayLists) {
+
+            // Use try catch to avoid crash when rotation
             try{
                 Cursor cursor = databaseHelper.read();
                 for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
@@ -396,11 +475,18 @@ public class T_Fragment_ActivityList extends Fragment {
             return null;
         }
 
+        /**
+         * Before execute
+         */
         @Override
         protected void onPreExecute() {
             list_info.clear();
         }
 
+        /**
+         * After execute
+         * @param infos It is not been used
+         */
         @Override
         protected void onPostExecute(ArrayList<Info> infos) {
             adapter.notifyDataSetChanged();
