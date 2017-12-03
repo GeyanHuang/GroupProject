@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteOpenHelper;
  * This class is used for creating and using activity tracker database
  *
  * @author Geyan Huang
- *
  */
 public class T_DatabaseHelper extends SQLiteOpenHelper {
 
@@ -78,6 +77,7 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Constructor of database helper
+     *
      * @param context The context of current activity
      */
     public T_DatabaseHelper(Context context) {
@@ -86,6 +86,7 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Function for creating database
+     *
      * @param sqLiteDatabase The database
      */
     @Override
@@ -95,9 +96,10 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Function when upgrade version of database, it will drop the table and recreate it (Clear the date)
+     *
      * @param sqLiteDatabase The database
-     * @param i The old version number
-     * @param i1 The new version number
+     * @param i              The old version number
+     * @param i1             The new version number
      */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
@@ -123,10 +125,11 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Function for inserting to database
-     * @param minute The activity minute
-     * @param type  The activity type
-     * @param date The date
-     * @param time The time
+     *
+     * @param minute  The activity minute
+     * @param type    The activity type
+     * @param date    The date
+     * @param time    The time
      * @param comment The comment
      */
     public void insert(String minute, String type, String date, String time, String comment) {
@@ -143,6 +146,7 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Function for deleting a row by ID
+     *
      * @param id The ID
      */
     public void delete(String id) {
@@ -151,11 +155,12 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Function for updating database
-     * @param id The id
-     * @param minute The activity minute
-     * @param type The activity type
-     * @param date The date
-     * @param time The time
+     *
+     * @param id      The id
+     * @param minute  The activity minute
+     * @param type    The activity type
+     * @param date    The date
+     * @param time    The time
      * @param comment The comment
      */
     public void update(String id, String minute, String type, String date, String time, String comment) {
@@ -171,6 +176,7 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
 
     /**
      * Function for read data from database
+     *
      * @return The data for the table
      */
     public Cursor read() {
