@@ -25,7 +25,6 @@ import cst2335.groupproject.R;
  * This class is used for creating the insert GUI of activity tracker
  *
  * @author Geyan Huang
- *
  */
 public class T_Insert extends Activity {
 
@@ -66,6 +65,7 @@ public class T_Insert extends Activity {
 
     /**
      * On create
+     *
      * @param savedInstanceState The savedInstanceState
      */
     @Override
@@ -94,6 +94,7 @@ public class T_Insert extends Activity {
 
     /**
      * Function for clicking check
+     *
      * @param view The view of activity
      */
     public void tracker_insert_check(View view) {
@@ -113,6 +114,7 @@ public class T_Insert extends Activity {
 
     /**
      * Function for clicking cancel
+     *
      * @param view The view of activity
      */
     public void tracker_insert_close(View view) {
@@ -133,6 +135,7 @@ public class T_Insert extends Activity {
 
     /**
      * Function for clicking date
+     *
      * @param view The view of activity
      */
     public void tracker_insert_date(View view) {
@@ -173,6 +176,7 @@ public class T_Insert extends Activity {
 
     /**
      * Function for clicking time
+     *
      * @param view The view of activity
      */
     public void tracker_insert_time(View view) {
@@ -211,6 +215,7 @@ public class T_Insert extends Activity {
 
     /**
      * Function for clicking comment
+     *
      * @param view The view of activity
      */
     public void tracker_insert_comment_dialog(View view) {
@@ -229,6 +234,7 @@ public class T_Insert extends Activity {
 
     /**
      * Function for click comment check
+     *
      * @param view The view of activity
      */
     public void tracker_insert_comment_check(View view) {
@@ -238,6 +244,7 @@ public class T_Insert extends Activity {
 
     /**
      * Function for clicking minute
+     *
      * @param view
      */
     public void tracker_insert_minute(View view) {

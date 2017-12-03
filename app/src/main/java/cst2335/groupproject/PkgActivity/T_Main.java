@@ -1,8 +1,5 @@
 package cst2335.groupproject.PkgActivity;
 
-
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,22 +18,39 @@ import cst2335.groupproject.R;
  * This class is used for creating the main GUI of activity tracker which include fragment container and bottom navigation bar
  *
  * @author Geyan Huang
- *
  */
 public class T_Main extends Fragment {
+
+    /**
+     * The view of fragment
+     */
     View view;
+
+    /**
+     * Bottom navigation bar
+     */
     private BottomNavigationView botNav;
 
     /**
      * Using M_SharedPreference
      */
-    private M_SharedPreference sharedPreference  = new M_SharedPreference();
+    private M_SharedPreference sharedPreference = new M_SharedPreference();
 
+    /**
+     * The constructor
+     */
     public T_Main() {
         // Required empty public constructor
     }
 
-
+    /**
+     * On create view
+     *
+     * @param inflater           The inflater
+     * @param container          The container
+     * @param savedInstanceState The savedInstanceState
+     * @return The view of fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +59,9 @@ public class T_Main extends Fragment {
         return view;
     }
 
+    /**
+     * Open activity list
+     */
     private void openList() {
         T_Fragment_ActivityList fragment = new T_Fragment_ActivityList();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -53,6 +70,9 @@ public class T_Main extends Fragment {
         fragmentTransaction.commit();
     }
 
+    /**
+     * Open activity dashboard
+     */
     private void openDashboard() {
         T_Fragment_Dashboard fragment = new T_Fragment_Dashboard();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -61,6 +81,11 @@ public class T_Main extends Fragment {
         fragmentTransaction.commit();
     }
 
+    /**
+     * On activity created
+     *
+     * @param savedInstanceState The savedInstanceState
+     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -78,8 +103,9 @@ public class T_Main extends Fragment {
                 return true;
             }
         });
-        SharedPreferences sharedPref = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
-        String name = sharedPref.getString("Name", "0");
+
+        // Open the record fragment
+        String name = sharedPreference.getActivityLayout(view.getContext());
 
         if (name.equals("T_Fragment_ActivityList")) {
             botNav.getMenu().getItem(0).setChecked(true);
@@ -88,9 +114,11 @@ public class T_Main extends Fragment {
             botNav.getMenu().getItem(1).setChecked(true);
             openDashboard();
         }
-
     }
 
+    /**
+     * Set action bar title when on resume
+     */
     @Override
     public void onResume() {
         super.onResume();
