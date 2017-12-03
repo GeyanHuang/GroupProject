@@ -38,41 +38,84 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
      */
     private M_SharedPreference sharedPreference  = new M_SharedPreference();
 
+    /**
+     * The view of the fragment
+     */
     private View view;
+
+    /**
+     * LinearLayout for set daily goal
+     */
     private LinearLayout layout_setDailyGoal;
+
+    /**
+     * The textViews
+     */
     private TextView textView_setDailyGoal, textView_dailyGoal, textView_todayTime, textView_thisMonth, textView_lastMonth;
+
+    /**
+     * The editText
+     */
     private EditText editText_setDailyGoal;
+
+    /**
+     * The dialog
+     */
     private Dialog dialog_setDailyGoal;
+
+    /**
+     * The imageView
+     */
     private ImageView setDailyGoalCheck;
+
+    /**
+     * The progressBar
+     */
     private ProgressBar progressBar;
+
+    /**
+     * The Strings
+     */
     private String year, month, day;
 
+    /**
+     * The databaseHelper
+     */
     private T_DatabaseHelper databaseHelper;
 
+    /**
+     * The constructor
+     */
     public T_Fragment_Dashboard() {
         // Required empty public constructor
     }
 
-
+    /**
+     * On create view
+     * @param inflater The inflater
+     * @param container The container
+     * @param savedInstanceState The savedInstanceState
+     * @return The view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.tracker_dashboard_fragment, container, false);
+
         layout_setDailyGoal = view.findViewById(R.id.tracker_dashboard_fragment_setDailyGoal);
         layout_setDailyGoal.setOnClickListener(this);
-        SharedPreferences sharedPreferences1 = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences1.edit();
-        editor.putString("Name", "T_Fragment_Dashboard");
-        editor.apply();
 
-        SharedPreferences sharedPreferences2 = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor anotherEditor = sharedPreferences2.edit();
-        anotherEditor.putString("Name", "T_Fragment_Dashboard");
-        anotherEditor.apply();
+        sharedPreference.setLayout(view.getContext(),"T_Fragment_Dashboard");
+        sharedPreference.setActivityLayout(view.getContext(),"T_Fragment_Dashboard");
+
         return view;
     }
 
+    /**
+     * On activity created
+     * @param savedInstanceState The savedInstanceState
+     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -89,6 +132,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         textView_setDailyGoal.setText(dailyGoal);
         textView_dailyGoal.setText(dailyGoal);
 
+        // Open database
         databaseHelper = new T_DatabaseHelper(view.getContext());
         databaseHelper.openDatabase();
 
@@ -99,6 +143,9 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         setProgressBar();
     }
 
+    /**
+     * Function used to set today date
+     */
     private void setTodayDate() {
         final Calendar cal = Calendar.getInstance();
         int x_year = cal.get(Calendar.YEAR);
@@ -117,6 +164,10 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         }
     }
 
+    /**
+     * Function to get today exercise time
+     * @return Today exercise time
+     */
     private int getTodayExerciseTime() {
         setTodayDate();
         String date = (year + "-" + month + "-" + day);
@@ -128,6 +179,10 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         return 0;
     }
 
+    /**
+     * Function used to get this month exercise time
+     * @return This month exercise time
+     */
     private int getThisMonthExerciseTime() {
         setTodayDate();
         String date = (year + "-" + month);
@@ -139,6 +194,10 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         return 0;
     }
 
+    /**
+     * Function used to get last month exercise time
+     * @return Last month exercise time
+     */
     private int getLastMonthExerciseTime() {
         setTodayDate();
         String date = (year + "-" + (Integer.parseInt(month) - 1));
@@ -150,23 +209,36 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         return 0;
     }
 
+    /**
+     * Function used to set progress bar
+     */
     private void setProgressBar() {
         int progress = (int) ((Double.parseDouble(textView_todayTime.getText().toString()) / Double.parseDouble(textView_dailyGoal.getText().toString())) * 100);
         progressBar.setProgress(progress);
     }
 
+    /**
+     * Set action bar title when on resume
+     */
     @Override
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.tracker_nav_bot_dashboard);
     }
 
+    /**
+     * Close database when destroy view
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         databaseHelper.closeDatabase();
     }
 
+    /**
+     * On click function
+     * @param v The view of fragment
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
