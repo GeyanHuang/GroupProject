@@ -28,14 +28,46 @@ import cst2335.groupproject.R;
  *
  */
 public class T_Insert extends Activity {
+
+    /**
+     * TextViews
+     */
     TextView textView_date, textView_time, textView_comment;
+
+    /**
+     * Spinner
+     */
     Spinner spinner_type;
+
+    /**
+     * AlertDialog for comment
+     */
     AlertDialog commentDialog;
+
+    /**
+     * Year, month, day, hour, minute
+     */
     int x_year, x_month, x_day, x_hour, x_minute;
+
+    /**
+     * Dialog ID for date picker
+     */
     static final int DIALOG_ID_DATE = 1;
+
+    /**
+     * Dialog ID for time picker
+     */
     static final int DIALOG_ID_TIME = 2;
+
+    /**
+     * EditTexts
+     */
     EditText editText_minute, editText_comment;
 
+    /**
+     * On create
+     * @param savedInstanceState The savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +79,7 @@ public class T_Insert extends Activity {
         textView_time = findViewById(R.id.tracker_insert_textView_time);
         textView_comment = findViewById(R.id.tracker_insert_textView_comment);
 
-
+        // Set current date
         final Calendar cal = Calendar.getInstance();
         x_year = cal.get(Calendar.YEAR);
         x_month = cal.get(Calendar.MONTH);
@@ -60,6 +92,10 @@ public class T_Insert extends Activity {
 
     }
 
+    /**
+     * Function for clicking check
+     * @param view The view of activity
+     */
     public void tracker_insert_check(View view) {
         if (!editText_minute.getText().toString().equals("")) {
             Intent resultIntent = new Intent();
@@ -75,6 +111,10 @@ public class T_Insert extends Activity {
         }
     }
 
+    /**
+     * Function for clicking cancel
+     * @param view The view of activity
+     */
     public void tracker_insert_close(View view) {
         finish();
     }
@@ -91,10 +131,17 @@ public class T_Insert extends Activity {
         }
     }
 
+    /**
+     * Function for clicking date
+     * @param view The view of activity
+     */
     public void tracker_insert_date(View view) {
         showDialog(DIALOG_ID_DATE);
     }
 
+    /**
+     * Date Picker
+     */
     private DatePickerDialog.OnDateSetListener dpickerListner = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -106,6 +153,9 @@ public class T_Insert extends Activity {
         }
     };
 
+    /**
+     * Function for setting date
+     */
     private void setDate() {
         String year = Integer.toString(x_year);
         String month = Integer.toString((x_month + 1));
@@ -121,10 +171,17 @@ public class T_Insert extends Activity {
         textView_date.setText((year + "-" + month + "-" + day));
     }
 
+    /**
+     * Function for clicking time
+     * @param view The view of activity
+     */
     public void tracker_insert_time(View view) {
         showDialog(DIALOG_ID_TIME);
     }
 
+    /**
+     * Time picker
+     */
     private TimePickerDialog.OnTimeSetListener tpickerListner = new TimePickerDialog.OnTimeSetListener() {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -135,6 +192,9 @@ public class T_Insert extends Activity {
         }
     };
 
+    /**
+     * function for setting time
+     */
     private void setTime() {
         String hour = Integer.toString(x_hour);
         String minute = Integer.toString(x_minute);
@@ -149,6 +209,10 @@ public class T_Insert extends Activity {
         textView_time.setText(hour + ":" + minute);
     }
 
+    /**
+     * Function for clicking comment
+     * @param view The view of activity
+     */
     public void tracker_insert_comment_dialog(View view) {
         AlertDialog.Builder commentBuilder = new AlertDialog.Builder(this);
         View commentView = getLayoutInflater().inflate(R.layout.tracker_insert_dialog_comment, null);
@@ -163,13 +227,21 @@ public class T_Insert extends Activity {
         editText_comment.requestFocus();
     }
 
+    /**
+     * Function for click comment check
+     * @param view The view of activity
+     */
     public void tracker_insert_comment_check(View view) {
         textView_comment.setText(editText_comment.getText());
         commentDialog.dismiss();
     }
 
+    /**
+     * Function for clicking minute
+     * @param view
+     */
     public void tracker_insert_minute(View view) {
-        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(editText_minute, InputMethodManager.SHOW_IMPLICIT);
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        inputMethodManager.showSoftInput(editText_minute, InputMethodManager.SHOW_IMPLICIT);
     }
 }
