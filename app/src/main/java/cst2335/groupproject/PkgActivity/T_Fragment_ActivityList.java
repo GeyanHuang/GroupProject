@@ -1,11 +1,9 @@
 package cst2335.groupproject.PkgActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -42,78 +40,163 @@ public class T_Fragment_ActivityList extends Fragment {
      */
     private M_SharedPreference sharedPreference  = new M_SharedPreference();
 
+    /**
+     * The database helper
+     */
+    private T_DatabaseHelper databaseHelper;
+
+    /**
+     * The view of fragment
+     */
+    private View view;
+
+    /**
+     * The listView
+     */
+    private ListView listView;
+
+    /**
+     * The textViews
+     */
+    private TextView textView_item, textView_min, textView_date, textView_desc;
+
+    /**
+     * The imageView
+     */
+    private ImageView imageView;
+
+    /**
+     * Button for inserting data
+     */
+    private FloatingActionButton button_insert;
+
+    /**
+     * The arrayList
+     */
+    private ArrayList<Info> list_info;
+
+    /**
+     * The adapter of listView
+     */
+    private InfoAdapter adapter;
+
+    /**
+     * The asyncTask for reading data from database
+     */
+    private ReadDatabase readDatabase;
+
+    /**
+     * The constructor
+     */
     public T_Fragment_ActivityList() {
         // Required empty public constructor
     }
 
-
+    /**
+     * On create view
+     * @param inflater The inflater
+     * @param container The container
+     * @param savedInstanceState The savedInstanceState
+     * @return The view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.tracker_activitylist_fragment, container, false);
 
-        SharedPreferences sharedPreferences1 = view.getContext().getSharedPreferences("Layout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences1.edit();
-        editor.putString("Name", "T_Fragment_ActivityList");
-        editor.apply();
-
-        SharedPreferences sharedPreferences2 = view.getContext().getSharedPreferences("ActivityLayout", Context.MODE_PRIVATE);
-        SharedPreferences.Editor anotherEditor = sharedPreferences2.edit();
-        anotherEditor.putString("Name", "T_Fragment_ActivityList");
-        anotherEditor.apply();
+        sharedPreference.setLayout(view.getContext(),"T_Fragment_ActivityList");
+        sharedPreference.setActivityLayout(view.getContext(),"T_Fragment_ActivityList");
 
         return view;
     }
 
-    private T_DatabaseHelper databaseHelper;
-    private View view;
-    private ListView listView;
-    private TextView textView_item, textView_min, textView_date, textView_desc;
-    private ImageView imageView;
-    private FloatingActionButton button_insert;
-    private ArrayList<Info> list_info;
-    private InfoAdapter adapter;
-    private ReadDatabase readDatabase;
-
+    /**
+     * Customized class for storing information of activity
+     */
     private class Info implements Comparable<Info> {
-        private int activityId;
-        private String item;
-        private String minute, date, time, comment;
 
+        /**
+         * The ID
+         */
+        private int activityId;
+
+        /**
+         * The minute, type, date, time, comment
+         */
+        private String minute, type, date, time, comment;
+
+        /**
+         * Get activity ID
+         * @return The activity ID
+         */
         public int getActivityId() {
             return activityId;
         }
 
-        public String getItem() {
-            return item;
-        }
-
+        /**
+         * Get activity minute
+         * @return The activity minute
+         */
         public String getMinute() {
             return minute;
         }
 
+        /**
+         * Get activity type
+         * @return The activity type
+         */
+        public String getType() {
+            return type;
+        }
+
+        /**
+         * Get date
+         * @return The date
+         */
         public String getDate() {
             return date;
         }
 
+        /**
+         * Get time
+         * @return The time
+         */
         public String getTime() {
             return time;
         }
 
+        /**
+         * Get comment
+         * @return The comment
+         */
         public String getComment() {
             return comment;
         }
 
-        public Info(int activityId, String item, String min, String date, String time, String desc) {
+        /**
+         * Constructor
+         * @param activityId The activity ID
+         * @param min The activity minute
+         * @param type The activity type
+         * @param date The date
+         * @param time The time
+         * @param desc The comment
+         */
+        public Info(int activityId, String min, String type, String date, String time, String desc) {
             this.activityId = activityId;
-            this.item = item;
             this.minute = min;
+            this.type = type;
             this.date = date;
             this.time = time;
             this.comment = desc;
         }
 
+        /**
+         * Function for sorting arrayList
+         * @param o The activity information
+         * @return integer
+         */
         @Override
         public int compareTo(Info o) {
             return (o.getDate() + " " + o.getTime()).compareTo(getDate() + " " + getTime());
@@ -135,20 +218,20 @@ public class T_Fragment_ActivityList extends Fragment {
             textView_min = customView.findViewById(R.id.tracker_activityList_info_textView_minute);
             textView_date = customView.findViewById(R.id.tracker_activityList_info_textView_date_and_time);
             textView_desc = customView.findViewById(R.id.tracker_activityList_info_textView_comment);
-            textView_item.setText(getItem(position).item);
+            textView_item.setText(getItem(position).type);
             textView_min.setText(getItem(position).minute + " " + getResources().getString(R.string.tracker_insert_minute));
             textView_date.setText(getItem(position).date + " " + getItem(position).time);
             textView_desc.setText(getItem(position).comment);
             String[] items = getResources().getStringArray(R.array.tracker_list_type);
-            if (getItem(position).item.equals(items[0])) {
+            if (getItem(position).type.equals(items[0])) {
                 imageView.setImageResource(R.drawable.ic_tracker_run_white);
-            } else if (getItem(position).item.equals(items[1])) {
+            } else if (getItem(position).type.equals(items[1])) {
                 imageView.setImageResource(R.drawable.ic_tracker_walk_white);
-            } else if (getItem(position).item.equals(items[2])) {
+            } else if (getItem(position).type.equals(items[2])) {
                 imageView.setImageResource(R.drawable.ic_tracker_bike_white);
-            } else if (getItem(position).item.equals(items[3])) {
+            } else if (getItem(position).type.equals(items[3])) {
                 imageView.setImageResource(R.drawable.ic_tracker_swim_white);
-            } else if (getItem(position).item.equals(items[4])) {
+            } else if (getItem(position).type.equals(items[4])) {
                 imageView.setImageResource(R.drawable.ic_tracker_skate_white);
             }
             return customView;
@@ -170,7 +253,7 @@ public class T_Fragment_ActivityList extends Fragment {
                 Info info = (Info) (adapterView.getItemAtPosition(i));
                 int numId = info.getActivityId();
                 String id = numId + "";
-                String type = info.getItem();
+                String type = info.getType();
                 String minute = info.getMinute();
                 String date = info.getDate();
                 String time = info.getTime();
