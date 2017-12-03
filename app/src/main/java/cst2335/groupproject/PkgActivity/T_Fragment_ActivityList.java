@@ -31,14 +31,13 @@ import cst2335.groupproject.R;
  * This class is used for creating the list GUI of activity tracker
  *
  * @author Geyan Huang
- *
  */
 public class T_Fragment_ActivityList extends Fragment {
 
     /**
      * Using M_SharedPreference
      */
-    private M_SharedPreference sharedPreference  = new M_SharedPreference();
+    private M_SharedPreference sharedPreference = new M_SharedPreference();
 
     /**
      * The database helper
@@ -94,8 +93,9 @@ public class T_Fragment_ActivityList extends Fragment {
 
     /**
      * On create view
-     * @param inflater The inflater
-     * @param container The container
+     *
+     * @param inflater           The inflater
+     * @param container          The container
      * @param savedInstanceState The savedInstanceState
      * @return The view
      */
@@ -105,8 +105,8 @@ public class T_Fragment_ActivityList extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.tracker_activitylist_fragment, container, false);
 
-        sharedPreference.setLayout(view.getContext(),"T_Fragment_ActivityList");
-        sharedPreference.setActivityLayout(view.getContext(),"T_Fragment_ActivityList");
+        sharedPreference.setLayout(view.getContext(), "T_Fragment_ActivityList");
+        sharedPreference.setActivityLayout(view.getContext(), "T_Fragment_ActivityList");
 
         return view;
     }
@@ -128,6 +128,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Get activity ID
+         *
          * @return The activity ID
          */
         public int getActivityId() {
@@ -136,6 +137,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Get activity minute
+         *
          * @return The activity minute
          */
         public String getMinute() {
@@ -144,6 +146,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Get activity type
+         *
          * @return The activity type
          */
         public String getType() {
@@ -152,6 +155,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Get date
+         *
          * @return The date
          */
         public String getDate() {
@@ -160,6 +164,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Get time
+         *
          * @return The time
          */
         public String getTime() {
@@ -168,6 +173,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Get comment
+         *
          * @return The comment
          */
         public String getComment() {
@@ -176,12 +182,13 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Constructor
+         *
          * @param activityId The activity ID
-         * @param min The activity minute
-         * @param type The activity type
-         * @param date The date
-         * @param time The time
-         * @param desc The comment
+         * @param min        The activity minute
+         * @param type       The activity type
+         * @param date       The date
+         * @param time       The time
+         * @param desc       The comment
          */
         public Info(int activityId, String type, String min, String date, String time, String desc) {
             this.activityId = activityId;
@@ -194,6 +201,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Function for sorting arrayList
+         *
          * @param o The activity information
          * @return integer
          */
@@ -210,8 +218,9 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * The constructor
+         *
          * @param context The context
-         * @param info The customize data type
+         * @param info    The customize data type
          */
         public InfoAdapter(Context context, ArrayList<Info> info) {
             super(context, R.layout.overview_info, info);
@@ -219,9 +228,10 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Get view
-         * @param position The position of arrayList
+         *
+         * @param position    The position of arrayList
          * @param convertView The convert view
-         * @param parent The parent
+         * @param parent      The parent
          * @return The view for listView
          */
         @Override
@@ -255,6 +265,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
     /**
      * On activity created
+     *
      * @param savedInstanceState The savedInstanceState
      */
     @Override
@@ -310,6 +321,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
     /**
      * Translate activity from Chinese to English
+     *
      * @param type The activity type
      * @return The English activity type
      */
@@ -331,6 +343,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
     /**
      * Translate activity type from English to Chinese
+     *
      * @param type The activity type
      * @return The Chinese activity type
      */
@@ -352,9 +365,10 @@ public class T_Fragment_ActivityList extends Fragment {
 
     /**
      * On activity result, it used to get data and do actions when insert, update, and delete
+     *
      * @param requestCode The requestCode
-     * @param resultCode The resultCode
-     * @param data The data
+     * @param resultCode  The resultCode
+     * @param data        The data
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -383,8 +397,8 @@ public class T_Fragment_ActivityList extends Fragment {
                 }
                 break;
 
-                // Update
-                case 2:
+            // Update
+            case 2:
                 if (!data.getStringExtra("Minute").equals("")) {
                     String id = data.getStringExtra("Id");
                     String minutes = data.getStringExtra("Minute");
@@ -452,6 +466,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * Function to do in background, it is used to read data from database to arrayList
+         *
          * @param arrayLists The current used arrayList
          * @return null
          */
@@ -459,7 +474,7 @@ public class T_Fragment_ActivityList extends Fragment {
         protected ArrayList<Info> doInBackground(ArrayList<Info>[] arrayLists) {
 
             // Use try catch to avoid crash when rotation
-            try{
+            try {
                 Cursor cursor = databaseHelper.read();
                 for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                     String type = cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TYPE));
@@ -469,7 +484,7 @@ public class T_Fragment_ActivityList extends Fragment {
                     arrayLists[0].add(new Info(cursor.getInt(cursor.getColumnIndex(databaseHelper.COLUMN_ID)), type, cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_MINUTE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_DATE)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_TIME)), cursor.getString(cursor.getColumnIndex(databaseHelper.COLUMN_COMMENT))));
                 }
                 Collections.sort(arrayLists[0]);
-            }catch (Exception ex){
+            } catch (Exception ex) {
 
             }
             return null;
@@ -485,6 +500,7 @@ public class T_Fragment_ActivityList extends Fragment {
 
         /**
          * After execute
+         *
          * @param infos It is not been used
          */
         @Override

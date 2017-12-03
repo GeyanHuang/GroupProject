@@ -20,7 +20,6 @@ import cst2335.groupproject.R;
  * This class is used for creating the help GUI of activity tracker
  *
  * @author Geyan Huang
- *
  */
 public class T_Help extends AppCompatActivity {
 
@@ -36,6 +35,7 @@ public class T_Help extends AppCompatActivity {
 
     /**
      * On create
+     *
      * @param savedInstanceState
      */
     @Override
@@ -56,6 +56,7 @@ public class T_Help extends AppCompatActivity {
 
     /**
      * Function for OK button
+     *
      * @param view The view of the activity
      */
     public void tracker_help_dialog_ok(View view) {
@@ -92,8 +93,9 @@ public class T_Help extends AppCompatActivity {
 
         /**
          * On create view
-         * @param inflater The inflater
-         * @param container The container
+         *
+         * @param inflater           The inflater
+         * @param container          The container
          * @param savedInstanceState The savedInstanceState
          * @return The root view
          */
@@ -109,7 +111,7 @@ public class T_Help extends AppCompatActivity {
                 case 1:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
                         imageView.setImageResource(R.drawable.ic_tracker_help_p1_zh);
-                    }else {
+                    } else {
                         imageView.setImageResource(R.drawable.ic_tracker_help_p1);
 
                     }
@@ -118,7 +120,7 @@ public class T_Help extends AppCompatActivity {
                 case 2:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
                         imageView.setImageResource(R.drawable.ic_tracker_help_p2_zh);
-                    }else{
+                    } else {
                         imageView.setImageResource(R.drawable.ic_tracker_help_p2);
                     }
                     help_progress.setImageResource(R.drawable.ic_tracker_help_tab2);
@@ -126,7 +128,7 @@ public class T_Help extends AppCompatActivity {
                 case 3:
                     if (Locale.getDefault().getLanguage().equals("zh")) {
                         imageView.setImageResource(R.drawable.ic_tracker_help_p3_zh);
-                    }else{
+                    } else {
                         imageView.setImageResource(R.drawable.ic_tracker_help_p3);
                     }
                     help_progress.setImageResource(R.drawable.ic_tracker_help_tab3);
@@ -145,6 +147,7 @@ public class T_Help extends AppCompatActivity {
 
         /**
          * Constructor
+         *
          * @param fm The fragmentManager
          */
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -153,6 +156,7 @@ public class T_Help extends AppCompatActivity {
 
         /**
          * Get item
+         *
          * @param position The position
          * @return The fragment
          */
@@ -165,6 +169,7 @@ public class T_Help extends AppCompatActivity {
 
         /**
          * Get count
+         *
          * @return The number
          */
         @Override

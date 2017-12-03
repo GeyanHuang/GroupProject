@@ -29,14 +29,13 @@ import cst2335.groupproject.R;
  * This class is used for creating the dashboard GUI of activity tracker
  *
  * @author Geyan Huang
- *
  */
 public class T_Fragment_Dashboard extends Fragment implements View.OnClickListener {
 
     /**
      * Using M_SharedPreference
      */
-    private M_SharedPreference sharedPreference  = new M_SharedPreference();
+    private M_SharedPreference sharedPreference = new M_SharedPreference();
 
     /**
      * The view of the fragment
@@ -92,8 +91,9 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
 
     /**
      * On create view
-     * @param inflater The inflater
-     * @param container The container
+     *
+     * @param inflater           The inflater
+     * @param container          The container
      * @param savedInstanceState The savedInstanceState
      * @return The view
      */
@@ -106,14 +106,15 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
         layout_setDailyGoal = view.findViewById(R.id.tracker_dashboard_fragment_setDailyGoal);
         layout_setDailyGoal.setOnClickListener(this);
 
-        sharedPreference.setLayout(view.getContext(),"T_Fragment_Dashboard");
-        sharedPreference.setActivityLayout(view.getContext(),"T_Fragment_Dashboard");
+        sharedPreference.setLayout(view.getContext(), "T_Fragment_Dashboard");
+        sharedPreference.setActivityLayout(view.getContext(), "T_Fragment_Dashboard");
 
         return view;
     }
 
     /**
      * On activity created
+     *
      * @param savedInstanceState The savedInstanceState
      */
     @Override
@@ -166,6 +167,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
 
     /**
      * Function to get today exercise time
+     *
      * @return Today exercise time
      */
     private int getTodayExerciseTime() {
@@ -181,6 +183,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
 
     /**
      * Function used to get this month exercise time
+     *
      * @return This month exercise time
      */
     private int getThisMonthExerciseTime() {
@@ -196,6 +199,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
 
     /**
      * Function used to get last month exercise time
+     *
      * @return Last month exercise time
      */
     private int getLastMonthExerciseTime() {
@@ -237,6 +241,7 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
 
     /**
      * On click function
+     *
      * @param v The view of fragment
      */
     @Override
