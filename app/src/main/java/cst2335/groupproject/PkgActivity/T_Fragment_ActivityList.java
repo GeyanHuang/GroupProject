@@ -183,10 +183,10 @@ public class T_Fragment_ActivityList extends Fragment {
          * @param time The time
          * @param desc The comment
          */
-        public Info(int activityId, String min, String type, String date, String time, String desc) {
+        public Info(int activityId, String type, String min, String date, String time, String desc) {
             this.activityId = activityId;
-            this.minute = min;
             this.type = type;
+            this.minute = min;
             this.date = date;
             this.time = time;
             this.comment = desc;
