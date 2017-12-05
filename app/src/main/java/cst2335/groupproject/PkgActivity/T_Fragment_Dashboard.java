@@ -210,10 +210,9 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
             if (lastMonth < 10) {
                 month = "0" + lastMonth;
                 date = (year + "-" + month);
-            }else {
+            } else {
                 date = (year + "-" + lastMonth);
             }
-
         } else {
             date = ((Integer.parseInt(year) - 1) + "-" + "12");
         }
