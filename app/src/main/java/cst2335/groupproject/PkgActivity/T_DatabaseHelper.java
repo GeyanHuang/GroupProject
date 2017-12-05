@@ -150,7 +150,7 @@ public class T_DatabaseHelper extends SQLiteOpenHelper {
      * @param id The ID
      */
     public void delete(String id) {
-        getWritableDatabase().execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = " + id);
+        database.execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = " + id);
     }
 
     /**
