@@ -204,7 +204,20 @@ public class T_Fragment_Dashboard extends Fragment implements View.OnClickListen
      */
     private int getLastMonthExerciseTime() {
         setTodayDate();
-        String date = (year + "-" + (Integer.parseInt(month) - 1));
+        String date;
+        if (!month.equals("01")) {
+            int lastMonth = Integer.parseInt(month) - 1;
+            if (lastMonth < 10) {
+                month = "0" + lastMonth;
+                date = (year + "-" + month);
+            }else {
+                date = (year + "-" + lastMonth);
+            }
+
+        } else {
+            date = ((Integer.parseInt(year) - 1) + "-" + "12");
+        }
+
 
         Cursor cur = databaseHelper.getWritableDatabase().rawQuery("SELECT SUM(Minute) FROM Activity WHERE Date LIKE '%" + date + "%'", null);
         if (cur.moveToFirst()) {
