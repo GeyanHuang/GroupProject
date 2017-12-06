@@ -107,12 +107,12 @@ public class T_Main extends Fragment {
         // Open the record fragment
         String name = sharedPreference.getActivityLayout(view.getContext());
 
-        if (name.equals("T_Fragment_ActivityList")) {
-            botNav.getMenu().getItem(0).setChecked(true);
-            openList();
-        } else {
+        if (name.equals("T_Fragment_Dashboard")) {
             botNav.getMenu().getItem(1).setChecked(true);
             openDashboard();
+        } else {
+            botNav.getMenu().getItem(0).setChecked(true);
+            openList();
         }
     }
 
