@@ -14,10 +14,10 @@ import cst2335.groupproject.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FoodFragment extends Fragment {
+public class F_Main extends Fragment {
 
 
-    public FoodFragment() {
+    public F_Main() {
         // Required empty public constructor
     }
 

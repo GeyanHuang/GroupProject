@@ -10,13 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import cst2335.groupproject.PkgActivity.ActivityFragment;
-import cst2335.groupproject.PkgAutomobile.AutomobileFragment;
-import cst2335.groupproject.PkgFood.FoodFragment;
+import cst2335.groupproject.PkgActivity.T_Main;
+import cst2335.groupproject.PkgAutomobile.A_Main;
+import cst2335.groupproject.PkgFood.F_Main;
 import cst2335.groupproject.PkgHouse.HouseFragment;
 import cst2335.groupproject.R;
 
-public class M_Main extends AppCompatActivity
+public class M_MainPage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class M_Main extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the M_Main/Up button, so long
+        // automatically handle clicks on the M_MainPage/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
@@ -76,13 +76,13 @@ public class M_Main extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_activity) {
-            ActivityFragment fragment = new ActivityFragment();
+            T_Main fragment = new T_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_food) {
-            FoodFragment fragment = new FoodFragment();
+            F_Main fragment = new F_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
@@ -94,7 +94,7 @@ public class M_Main extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_automobile) {
-            AutomobileFragment fragment = new AutomobileFragment();
+            A_Main fragment = new A_Main();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);

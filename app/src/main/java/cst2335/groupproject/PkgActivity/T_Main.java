@@ -14,10 +14,10 @@ import cst2335.groupproject.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ActivityFragment extends Fragment {
+public class T_Main extends Fragment {
 
 
-    public ActivityFragment() {
+    public T_Main() {
         // Required empty public constructor
     }
 

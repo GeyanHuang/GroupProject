@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    M_MainHome array-->
-    <string-array name="home_item_list">
-        <item>季度</item>
-        <item>课程</item>
-        <item>任务</item>
-        <item>类型</item>
-        <item>作者</item>
-    </string-array>
-    <string-array name="home_content_list">
-        <item>2017 Fall</item>
-        <item>CST2335 Mobile Graphical Interface Prog</item>
-        <item>Final Assignment</item>
-        <item>Group Work</item>
-        <item>Hao Liu, Zhan Shen, Bin Yang, Geyan Huang</item>
-    </string-array>
     <string name="app_name">通用工具</string>
     <string name="navigation_drawer_open">打开导航抽屉</string>
     <string name="navigation_drawer_close">关闭导航抽屉</string>
@@ -24,5 +9,4 @@
     <string name="menu_food">食品营养信息跟踪</string>
     <string name="menu_house">房子恒温器</string>
     <string name="menu_automobile">汽车</string>
-    <string name="home_title">概览</string>
 </resources>
