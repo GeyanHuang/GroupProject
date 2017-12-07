@@ -26,7 +26,7 @@ public class A_Main extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_automobile, container, false);
+        return inflater.inflate(R.layout.automobile_main, container, false);
     }
 
     @Override
