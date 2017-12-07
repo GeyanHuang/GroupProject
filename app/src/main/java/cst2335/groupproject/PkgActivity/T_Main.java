@@ -8,27 +8,45 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cst2335.groupproject.PkgMain.M_SharedPreference;
 import cst2335.groupproject.R;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * This class is used for creating the main GUI of activity tracker which include fragment container and bottom navigation bar
+ *
+ * @author Geyan Huang
  */
 public class T_Main extends Fragment {
 
+    /**
+     * The view of fragment
+     */
+    View view;
+
+    /**
+     * Using M_SharedPreference
+     */
+    private M_SharedPreference sharedPreference = new M_SharedPreference();
 
     public T_Main() {
         // Required empty public constructor
     }
 
-
+    /**
+     * The constructor
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.tracker_main, container, false);
+        view = inflater.inflate(R.layout.tracker_main, container, false);
+        return view;
     }
 
+    /**
+     * Set action bar title when on resume
+     */
     @Override
     public void onResume() {
         super.onResume();
