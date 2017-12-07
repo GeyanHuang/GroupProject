@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_help"
+        android:id="@+id/main_action_help"
         android:orderInCategory="100"
-        android:title="@string/action_help"
+        android:title="@string/main_action_help"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_quit"
+        android:id="@+id/main_action_quit"
         android:orderInCategory="100"
-        android:title="@string/action_quit"
+        android:title="@string/main_action_quit"
         app:showAsAction="never" />
 </menu>

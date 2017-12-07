@@ -1,11 +1,34 @@
 <resources>
+    <string-array name="overview_list_item">
+        <item>Season</item>
+        <item>Course</item>
+        <item>Assignment</item>
+        <item>Type</item>
+        <item>Authors</item>
+        <item>Activity Tracking Author</item>
+        <item>Food Nutrition information tracker Author</item>
+        <item>House Thermostat Author</item>
+        <item>Automobile Author</item>
+    </string-array>
+    <string-array name="overview_list_content">
+        <item>2017 Fall</item>
+        <item>CST2335 Mobile Graphical Interface Prog</item>
+        <item>Final Assignment</item>
+        <item>Group Work</item>
+        <item>Hao Liu, Zhan Shen, Bin Yang, Geyan Huang</item>
+        <item>Geyan Huang</item>
+        <item>Zhan Shen</item>
+        <item>Hao Liu</item>
+        <item>Bin Yang</item>
+    </string-array>
     <string name="app_name">Universal Tools</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_help">Help</string>
-    <string name="action_quit">Quit</string>
-    <string name="menu_activity">Activity Tracking</string>
-    <string name="menu_food">Food Nutrition information tracker</string>
-    <string name="menu_house">House Thermostat</string>
-    <string name="menu_automobile">Automobile</string>
+    <string name="main_navigation_drawer_open">Open navigation drawer</string>
+    <string name="main_navigation_drawer_close">Close navigation drawer</string>
+    <string name="main_menu_activity">Activity Tracking</string>
+    <string name="main_menu_food">Food Nutrition information tracker</string>
+    <string name="main_menu_house">House Thermostat</string>
+    <string name="main_menu_automobile">Automobile</string>
+    <string name="overview_title">Overview</string>
+    <string name="main_action_help">Help</string>
+    <string name="main_action_quit">Quit</string>
 </resources>

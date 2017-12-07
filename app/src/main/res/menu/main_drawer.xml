@@ -5,21 +5,24 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_activity"
-            android:icon="@drawable/ic_run_black"
-            android:title="@string/menu_activity" />
+            android:id="@+id/main_drawer_nav_home"
+            android:icon="@drawable/ic_tracker_info_black"
+            android:title="@string/overview_title" />
         <item
-            android:id="@+id/nav_food"
-            android:icon="@drawable/ic_dining_black"
-            android:title="@string/menu_food" />
+            android:id="@+id/main_drawer_nav_activity"
+            android:icon="@drawable/ic_tracker_run_black"
+            android:title="@string/main_menu_activity" />
         <item
-            android:id="@+id/nav_house"
-            android:icon="@drawable/ic_house_black"
-            android:title="@string/menu_house" />
+            android:id="@+id/main_drawer_nav_food"
+            android:icon="@drawable/ic_tracker_dining_black"
+            android:title="@string/main_menu_food" />
         <item
-            android:id="@+id/nav_automobile"
-            android:icon="@drawable/ic_car_black"
-            android:title="@string/menu_automobile" />
+            android:id="@+id/main_drawer_nav_house"
+            android:icon="@drawable/ic_tracker_house_black"
+            android:title="@string/main_menu_house" />
+        <item
+            android:id="@+id/main_drawer_nav_automobile"
+            android:icon="@drawable/ic_tracker_car_black"
+            android:title="@string/main_menu_automobile" />
     </group>
-
 </menu>
