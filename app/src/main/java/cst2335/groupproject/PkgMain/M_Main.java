@@ -1,4 +1,4 @@
-package cst2335.groupproject.PkgHome;
+package cst2335.groupproject.PkgMain;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -16,18 +16,12 @@ import cst2335.groupproject.PkgFood.FoodFragment;
 import cst2335.groupproject.PkgHouse.HouseFragment;
 import cst2335.groupproject.R;
 
-public class Home extends AppCompatActivity
+public class M_Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        HomeFragment fragment = new HomeFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction =
-                getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -62,7 +56,7 @@ public class Home extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the M_Main/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 

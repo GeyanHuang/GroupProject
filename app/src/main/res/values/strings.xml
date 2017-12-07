@@ -1,5 +1,5 @@
 <resources>
-    <!--Home array-->
+    M_MainHome array-->
     <string-array name="home_item_list">
         <item>Season</item>
         <item>Course</item>

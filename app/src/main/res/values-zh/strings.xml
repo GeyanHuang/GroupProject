@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--Home array-->
+    M_MainHome array-->
     <string-array name="home_item_list">
         <item>季度</item>
         <item>课程</item>
