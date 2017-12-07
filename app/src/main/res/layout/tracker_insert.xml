@@ -73,7 +73,7 @@
 
                     <EditText
                         android:id="@+id/tracker_insert_editText_minute"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/ic_tracker_xml_edittext_backgroud"
