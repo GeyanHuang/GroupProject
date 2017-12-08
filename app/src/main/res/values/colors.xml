@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#616161</color>
     <color name="colorAccent">#ff5252</color>
     <color name="trackerWhite">#FFFFFF</color>
-    <color name="trackerBackground">#EEEEEE</color>
+    <color name="trackerBackground">#FAFAFA</color>
 </resources>
