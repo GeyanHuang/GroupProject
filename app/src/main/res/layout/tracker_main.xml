@@ -22,8 +22,8 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:background="@color/colorAccent"
-            app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/trackerWhite"
+            app:itemTextColor="@color/trackerWhite"
             design:menu="@menu/tracker_nav_bot" />
     </RelativeLayout>
 

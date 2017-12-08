@@ -34,7 +34,7 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:text="@string/tracker_update_title"
-            android:textColor="@color/white"
+            android:textColor="@color/trackerWhite"
             android:textSize="20sp" />
 
         <ImageView
@@ -251,7 +251,7 @@
                 android:layout_marginBottom="10dp"
                 android:onClick="tracker_delete"
                 android:text="@string/tracker_update_delete"
-                android:textColor="@color/white" />
+                android:textColor="@color/trackerWhite" />
 
             <View
                 android:layout_width="match_parent"

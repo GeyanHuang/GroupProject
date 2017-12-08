@@ -21,7 +21,7 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:text="@string/tracker_dashboard_dailyGoal"
-            android:textColor="@color/white"
+            android:textColor="@color/trackerWhite"
             android:textSize="20sp" />
 
         <ImageView
