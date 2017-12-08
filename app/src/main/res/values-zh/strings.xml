@@ -37,9 +37,6 @@
     <string name="main_menu_house">房子恒温器</string>
     <string name="main_menu_automobile">汽车</string>
     <string name="overview_title">概述</string>
-    <string name="food_main_enter_food">进入食品营养信息跟踪...</string>
-    <string name="house_main_enter_house">进入房子恒温器...</string>
-    <string name="automobile_main_enter_automobile">进入汽车...</string>
     <string name="tracker_action_help">帮助</string>
     <string name="tracker_action_quit">退出</string>
     <string name="tracker_insert">添加</string>

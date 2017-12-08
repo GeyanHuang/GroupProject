@@ -36,9 +36,6 @@
     <string name="main_menu_house">House Thermostat</string>
     <string name="main_menu_automobile">Automobile</string>
     <string name="overview_title">Overview</string>
-    <string name="food_main_enter_food">Enter Food Nutrition information tracker...</string>
-    <string name="house_main_enter_house">Enter House Thermostat...</string>
-    <string name="automobile_main_enter_automobile">Enter Automobile...</string>
     <string name="tracker_action_help">Help</string>
     <string name="tracker_action_quit">Quit</string>
     <string name="tracker_insert">Insert</string>
